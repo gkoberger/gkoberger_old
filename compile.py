@@ -3,7 +3,7 @@ import os, shutil, json
 def compile(folder):
     old_folder = 'magazine-source/%s' % folder
     new_folder = 'magazine-rendered/%s' % folder
-    os.mkdir(new_folder)
+    os.makedirs(new_folder)
 
     # Get the settings.
     settings_file = open('settings.json')
