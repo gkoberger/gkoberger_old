@@ -1,0 +1,24 @@
+body {
+    border-top-color: #fff; /* Top bar color */
+}
+
+hgroup.full {
+    border-top-color: #aaa; /* Top bar underline color */
+    background-color: #eee; /* Top background color */
+}
+
+hgroup.content {
+    background-color: #ddd;  /* Top background color (center) */
+}
+
+article {
+    background-color: #eee; /* Article background color */
+}
+
+footer {
+    background-color: #aaa; /* Footer background color */
+}
+
+footer > div {
+    background-color: #999; /* Footer background color (centered) */
+}
