@@ -11,6 +11,22 @@ hgroup.content {
     background-color: #ddd;  /* Top background color (center) */
 }
 
+#header_edition, #header_nav {
+    color: #fff; /* Site title color */
+}
+
+#header_edition span {
+    color: #eee; /* Edition color */
+}
+
+#header_nav ul li a {
+    color: #eee; /* Nav link color */
+}
+
+#header_nav ul li a:hover {
+    color: #fff; /* Nav link color hover */
+}
+
 article {
     background-color: #eee; /* Article background color */
 }
