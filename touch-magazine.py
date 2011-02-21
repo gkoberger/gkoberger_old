@@ -4,7 +4,6 @@ import shutil
 import sys
 
 def main(folder):
-
     # Find the next unique ID.
     all_folders = os.listdir("magazine-source")
     next_id = 0
@@ -19,8 +18,8 @@ def main(folder):
     new_folder = re.sub("[_\s]", "-", folder).lower()
     new_folder = re.sub("[^-0-9a-z]", "", new_folder)
 
-    shutil.copytree('magazine-source/_base',
-                    'magazine-source/_%s-%s' % (next_id, new_folder))
+    shutil.copytree('magazine/_boilerplate',
+                    'magazine/source/_%s-%s' % (next_id, new_folder))
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:

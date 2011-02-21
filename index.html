@@ -1,4 +1,4 @@
-<!--<!doctype html>-->
+<!doctype html>
 
 <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
@@ -11,29 +11,24 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
   <title>Gregory Koberger</title>
-  <meta name="description" content="<!-- [description] -->">
-  <meta name="author" content="<!-- [author] -->">
+  <meta name="description" content="Portfolio of Gregory Koberger, web developer and user experience designer.">
+  <meta name="author" content="Gregory Koberger">
 
   <!-- Mobile viewport optimized: j.mp/bplateviewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- CSS : implied media="all" -->
-  <link rel="stylesheet" href="<!-- [base] -->/css/style.css">
-  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="<!-- [base] -->/css/mobile.css">
-
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="mobile.css">
-
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="css/mobile.css">
+  
   <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
-  <script src="<!-- [base] -->/js/libs/modernizr-1.6.min.js"></script>
+  <script src="js/libs/modernizr-1.6.min.js"></script>
 
   <script type="text/javascript" src="http://use.typekit.com/lvj2lqg.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
 </head>
 
 <body id="home">
-
     <div id="body">
   <div id="container" class="pattern">
       <div id="header">
@@ -150,264 +145,6 @@
   </div> <!--! end of #container -->
 
 <style>
-    body {
-        background-color: #560808;
-        margin: 0;
-    }
-    nav.main {
-        float: right;
-        padding-top: 15px;
-}
-
-nav.main a {
-    color: #333;
-    display: inline-block;
-    font-size: 20px;
-    margin-right: 15px;
-    text-decoration: none;
-    text-shadow: 1px 1px 1px #FFFFFF;
-}
-nav.main a:hover {
-    color: #000;
-}
-
-    #body {
-        background-color: #222;
-}
-
-.pattern {
-    background-image: url("images/bg-pattern.png");
-}
-    #container {
-    background-color: #EBEBEA;
-    border-top: 1px solid #FFFFFF;
-    border-bottom: 1px solid #FFFFFF;
-    box-shadow: 0 0 10px #000000;
-    margin-top: 15px;
-    }
-    #header {
-    background-image: url("images/bg.png");
-    background-repeat: repeat-x;
-    }
-    header {
-        width: 1200px;
-        margin: auto;
-    }
-    #sections {
-        width: 1200px;
-        margin: auto;
-    }
-
-    #intro {
-    box-shadow: 0 14px 17px -17px #888888;
-    color: #444444;
-    font-size: 30px;
-    margin: auto auto 1em;
-    padding-bottom: 0.25em;
-    padding-top: 0.5em;
-    text-align: center;
-    text-shadow: 1px 1px 1px #FFFFFF;
-    }
-
-#intro a {
-    font-weight: bold;
-    color: #222;
-    text-decoration: none;
-    -moz-transition: color 0.5s ease;
-}
-
-#intro a.mozilla:hover {
-    color: #A5161D;
-}
-
-#intro a.rit:hover {
-    color: #BF4F0F;
-}
-
-    #section_articles ul {
-    list-style: none outside none;
-    margin: 0;
-    overflow: auto;
-    padding: 0;
-}
-
-#section_articles li {
-        float: left;
-         padding-left: 8px;
-         color: #777;
-         font-family: Verdana;
-         font-size: 12px;
-    margin-left: 14px;
-}
-
-#sections h3 {
-    color: #333333;
-    font-size: 18px;
-    margin: 15px 0 0;
-    text-shadow: 1px 1px 0 #fff;
-}
-
-#section_notebook li span {
-    color: #777;
-}
-
-#section_articles li strong {
-    font-family: Garmond;
-    color: #333;
-    font-size: 16 px;
-}
-
-#section_notepad ul {
-    overflow: auto;
-    margin: 0;
-    padding: 0 8px;
-}
-
-#section_notepad ul li {
-    font-family: Verdana;
-    font-size: 12px;
-    float: left;
-    width: 220px;
-    list-style: none;
-    margin-left: 21px;
-}
-#section_articles ul li h3 {
-    margin: 0;
-}
-#section_notepad ul li p {
-    line-height: 1.5em;
-}
-
-
-#section_notepad {
-    border-top: 1px dotted #AAAAAA;
-    margin-top: 2em;
-    color: #222;
-    text-shadow: 1px 1px 0 #fff;
-}
-
-#section_notepad ul li:first-child {
-    margin-left: 0;
-}
-
-.logo {
-    background-color: #000000;
-    border-radius: 100px;
-    height: 142px;
-    margin: auto;
-    padding: 6px;
-    width: 142px;
-        margin-top: 30px;
-}
-
-.logo div {
-        background-color: #560808;
-    border: 2px solid #FFFFFF;
-    border-radius: 120px 120px 120px 120px;
-    color: #FFFFFF;
-    font-size: 148px;
-    height: 138px;
-    line-height: 90px;
-    text-align: center;
-    text-shadow: 2px 2px 2px #000000;
-    width: 138px;
-}
-
-
-#header_spread h1 {
-    color: #111111;
-    font-size: 55px;
-    font-weight: normal;
-    line-height: 0.9em;
-    margin: auto;
-    text-align: center;
-    text-shadow: 1px 1px 1px #fff;
-    text-transform: lowercase;
-    width: 500px;
-    z-index: 105;
-    margin-top: 15px;
-}
-#header_spread h1 span {
-    z-index: 105;
-    position: relative;
-}
-
-#header_spread div.subtitle {
-    color: #666666;
-    font-size: 18px;
-    text-align: center;
-    text-shadow: 1px 1px 1px #fff;
-    text-transform: lowercase;
-}
-
-#header_spread div.subtitle .subtitle_text {
-    background-color: #EBEBEA;
-    padding: 0 2px;
-    position: relative;
-    top: -22px;
-    z-index:103;
-}
-.subtitle  {
-    width:360px;
-    margin:auto;
-    position:relative;
-}
-
-.subtitle hr {
-    position:relative;
-    width:100%;
-    margin-top:13px;
-    top:0px;
-    left:0px;
-    height:1px;
-    border: 0 none;
-    background: #000; /* old browsers */
-    background: -moz-linear-gradient(left, #EBEBEA 0%, #666 3%, #666 97%, #EBEBEA 100%); /* firefox */
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#EBEBEA), color-stop(8%,#666), color-stop(92%,#666), color-stop(100%,#EBEBEA)); /* webkit */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#666', endColorstr='#666',GradientType=1 ); /* ie */
-    z-index:102;
-}
-
-#sections #section_notepad h2 {
-    font-size: 36px;
-    margin-bottom: 0;
-    margin-top: -25px;
-    text-align: center;
-}
-
-#sections #section_notepad h2 span {
-    background-color: #EBEBEA;
-    padding: 0 10px;
-}
-
-
-section {
-       padding-bottom: 2em;
-}
-
-.article_icon {
-    background-color: #FFFFFF;
-    box-shadow: 0 0 5px #999999;
-    height: 150px;
-    padding: 10px;
-    width: 260px;
-    margin-bottom: 5px;
-    margin-top: 10px;
-}
-
-#section_articles ul li:first-child  {
-    margin-left: 0;
-}
-
-footer {
-    padding: 15px 0;
-    color: #555555;
-    text-shadow: 1px 1px 2px #000000;
-    width: 1200px;
-    margin: auto;
-    font-family: Verdana;
-    font-size:13px;
-}
 
     </style>
 

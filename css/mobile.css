@@ -1,0 +1,62 @@
+header {
+    width: auto;
+    text-align: center;
+}
+
+nav.main {
+    float: none;
+    margin-left: 15px;
+}
+
+nav.main a {
+    font-size: 15px;
+}
+
+#header_spread h1 {
+    font-size: 30px;
+    font-weight: bold;
+    width: auto;
+}
+
+.subtitle {
+    width: 280px;
+    height: 20px;
+}
+
+#header_spread div.subtitle .subtitle_text {
+    font-size: 12px;
+    top: -31px;
+}
+
+.logo {
+    margin-top: 10px;
+}
+
+#sections {
+    width: auto;
+}
+
+#intro {
+    font-size: 20px;
+    margin: 0 0 15px;
+    padding: 0 15px 15px;
+}
+
+#section_articles li,
+#section_articles ul li:first-child {
+    float: none;
+    width: 280px;
+    margin: auto;
+    padding-left: 0;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px dotted #aaa;
+}
+
+#section_notepad {
+    display: none;
+}
+
+footer {
+    width: auto;
+}

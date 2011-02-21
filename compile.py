@@ -1,9 +1,11 @@
-import os, shutil, json, webbrowser, sys
+import os
+import json
+import webbrowser
+import sys
 
 def compile(folder):
-    old_folder = 'magazine-source/%s' % folder
-    new_folder = 'magazine-rendered/%s' % folder
-    os.makedirs(new_folder)
+    old_folder = 'magazine/%s/source' % folder
+    new_folder = 'magazine/%s' % folder
 
     # Get the settings.
     settings_file = open('settings.json')
@@ -56,10 +58,7 @@ def output_file(input_file, output_file, data, return_file=False):
         return '\n'.join(output_buffer)
     
 def main(f):
-    to_compile = os.listdir("magazine-source")
-
-    # Remove all old rendered folders.
-    os.system('rm -r -f magazine-rendered/*')
+    to_compile = os.listdir("magazine")
 
     # Rerender each folder.
     for folder in to_compile:
