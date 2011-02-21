@@ -63,7 +63,7 @@
 
       <div id="sections">
           <section id="intro" class="intro">
-              I'm a Bay Area <a href="#" class="rit">R&middot;I&middot;T</a> alumn making the Internet better at <a href="#" class="mozilla">mozilla</a>.
+              I'm a Bay Area <a href="#" class="rit">R&middot;I&middot;T</a> alumn currently helping <a href="#" class="mozilla">mozilla</a> make the Internet a better place.
           </section>
 
           <section id="section_articles">
@@ -98,7 +98,7 @@
           <section id="section_notepad">
               <h2>
                   Notepad
-                  <span>brilliant musings too profound to keep to myself</span>
+                  <span>brilliant musings too profound to keep to myself. and other stuff.</span>
               </h2>
               <ul>
                   <li>
@@ -254,9 +254,30 @@ nav.main a:hover {
     list-style: none;
     margin-left: 21px;
 }
-
+#section_articles ul li h3 {
+    margin: 0;
+}
 #section_notepad ul li p {
     line-height: 1.5em;
+}
+
+
+#section_notepad ul {
+    border-top: 1px dotted #aaa;
+    margin-top: -10px;
+background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.31, rgba(235, 235, 234, 0)),
+    color-stop(0.66, rgb(249,249,249))
+);
+background-image: -moz-linear-gradient(
+    center bottom,
+    rgba(235, 235, 234, 0) 31%,
+    rgb(249,249,249) 66%
+);
+
 }
 
 #section_notepad ul li:first-child {
@@ -342,8 +363,7 @@ nav.main a:hover {
 }
 
 #sections h2 {
-        border-bottom: 1px dotted #AAAAAA;
-    margin: 10px auto 10px;
+    margin: 10px auto 5px;
     width: 1200px;
     font-size: 40px;
     text-transform: lowercase;
