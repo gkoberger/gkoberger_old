@@ -35,7 +35,8 @@
 <body id="home">
 
     <div id="body">
-  <div id="container">
+  <div id="container" class="pattern">
+      <div id="header">
       <header>
           <nav class="main gar">
               <a href="#">articles</a>
@@ -52,18 +53,18 @@
                 <h1 class="gar"><span>Gregory Koberger</span></h1>
                 <div id="subtitle" class="subtitle gar">
                     <hr>
-                    <span class="subtitle_text gar">
+                    <span class="subtitle_text gar pattern">
                         User Experience Designer <span class="amperstand">&amp;</span> Web Engineer
                     </span>
                 </div>
           </div>
       </header>
-
+      </div>
 
 
       <div id="sections">
           <section id="intro" class="intro">
-              I'm a Bay Area <a href="#" class="rit">R&middot;I&middot;T</a> alumn currently helping <a href="#" class="mozilla">mozilla</a> make the Internet a better place.
+              I'm a Bay Area <a href="#" class="rit">R&middot;I&middot;T</a> alumn currently helping <a href="#" class="mozilla">mozilla</a> make the Internet better.
           </section>
 
           <section id="section_articles">
@@ -74,63 +75,62 @@
               <ul>
                   <li>
                       <div class="article_icon"></div>
-                      <h3>Test title!</h3>
+                      <h3 class="title">Test title!</h3>
                       July 8, 2010
                   </li>
                   <li>
                       <div class="article_icon"></div>
-                      <h3>Test title!</h3>
+                      <h3 class="title">Test title!</h3>
                       July 8, 2010
                   </li>
                   <li>
                       <div class="article_icon"></div>
-                      <h3>Test title!</h3>
+                      <h3 class="title">Test title!</h3>
                       July 8, 2010
                   </li>
                   <li>
                       <div class="article_icon"></div>
-                      <h3>Test title!</h3>
+                      <h3 class="title">Test title!</h3>
                       July 8, 2010
                   </li>
               </ul>
           </section>
 
           <section id="section_notepad">
-              <h2>
-                  Notepad
-                  <span>brilliant musings too profound to keep to myself. and other stuff.</span>
+              <h2 class="title">
+                  <span class="pattern">Notepad</span>
               </h2>
               <ul>
                   <li>
-                      <h3>Test title Here</h3>
+                      <h3 class="title">Test title Here</h3>
                       <span>June 4, 2010</span>
                       <p>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id ante id odio tincidunt feugiat. Cum sociis natoque penatibus et magnis dis parturient montes.
                       </p>
                   </li>
                   <li>
-                      <h3>Test title Here</h3>
+                      <h3 class="title">Test title Here</h3>
                       <span>June 4, 2010</span>
                       <p>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id ante id odio tincidunt feugiat. Cum sociis natoque penatibus et magnis dis parturient montes.
                       </p>
                   </li>
                   <li>
-                      <h3>Test title Here</h3>
+                      <h3 class="title">Test title Here</h3>
                       <span>June 4, 2010</span>
                       <p>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id ante id odio tincidunt feugiat. Cum sociis natoque penatibus et magnis dis parturient montes.
                       </p>
                   </li>
                   <li>
-                      <h3>Test title Here</h3>
+                      <h3 class="title">Test title Here</h3>
                       <span>June 4, 2010</span>
                       <p>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id ante id odio tincidunt feugiat. Cum sociis natoque penatibus et magnis dis parturient montes.
                       </p>
                   </li>
                   <li>
-                      <h3>Test title Here</h3>
+                      <h3 class="title">Test title Here</h3>
                       <span>June 4, 2010</span>
                       <p>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id ante id odio tincidunt feugiat. Cum sociis natoque penatibus et magnis dis parturient montes.
@@ -174,14 +174,20 @@ nav.main a:hover {
     #body {
         background-color: #222;
 }
+
+.pattern {
+    background-image: url("images/bg-pattern.png");
+}
     #container {
     background-color: #EBEBEA;
-    background-image: url("images/bg.png");
-    background-repeat: repeat-x;
     border-top: 1px solid #FFFFFF;
     border-bottom: 1px solid #FFFFFF;
     box-shadow: 0 0 10px #000000;
     margin-top: 15px;
+    }
+    #header {
+    background-image: url("images/bg.png");
+    background-repeat: repeat-x;
     }
     header {
         width: 1200px;
@@ -201,7 +207,7 @@ nav.main a:hover {
     padding-top: 0.5em;
     text-align: center;
     text-shadow: 1px 1px 1px #FFFFFF;
-}
+    }
 
 #intro a {
     font-weight: bold;
@@ -234,10 +240,21 @@ nav.main a:hover {
     margin-left: 14px;
 }
 
+#sections h3 {
+    color: #333333;
+    font-size: 18px;
+    margin: 15px 0 0;
+    text-shadow: 1px 1px 0 #fff;
+}
+
+#section_notebook li span {
+    color: #777;
+}
+
 #section_articles li strong {
     font-family: Garmond;
     color: #333;
-    font-size: 16px;
+    font-size: 16 px;
 }
 
 #section_notepad ul {
@@ -262,22 +279,11 @@ nav.main a:hover {
 }
 
 
-#section_notepad ul {
-    border-top: 1px dotted #aaa;
-    margin-top: -10px;
-background-image: -webkit-gradient(
-    linear,
-    left bottom,
-    left top,
-    color-stop(0.31, rgba(235, 235, 234, 0)),
-    color-stop(0.66, rgb(249,249,249))
-);
-background-image: -moz-linear-gradient(
-    center bottom,
-    rgba(235, 235, 234, 0) 31%,
-    rgb(249,249,249) 66%
-);
-
+#section_notepad {
+    border-top: 1px dotted #AAAAAA;
+    margin-top: 2em;
+    color: #222;
+    text-shadow: 1px 1px 0 #fff;
 }
 
 #section_notepad ul li:first-child {
@@ -362,19 +368,18 @@ background-image: -moz-linear-gradient(
     z-index:102;
 }
 
-#sections h2 {
-    margin: 10px auto 5px;
-    width: 1200px;
-    font-size: 40px;
-    text-transform: lowercase;
+#sections #section_notepad h2 {
+    font-size: 36px;
+    margin-bottom: 0;
+    margin-top: -25px;
+    text-align: center;
 }
 
-#sections h2 span {
-    color: #666666;
-    font-family: verdana;
-    font-size: 11px;
-    font-weight: normal;
+#sections #section_notepad h2 span {
+    background-color: #EBEBEA;
+    padding: 0 10px;
 }
+
 
 section {
        padding-bottom: 2em;
@@ -403,6 +408,7 @@ footer {
     font-family: Verdana;
     font-size:13px;
 }
+
     </style>
 
   <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
