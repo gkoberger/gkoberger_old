@@ -307,7 +307,7 @@ body.magazine {
 
 
     body {
-        background-color: #560808;
+        background-color: #602929;
         margin: 0;
     }
     nav.main {
@@ -341,15 +341,16 @@ nav.main a:hover {
     box-shadow: 0 0 10px #000000;
     margin-top: 15px;
     }
-    #header {
+    #home #header {
     background-image: url("../images/bg.png");
     background-repeat: repeat-x;
     }
     header {
         width: 1200px;
+        overflow: auto;
         margin: auto;
     }
-    #sections {
+    #sections, #notes {
         width: 1200px;
         margin: auto;
     }
@@ -398,7 +399,7 @@ nav.main a:hover {
 
 #sections h3 {
     color: #333333;
-    font-size: 18px;
+    font-size: 26px;
     margin: 15px 0 0;
     text-shadow: 1px 1px 0 #fff;
 }
@@ -432,12 +433,13 @@ nav.main a:hover {
 }
 #section_notepad ul li p {
     line-height: 1.5em;
+    margin-top: 1em;
 }
 
 
 #section_notepad {
     border-top: 1px dotted #AAAAAA;
-    margin-top: 2em;
+    margin-top: 4em;
     color: #222;
     text-shadow: 1px 1px 0 #fff;
 }
@@ -457,13 +459,13 @@ nav.main a:hover {
 }
 
 .logo div {
-        background-color: #560808;
+    background-color: #602929;
     border: 2px solid #FFFFFF;
     border-radius: 120px 120px 120px 120px;
     color: #FFFFFF;
     font-size: 148px;
     height: 138px;
-    line-height: 90px;
+    line-height: 80px;
     text-align: center;
     text-shadow: 2px 2px 2px #000000;
     width: 138px;
@@ -471,13 +473,13 @@ nav.main a:hover {
 
 
 #header_spread h1 {
-    color: #111111;
+    color: #333;
     font-size: 55px;
-    font-weight: normal;
+    font-weight: bold;
     line-height: 0.9em;
     margin: auto;
     text-align: center;
-    text-shadow: 1px 1px 1px #fff;
+    text-shadow: 0 1px 1px #fff, 0 3px 0 #B6BAB5;
     text-transform: lowercase;
     width: 500px;
     z-index: 105;
@@ -489,7 +491,7 @@ nav.main a:hover {
 }
 
 #header_spread div.subtitle {
-    color: #666666;
+    color: #888;
     font-size: 18px;
     text-align: center;
     text-shadow: 1px 1px 1px #fff;
@@ -523,6 +525,74 @@ nav.main a:hover {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#666', endColorstr='#666',GradientType=1 ); /* ie */
     z-index:102;
 }
+
+a#logo {
+    text-decoration: none;
+    display: block;
+}
+
+a#logo:hover #header_spread h1 {
+    color: #4E1B1B;
+}
+a#logo:hover #header_spread div.subtitle .subtitle_text {
+    color: #666;
+}
+
+a#logo:hover .logo div {
+    background-color: #4E1B1B;
+}
+
+/* Small Logo */
+#logo.small {
+     float: left;
+     margin-top: 8px;
+}
+
+#logo.small .logo {
+     float: left;
+     height: 45px;
+     margin: 0pt 20px 0pt 0pt;
+     padding: 3px;
+     width: 45px;
+}
+
+#logo.small .logo div {
+     border: 2px solid #CCCCCC;
+     font-size: 40px;
+     height: 41px;
+     line-height: 25px;
+     text-shadow: none;
+     width: 41px;
+}
+
+#logo.small #header_spread h1 {
+    font-size: 27px;
+    line-height: 16px;
+    margin: 10px 0 0;
+    text-align: left;
+    text-shadow: none;
+
+}
+
+#logo.small .subtitle hr {
+     display: none;
+}
+
+#logo.small #header_spread div.subtitle .subtitle_text {
+     font-size: 15px;
+     padding: 0pt;
+     position: relative;
+     top: 0pt;
+}
+
+#logo.small #header_spread div.subtitle {
+     margin: 0pt;
+     text-align: left;
+}
+
+
+
+
 
 #sections #section_notepad h2 {
     font-size: 36px;

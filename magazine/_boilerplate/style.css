@@ -1,0 +1,43 @@
+body {
+    border-top-color: #fff; /* Top bar color */
+}
+
+hgroup.full {
+    border-top-color: #aaa; /* Top bar underline color */
+    background-color: #eee; /* Top background color */
+}
+
+hgroup.content {
+    background-color: #ddd;  /* Top background color (center) */
+}
+
+#header_edition, #header_nav {
+    color: #fff; /* Site title color */
+}
+
+#header_edition span {
+    color: #eee; /* Edition color */
+}
+
+#header_nav ul li a {
+    color: #eee; /* Nav link color */
+}
+
+#header_nav ul li a:hover {
+    color: #fff; /* Nav link color hover */
+}
+
+article {
+    background-color: #eee; /* Article background color */
+}
+
+footer {
+    background-color: #aaa; /* Footer background color */
+}
+
+footer > div {
+    background-color: #999; /* Footer background color (centered) */
+}
+
+::-moz-selection{ background: #FF5E99; color:#fff; } /* Mozilla select color */
+::selection { background:#FF5E99; color:#fff; } /* Other selection color */
