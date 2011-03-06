@@ -499,6 +499,7 @@ nav.main a:hover {
 }
 
 #header_spread div.subtitle .subtitle_text {
+    font-size: 17px;
     background-color: #EBEBEA;
     padding: 0 2px;
     position: relative;
@@ -506,23 +507,25 @@ nav.main a:hover {
     z-index:103;
 }
 .subtitle  {
-    width:360px;
+    width:368px;
     margin:auto;
     position:relative;
+}
+.amperstand {
+    color: #333;
 }
 
 .subtitle hr {
     position:relative;
     width:100%;
-    margin-top:13px;
+    margin-top: 14px;
     top:0px;
     left:0px;
     height:1px;
     border: 0 none;
     background: #000; /* old browsers */
-    background: -moz-linear-gradient(left, #EBEBEA 0%, #666 3%, #666 97%, #EBEBEA 100%); /* firefox */
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#EBEBEA), color-stop(8%,#666), color-stop(92%,#666), color-stop(100%,#EBEBEA)); /* webkit */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#666', endColorstr='#666',GradientType=1 ); /* ie */
+    background: -moz-linear-gradient(left, #EBEBEA 0%, #AAA 5%, #AAA 95%, #EBEBEA 100%); /* firefox */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#EBEBEA), color-stop(5%,#AAA), color-stop(95%,#AAA), color-stop(100%,#EBEBEA)); /* webkit */
     z-index:102;
 }
 
@@ -572,7 +575,7 @@ a#logo.small:hover .logo div {
 
 #logo.small #header_spread h1 {
     font-size: 27px;
-    line-height: 16px;
+    line-height: 17px;
     margin: 10px 0 0;
     text-align: left;
     text-shadow: none;
@@ -584,7 +587,7 @@ a#logo.small:hover .logo div {
 }
 
 #logo.small #header_spread div.subtitle .subtitle_text {
-     font-size: 15px;
+     font-size: 13px;
      padding: 0pt;
      position: relative;
      top: 0pt;
@@ -611,6 +614,7 @@ a#logo.small:hover .logo div {
 
 #notebook .note {
   margin-top: 3em;
+  margin-left: 70px;
     clear: both;
     overflow: auto;
 }
