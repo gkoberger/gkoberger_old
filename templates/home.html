@@ -1,0 +1,41 @@
+{% include "header.html" %}
+
+<div id="sections">
+  <section id="intro" class="intro">
+    An <a href="http://rit.edu" class="rit">R&middot;I&middot;T</a>
+    graduate helping <a href="http://mozilla.org" class="mozilla">mozilla</a> build a better future for the web.
+  </section>
+
+  <section id="section_articles">
+    <ul>
+      {% for article in articles: %}
+      <li>
+        <div class="article_icon"></div>
+        <h3 class="title">Test title!</h3>
+        July 8, 2010
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  <section id="section_notepad">
+    <h2 class="title">
+      <span class="pattern">Notepad</span>
+    </h2>
+    <ul>
+      {% for note in notebook: %}
+      <li>
+        <h3 class="title">Test title Here</h3>
+        <span>June 4, 2010</span>
+        <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id ante id odio tincidunt feugiat. Cum sociis natoque penatibus et magnis dis parturient montes.
+        </p>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+</div>
+
+{% include "footer.html" %}
+
+
+{{ test }}

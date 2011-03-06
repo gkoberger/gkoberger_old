@@ -1,7 +1,11 @@
-import os
+import datetime
 import json
-import webbrowser
+import os
+import re
 import sys
+import webbrowser
+
+from jinja2 import FileSystemLoader, Environment
 
 def compile(folder):
     old_folder = 'magazine/%s/source' % folder
@@ -10,7 +14,7 @@ def compile(folder):
     # Get the settings.
     settings_file = open('settings.json')
     settings = json.load(settings_file)
-    
+
     # Get the variables.
     data_file = open('%s/data.json' % old_folder)
     data = dict(settings.items() + json.load(data_file).items())
@@ -19,7 +23,7 @@ def compile(folder):
     input = 'magazine-header.html'
     header = output_file(input, False, data, return_file=True)
     data.setdefault('header', header)
-    
+
     # Copy over the article-specific stuff.
     for file in os.listdir(old_folder):
         input = '%s/%s' % (old_folder, file)
@@ -41,7 +45,7 @@ def output_file(input_file, output_file, data, return_file=False):
     # Inefficient, but we only do it once so it doesn't matter.
     input = open(input_file)
     output_buffer = []
-    
+
     for line in input:
         if input_file.endswith("html"):
             for (k, v) in data.items():
@@ -53,10 +57,10 @@ def output_file(input_file, output_file, data, return_file=False):
         for line in output_buffer:
             output.write(line)
         output.close()
-        
+
     if return_file:
         return '\n'.join(output_buffer)
-    
+
 def main(f):
     to_compile = os.listdir("magazine")
 
@@ -68,7 +72,54 @@ def main(f):
     if f:
         webbrowser.open(f)
 
+def compile_home():
+    args = {'page': 'home'}
+    home = render('home.html', args, 'index.html')
+
+def render_notepad(template, args={}):
+    loader = FileSystemLoader('notepad/')
+    env = Environment(loader=loader)
+
+    env.filters['datetimeformat'] = datetimeformat
+
+    rendered = env.get_template(template).render(args)
+
+    return rendered
+
+def datetimeformat(value, format='%B %d, %Y'):
+    return value.strftime(format)
+
+def compile_notepads():
+    to_compile = os.listdir("notepad")
+    to_compile = [f for f in to_compile
+                  if re.match("\d{4}-\d{2}-\d{2}-(.*).html", f)]
+
+    to_compile.sort(reverse=True)
+
+    notes = []
+
+    for note in to_compile:
+        d = re.search('(\d{4})-(\d{2})-(\d{2})', note)
+        date = datetime.datetime(int(d.group(1)), int(d.group(2)), int(d.group(3)))
+        notes.append(render_notepad(note, {'date': date}))
+
+    render('notepad.html', {'notes': notes, 'page': 'notebook'}, 'notepad.html')
+
+def render(template, args={}, output=None):
+    loader = FileSystemLoader('templates/')
+    env = Environment(loader=loader)
+
+    rendered = env.get_template(template).render(args)
+
+    if output:
+        with open(output, 'w') as o:
+           o.write(rendered)
+    else:
+        return rendered
+
 if __name__ == '__main__':
     folder = sys.argv[1] if len(sys.argv) > 2 else None
-    main(folder)
+    #main(folder)
 
+    compile_notepads()
+    compile_home()

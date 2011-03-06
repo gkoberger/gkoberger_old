@@ -10,7 +10,7 @@
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title> Gregory Koberger</title>
+  <title>{{ title }} Gregory Koberger</title>
   <meta name="description" content="Portfolio of Gregory Koberger, web developer and user experience designer.">
   <meta name="author" content="Gregory Koberger">
 
@@ -28,7 +28,7 @@
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 
-<body id="home">
+<body id="{{ page }}">
   <div id="body">
     <div id="container" class="pattern">
       <div id="header">
@@ -41,7 +41,7 @@
           </nav>
           &nbsp;
 
-          <div id="logo">
+          <{% if page != "home" %}a class="small" href="index.html" {% else %}div{% endif %} id="logo">
             <div class="logo gar">
               <div>g</div>
             </div>
@@ -54,64 +54,7 @@
                 </span>
               </div>
             </div>
-          </div>
+          </{% if page != "home" %}a{% else %}div{% endif %}>
       </header>
     </div>
-
-
-<div id="sections">
-  <section id="intro" class="intro">
-    An <a href="http://rit.edu" class="rit">R&middot;I&middot;T</a>
-    graduate helping <a href="http://mozilla.org" class="mozilla">mozilla</a> build a better future for the web.
-  </section>
-
-  <section id="section_articles">
-    <ul>
-      
-    </ul>
-  </section>
-  <section id="section_notepad">
-    <h2 class="title">
-      <span class="pattern">Notepad</span>
-    </h2>
-    <ul>
-      
-    </ul>
-  </section>
-</div>
-
-      </div>
-  </div>
-
-    <footer>
-        <div>
-            <strong>Gregory Koberger</strong> gkoberger@gmail.com
-        </div>
-    </footer>
-    </div>
-  </div> <!--! end of #container -->
-
-  <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.4.4.js"%3E%3C/script%3E'))</script>
-
-  <script src="/js/plugins.js"></script>
-  <script src="/js/script.js"></script>
-
-  <!--[if lt IE 7 ]>
-  <script src="js/libs/dd_belatedpng.js"></script>
-  <script>DD_belatedPNG.fix('img, .png_bg'); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>
-  <![endif]-->
-
-  <!-- mathiasbynens.be/notes/async-analytics-snippet Change UA-XXXXX-X to be your site's ID -->
-  <script>
-    var_gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=true;
-    g.src=('https:'==location.protocol?'https://ssl':'http://www')+'.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g,s)})(document,'script');
-  </script>
-
-</body>
-</html>
-
 

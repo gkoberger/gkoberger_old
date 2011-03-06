@@ -526,23 +526,28 @@ nav.main a:hover {
     z-index:102;
 }
 
-a#logo {
+
+
+/* Logo */
+
+/* Logo - Small */
+
+a#logo.small {
     text-decoration: none;
     display: block;
 }
 
-a#logo:hover #header_spread h1 {
+a#logo.small:hover #header_spread h1 {
     color: #4E1B1B;
 }
-a#logo:hover #header_spread div.subtitle .subtitle_text {
+a#logo.small:hover #header_spread div.subtitle .subtitle_text {
     color: #666;
 }
 
-a#logo:hover .logo div {
+a#logo.small:hover .logo div {
     background-color: #4E1B1B;
 }
 
-/* Small Logo */
 #logo.small {
      float: left;
      margin-top: 8px;
@@ -588,6 +593,49 @@ a#logo:hover .logo div {
 #logo.small #header_spread div.subtitle {
      margin: 0pt;
      text-align: left;
+}
+
+
+
+
+/* Notebook */
+
+#notebook #notes h2.title {
+    text-transform: uppercase;
+    border-bottom: 2px dotted #DDDDDD;
+    font-size: 40px;
+    margin-bottom: 10px;
+    margin-left: 0;
+    width: 810px;
+}
+
+#notebook .note {
+  margin-top: 3em;
+    clear: both;
+    overflow: auto;
+}
+
+#notebook .sidebar {
+    color: #666666;
+    float: left;
+    font-size: 14px;
+    line-height: 1.4em;
+    margin-left: 20px;
+    padding-top: 8px;
+    width: 150px;
+}
+
+#notebook .text {
+  color: #333;
+    float: left;
+    width: 660px;
+}
+
+#notebook .text p {
+    line-height: 2em;
+    margin-bottom: 1em;
+    font-size:16px;
+    font-family: Georgia;
 }
 
 
