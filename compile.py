@@ -80,9 +80,10 @@ def compile_home():
     notes = []
 
     for note in to_compile:
-        d = re.search('(\d{4})-(\d{2})-(\d{2})', note)
+        d = re.search('(\d{4})-(\d{2})-(\d{2})-(.*).html', note)
         date = datetime.datetime(int(d.group(1)), int(d.group(2)), int(d.group(3)))
-        notes.append(render_notepad(note, {'date': date, 'preview': True}))
+        slug = d.group(4)
+        notes.append(render_notepad(note, {'date': date, 'preview': True, 'slug': slug}))
 
     args['notes'] = notes
 
@@ -116,9 +117,10 @@ def compile_notepads():
     notes = []
 
     for note in to_compile:
-        d = re.search('(\d{4})-(\d{2})-(\d{2})', note)
+        d = re.search('(\d{4})-(\d{2})-(\d{2})-(.*).html', note)
         date = datetime.datetime(int(d.group(1)), int(d.group(2)), int(d.group(3)))
-        notes.append(render_notepad(note, {'date': date}))
+        slug = d.group(4)
+        notes.append(render_notepad(note, {'date': date, 'slug': slug}))
 
     render('notepad.html', {'notes': notes, 'page': 'notebook'}, 'notepad.html')
 

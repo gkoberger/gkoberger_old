@@ -1,26 +1,24 @@
 {% if preview: %}
   <li>
-    <h3 class="title">{% block title %}{% endblock %}</h3>
+    <h3 class="title"><a href="notepad.html#{{ slug }}">{% block title %}{% endblock %}</a></h3>
     <span>{{ date|datetimeformat }}</span>
     <p>
     {% block preview %}{% endblock %}
     </p>
   </li>
 {% else %}
-  <div id="notes">
-    <div class="note">
-      <h2 class="title">{{ self.title() }}</h2>
-      <div class="text">
-        {% block content %}{% endblock %}
-      </div>
-      <div class="sidebar">
-        <div class="sidebar_scroll">
-          <strong class="title">{{ self.title() }}</strong>
-          {{ date|datetimeformat }}<br />
-          by {% block author %}<a href="http://gkoberger.net/">Gregory</a>{% endblock %}<br />
-          0 comments<br />
-          <!-- t f a c -->
-        </div>
+  <div class="note" id="{{ slug }}">
+    <h2 class="title">{{ self.title() }}</h2>
+    <div class="text">
+      {% block content %}{% endblock %}
+    </div>
+    <div class="sidebar">
+      <div class="sidebar_scroll">
+        <strong class="title">{{ self.title() }}</strong>
+        {{ date|datetimeformat }}<br />
+        by {% block author %}<a href="http://gkoberger.net/">Gregory</a>{% endblock %}<br />
+        0 comments<br />
+        <!-- t f a c -->
       </div>
     </div>
   </div>

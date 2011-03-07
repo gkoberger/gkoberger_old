@@ -302,6 +302,25 @@ body.magazine {
 }
 
 /*
+ * Global
+ */
+
+.title a {
+    color: #333333;
+    text-decoration: none;
+}
+
+.title a:hover {
+    color: #8B4242;
+}
+
+.section_subtitle {
+    text-align: center;
+    color: #777;
+    margin-top: -2px;
+}
+
+/*
  * Main page
  */
 
@@ -398,12 +417,12 @@ nav.main a:hover {
 }
 
 #sections h3 {
-    text-transform: uppercase;
     color: #333333;
-    font-size: 20px;
+    font-size: 23px;
+    line-height: 19px;
     margin: 15px 0 0;
-    text-shadow: 1px 1px 0 #fff;
-    line-height: 13px;
+    text-shadow: 1px 1px 0 #FFFFFF;
+    text-transform: uppercase;
 }
 
 #section_notepad li span {
@@ -415,6 +434,8 @@ nav.main a:hover {
     font-family: Garmond;
     color: #333;
     font-size: 16 px;
+    font-size: 22px;
+    padding-bottom: 5px;
 }
 
 #section_notepad ul {
@@ -443,7 +464,7 @@ nav.main a:hover {
 
 
 #section_notepad {
-    border-top: 1px dotted #AAAAAA;
+    border-top: 3px double #AAA;
     margin-top: 4em;
     color: #222;
     text-shadow: 1px 1px 0 #fff;
@@ -636,6 +657,8 @@ a#logo.small:hover .logo div {
 
 #notebook .sidebar .title {
     display: block;
+    font-size: 19px;
+    padding-bottom: 5px;
 }
 
 #notebook .sidebar .sidebar_scroll {
@@ -662,6 +685,7 @@ a#logo.small:hover .logo div {
 
 #sections #section_notepad h2 {
     font-size: 36px;
+    text-shadow: 0 1px 1px #FFFFFF, 0 3px 0 #B6BAB5;
     margin-bottom: 0;
     margin-top: -25px;
     text-align: center;
