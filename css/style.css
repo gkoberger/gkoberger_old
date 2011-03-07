@@ -164,9 +164,8 @@ input:invalid, textarea:invalid {
 
 
 /* These selection declarations have to be separate.
-   No text-shadow: twitter.com/miketaylr/status/12228805301
-   Also: hot pink. */
-::-moz-selection{ background: #FF5E99; color:#fff; text-shadow: none; }
+   No text-shadow: twitter.com/miketaylr/status/12228805301 */
+::-moz-selection{ background: #BF8585; color:#fff; text-shadow: none; }
 ::selection { background:#FF5E99; color:#fff; text-shadow: none; }
 
 /*  j.mp/webkit-tap-highlight-color */
@@ -334,18 +333,22 @@ body.magazine {
         margin: 0;
     }
     nav.main {
+         padding-top: 17px;
         float: right;
-        padding-top: 25px;
 }
 
 nav.main a {
     color: #333333;
     display: inline-block;
-    font-size: 12px;
-    margin-right: 10px;
+    font-size: 17px;
+    margin: 0 8px;
     text-decoration: none;
-    text-shadow: 1px 1px 1px #FFFFFF;
+    text-shadow: 1px 1px 0 #DDDDDD;
     text-transform: uppercase;
+}
+
+nav.main a:last-child {
+    margin-right: 0;
 }
 
 nav.main a.current {
