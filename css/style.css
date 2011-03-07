@@ -374,6 +374,11 @@ nav.main a:hover {
         margin: auto;
     }
 
+    #notes {
+        width: 1070px;
+        position: relative;
+    }
+
     #intro {
     box-shadow: 0 14px 17px -17px #888888;
     color: #444444;
@@ -629,6 +634,17 @@ a#logo.small:hover .logo div {
 
 /* Notebook */
 
+.info_sidebar {
+    background-color: rgba(150, 150, 150, 0.2);
+    border-radius: 10px 10px 10px 10px;
+    line-height: 1.5em;
+    padding: 20px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 180px;
+}
+
 #notebook #notes h2.title {
     text-transform: uppercase;
     border-bottom: 2px dotted #DDDDDD;
@@ -639,7 +655,6 @@ a#logo.small:hover .logo div {
 
 #notebook .note {
   margin-top: 3em;
-  margin-left: 65px;
     clear: both;
     overflow: auto;
 }
