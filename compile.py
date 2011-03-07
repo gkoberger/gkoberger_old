@@ -129,6 +129,7 @@ def render(template, args={}, output=None):
     env = Environment(loader=loader)
 
     args['base'] = 'file:///Users/gkoberger/Sites/gkoberger/'
+    args['year'] = 2011
 
     rendered = env.get_template(template).render(args)
 

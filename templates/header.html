@@ -29,32 +29,31 @@
 </head>
 
 <body id="{{ page }}">
-  <div id="body">
-    <div id="container" class="pattern">
-      <div id="header">
-        <header>
-          <nav class="main gar">
-            <a href="#">articles</a>
-            <a href="#">notepad</a>
-            <a href="#">portfolio</a>
-            <a href="#">contact</a>
-          </nav>
-          &nbsp;
+  <div id="container" class="pattern">
+    <div id="header">
+      <header>
+        <nav class="main">
+          <a href="#">articles</a>
+          <a href="notepad.html"{% if page == "notebook" %} class="current"{% endif %}>notepad</a>
+          <a href="#">portfolio</a>
+          <a href="#">contact</a>
+        </nav>
+        &nbsp;
 
-          <{% if page != "home" %}a class="small" href="index.html" {% else %}div{% endif %} id="logo">
-            <div class="logo gar">
-              <div>g</div>
+        <{% if page != "home" %}a class="small" href="index.html" {% else %}div{% endif %} id="logo">
+          <div class="logo gar">
+            <div>g</div>
+          </div>
+          <div id="header_spread">
+            <h1 class="gar"><span>Gregory Koberger</span></h1>
+            <div id="subtitle" class="subtitle gar">
+              <hr>
+              <span class="subtitle_text meta pattern">
+                User Experience Designer <span class="gar amperstand">&amp;</span> Web Engineer
+              </span>
             </div>
-            <div id="header_spread">
-              <h1 class="gar"><span>Gregory Koberger</span></h1>
-              <div id="subtitle" class="subtitle gar">
-                <hr>
-                <span class="subtitle_text meta pattern">
-                  User Experience Designer <span class="gar amperstand">&amp;</span> Web Engineer
-                </span>
-              </div>
-            </div>
-          </{% if page != "home" %}a{% else %}div{% endif %}>
-      </header>
-    </div>
+          </div>
+        </{% if page != "home" %}a{% else %}div{% endif %}>
+    </header>
+  </div>
 
