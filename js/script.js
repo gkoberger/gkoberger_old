@@ -26,42 +26,51 @@ $(function(){
 
 
 function initNotepad() {
-
   // TODO: Optimize this!!
   function scrollSidebar(instant){
-    var top_offset = $(window).scrollTop();
+    var window_top = $(window).scrollTop();
 
     instant = (instant == true);
 
     $('.note').each(function(){
-      if($(this).find('.sidebar').offset()['top'] < top_offset || $(this).find('.sidebar').offset()['top'] > 0) {
-        var newscroll = top_offset - $(this).find('.sidebar').offset()['top'];
+      var $sidebar = $(this).find('.sidebar'),
+          sidebar_top = $sidebar.offset()['top'],
+          $sidebar_scroll = $sidebar.find('.sidebar_scroll');
 
-        if(newscroll + $(this).find('.sidebar_scroll').outerHeight() > $(this).find('.text').outerHeight()) {
-          newscroll = $(this).find('.text').outerHeight() - $(this).find('.sidebar_scroll').outerHeight();
-        }
+      if(sidebar_top < window_top || sidebar_top > 0) {
+        var newscroll = window_top - sidebar_top,
+            sidebar_height = $sidebar_scroll.outerHeight(),
+            $text = $(this).find('.text'),
+            text_height = $text.outerHeight(),
+            $title = $sidebar.find('.title');
 
-        if(newscroll < 0) {
-          newscroll = 0;
+    console.log($title);
+    console.log((newscroll + sidebar_height) , text_height);
+
+        if((newscroll + sidebar_height) > text_height) {
+          /* Below the article */
+          $sidebar_scroll.css({'position': 'absolute', 'top': text_height - sidebar_height });
+          $title.css({'visibility': 'visible'});
         } else {
-          $(this).find('.sidebar .title').show();
-        }
-
-        var $sidebar_scroll = $(this).find('.sidebar_scroll');
-
-        var speed = instant ? 0 : 'slow';
-        $(this).find('.sidebar_scroll').animate({'top': newscroll}, speed, function(){
-          if(newscroll == 0) {
-            $sidebar_scroll.find('.title').hide();
+          if(newscroll < 0) {
+            /* Above the article */
+              console.log(1);
+            newscroll = 0;
+            $sidebar_scroll.css({'position': 'relative', 'top': 0});
+            $title.css({'visibility': 'hidden'});
+          } else {
+            /* On the article */
+            $sidebar_scroll.css({'position': 'fixed', 'top': 0});
+            $title.css({'visibility': 'visible'});
           }
-        });
+        }
       }
     });
 
   }
 
   scrollSidebar(true);
-  $(document).scroll(debounce(scrollSidebar, 500));
+  $(document).scroll(scrollSidebar);
 }
 
 
