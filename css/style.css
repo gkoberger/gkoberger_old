@@ -398,14 +398,17 @@ nav.main a:hover {
 }
 
 #sections h3 {
+    text-transform: uppercase;
     color: #333333;
-    font-size: 26px;
+    font-size: 20px;
     margin: 15px 0 0;
     text-shadow: 1px 1px 0 #fff;
+    line-height: 13px;
 }
 
-#section_notebook li span {
+#section_notepad li span {
     color: #777;
+    font-size: 11px;
 }
 
 #section_articles li strong {
@@ -433,7 +436,9 @@ nav.main a:hover {
 }
 #section_notepad ul li p {
     line-height: 1.5em;
-    margin-top: 1em;
+    margin-top: 0.5em;
+    font-size:14px;
+    font-family: Georgia;
 }
 
 
@@ -553,13 +558,13 @@ a#logo.small:hover .logo div {
 
 #logo.small {
      float: left;
-     margin-top: 8px;
+     margin-top: 13px;
 }
 
 #logo.small .logo {
      float: left;
      height: 45px;
-     margin: 0pt 20px 0pt 0pt;
+     margin: 0pt 15px 0pt 0pt;
      padding: 3px;
      width: 45px;
 }
@@ -614,7 +619,7 @@ a#logo.small:hover .logo div {
 
 #notebook .note {
   margin-top: 3em;
-  margin-left: 70px;
+  margin-left: 65px;
     clear: both;
     overflow: auto;
 }
@@ -625,8 +630,17 @@ a#logo.small:hover .logo div {
     font-size: 14px;
     line-height: 1.4em;
     margin-left: 20px;
-    padding-top: 8px;
     width: 150px;
+    position: relative;
+}
+
+#notebook .sidebar .title {
+    display: block;
+}
+
+#notebook .sidebar .sidebar_scroll {
+    padding-top: 8px;
+    position: absolute;
 }
 
 #notebook .text {

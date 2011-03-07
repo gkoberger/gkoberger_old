@@ -22,14 +22,8 @@
       <span class="pattern">Notepad</span>
     </h2>
     <ul>
-      {% for note in notebook: %}
-      <li>
-        <h3 class="title">Test title Here</h3>
-        <span>June 4, 2010</span>
-        <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id ante id odio tincidunt feugiat. Cum sociis natoque penatibus et magnis dis parturient montes.
-        </p>
-      </li>
+      {% for note in notes %}
+        {{ note }}
       {% endfor %}
     </ul>
   </section>

@@ -74,7 +74,19 @@ def main(f):
 
 def compile_home():
     args = {'page': 'home'}
-    home = render('home.html', args, 'index.html')
+
+    # Notepads
+    to_compile = list_notepads()[:5]
+    notes = []
+
+    for note in to_compile:
+        d = re.search('(\d{4})-(\d{2})-(\d{2})', note)
+        date = datetime.datetime(int(d.group(1)), int(d.group(2)), int(d.group(3)))
+        notes.append(render_notepad(note, {'date': date, 'preview': True}))
+
+    args['notes'] = notes
+
+    render('home.html', args, 'index.html')
 
 def render_notepad(template, args={}):
     loader = FileSystemLoader('notepad/')
@@ -89,12 +101,17 @@ def render_notepad(template, args={}):
 def datetimeformat(value, format='%B %d, %Y'):
     return value.strftime(format)
 
-def compile_notepads():
+def list_notepads():
     to_compile = os.listdir("notepad")
     to_compile = [f for f in to_compile
                   if re.match("\d{4}-\d{2}-\d{2}-(.*).html", f)]
 
     to_compile.sort(reverse=True)
+
+    return to_compile
+
+def compile_notepads():
+    to_compile = list_notepads()
 
     notes = []
 
@@ -108,6 +125,8 @@ def compile_notepads():
 def render(template, args={}, output=None):
     loader = FileSystemLoader('templates/')
     env = Environment(loader=loader)
+
+    args['base'] = 'file:///Users/gkoberger/Sites/gkoberger/'
 
     rendered = env.get_template(template).render(args)
 
