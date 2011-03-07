@@ -574,6 +574,19 @@ nav.main a:hover {
 
 /* Logo */
 
+#logo div svg {
+    display: none;
+}
+
+a#logo:hover div.logo span {
+    display: none;
+}
+
+a#logo:hover div.logo svg {
+    margin: 3px 6px;
+    display: block;
+}
+
 /* Logo - Small */
 
 a#logo.small {
