@@ -343,7 +343,6 @@ nav.main a {
     font-size: 17px;
     margin: 0 8px;
     text-decoration: none;
-    text-shadow: 1px 1px 0 #DDDDDD;
     text-transform: uppercase;
 }
 
@@ -374,7 +373,7 @@ nav.main a:hover {
     background-image: url("../images/bg.png");
     background-repeat: repeat-x;
     }
-    header {
+    header, #article {
         width: 1200px;
         overflow: auto;
         margin: auto;
@@ -594,13 +593,14 @@ a#logo.small {
     display: block;
 }
 
-a#logo.small:hover #header_spread h1 {
-    color: #8B4242;
-}
+a#logo.small:hover #header_spread h1,
 a#logo.small:hover #header_spread div.subtitle .subtitle_text {
     color: #8B4242;
 }
 
+a#logo.small:hover #header_spread .amperstand {
+    color: #4F1C1C;
+}
 a#logo.small:hover .logo div {
     background-color: #8B4242;
 }
@@ -707,12 +707,12 @@ a#logo.small:hover .logo div {
 
 #notebook .text {
     padding-top: 17px;
-  color: #333;
     float: left;
     width: 660px;
 }
 
-#notebook .text p {
+.text p {
+  color: #333;
     line-height: 2em;
     margin-bottom: 1em;
     font-size:16px;

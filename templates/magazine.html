@@ -1,3 +1,65 @@
-{% include header.html %}
+{% include "header.html" %}
 
-{% include footer.html %}
+<div id="article">
+  <div class="magazine_header">
+    <h1>{% block header %}{% block title %}{% endblock %}{% endblock %}</h1>
+  </div>
+
+  <div class="magazine_nav">
+    <a href="#" class="prev"><strong>PREV</strong><br>article name</a>
+    <h2 class="title">{{ self.title() }}</h2>
+    <div class="author meta">by {% block author %}<a href="http://gkoberger.net">Gregory Koberger</a>{% endblock %}</div>
+    <a href="#" class="next"><strong>NEXT</strong><br>article name</a>
+  </div>
+
+  <div class="magazine_body text">
+    {% block content %}{% endblock %}
+  </div>
+</div>
+
+<style type="text/css">
+  .magazine_header {
+    height: 200px;
+  }
+  .magazine_header h1 {
+    font-size: 60px;
+    padding-top: 50px;
+    text-align: center;
+    text-shadow: 0 1px 1px #FFFFFF, 0 3px 0 #B6BAB5;
+  }
+
+  .magazine_nav {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+    position: relative;
+  }
+
+  .magazine_nav .prev {
+    position: absolute;
+    left: 0pt;
+    top: 20px;
+  }
+
+  .magazine_nav .next {
+    position: absolute;
+    right: 0pt;
+    text-align: right;
+    top: 20px;
+  }
+
+  .magazine_nav h2.title {
+    text-align: center;
+    font-size: 30px;
+  }
+
+  .magazine_nav .author {
+    text-align: center;
+  }
+
+  .magazine_body {
+    margin: 2em 15em 0pt;
+  }
+
+</style>
+{% include "footer.html" %}

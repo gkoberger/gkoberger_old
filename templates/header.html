@@ -18,8 +18,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- CSS : implied media="all" -->
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="css/mobile.css">
+  <link rel="stylesheet" href="{{ base }}/css/style.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="{{ base }}/css/mobile.css">
 
   <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
   <script src="js/libs/modernizr-1.6.min.js"></script>
@@ -33,9 +33,9 @@
     <div id="header">
       <header>
         <nav class="main">
-          <a href="#">articles</a>
+        <a href="{{ base }}/magazine/{{ article_url }}"{% if page == "magazine" %} class="current"{% endif %}>articles</a>
           &bullet;
-          <a href="notepad.html"{% if page == "notebook" %} class="current"{% endif %}>notepad</a>
+          <a href="{{ base }}/notepad.html"{% if page == "notebook" %} class="current"{% endif %}>notepad</a>
           &bullet;
           <a href="#">portfolio</a>
           &bullet;
@@ -43,12 +43,12 @@
         </nav>
         &nbsp;
 
-        <{% if page != "home" %}a class="small" href="index.html" {% else %}div{% endif %} id="logo">
+        <{% if page != "home" %}a class="small" href="{{ base }}/index.html" {% else %}div{% endif %} id="logo">
           <div class="logo gar">
             <div>
               <span>g</span>
               <svg height="30" width="30">
-              <polygon points="15,5 27,18 23,18 23,28 18,28, 18,22 13,22 13,28 8,28 8,18 3,18"
+              <polygon points="15,5 28,18 23,18 23,28 18,28, 18,22 13,22 13,28 8,28 8,18 3,18"
                        fill="#fff">
                            </svg>
             </div>

@@ -76,34 +76,34 @@ def compile_home():
     args = {'page': 'home'}
 
     # Notepads
-    to_compile = list_notepads()[:5]
+    to_compile = get_list('notepad')[:5]
     notes = []
 
     for note in to_compile:
         d = re.search('(\d{4})-(\d{2})-(\d{2})-(.*).html', note)
         date = datetime.datetime(int(d.group(1)), int(d.group(2)), int(d.group(3)))
         slug = d.group(4)
-        notes.append(render_notepad(note, {'date': date, 'preview': True, 'slug': slug}))
+        notes.append(render_notepad(note, args={'date': date, 'slug': slug, 'preview': True}))
 
     args['notes'] = notes
 
-    render('home.html', args, 'index.html')
+    get_template('home.html', args, 'index.html')
+
+def render_magazine(template, args={}, output=None):
+    args['template'] = get_template('magazine.html', render=False)
+
+    get_template(('magazine_src', template), args, output='magazine/%s' % output)
 
 def render_notepad(template, args={}):
-    loader = FileSystemLoader('notepad/')
-    env = Environment(loader=loader)
+    args['template'] = get_template('notepad.html', render=False)
 
-    env.filters['datetimeformat'] = datetimeformat
-
-    rendered = env.get_template(template).render(args)
-
-    return rendered
+    return get_template(('notepad', template), args=args)
 
 def datetimeformat(value, format='%B %d, %Y'):
     return value.strftime(format)
 
-def list_notepads():
-    to_compile = os.listdir("notepad")
+def get_list(folder):
+    to_compile = os.listdir(folder)
     to_compile = [f for f in to_compile
                   if re.match("\d{4}-\d{2}-\d{2}-(.*).html", f)]
 
@@ -111,8 +111,14 @@ def list_notepads():
 
     return to_compile
 
+def compile_magazines():
+    to_compile = get_list('magazine_src')
+
+    for article in to_compile:
+        render_magazine(article, {'page': 'magazine'}, article)
+
 def compile_notepads():
-    to_compile = list_notepads()
+    to_compile = get_list('notepad')
 
     notes = []
 
@@ -120,28 +126,53 @@ def compile_notepads():
         d = re.search('(\d{4})-(\d{2})-(\d{2})-(.*).html', note)
         date = datetime.datetime(int(d.group(1)), int(d.group(2)), int(d.group(3)))
         slug = d.group(4)
-        notes.append(render_notepad(note, {'date': date, 'slug': slug}))
 
-    render('notepad.html', {'notes': notes, 'page': 'notebook'}, 'notepad.html')
+        notes.append(render_notepad(note, args={'date': date, 'slug': slug}))
 
-def render(template, args={}, output=None):
-    loader = FileSystemLoader('templates/')
+    get_template('notepad.html', args={'notes': notes, 'page': 'notebook'}, output='notepad.html')
+
+def get_template(template, args={}, output=None, render=True):
+
+    loader = False
+    template_file = False
+
+    if isinstance(template, tuple):
+        loader = FileSystemLoader('%s/' % template[0])
+        template_file = template[1]
+    else:
+        loader = FileSystemLoader('templates/')
+        template_file = template
+
     env = Environment(loader=loader)
+    env.filters['datetimeformat'] = datetimeformat
+    env.globals = {'base':'file:///Users/gkoberger/Sites/gkoberger/',
+                   'year': 2011,
+                   'article_url': get_list('magazine_src')[0]}
 
-    args['base'] = 'file:///Users/gkoberger/Sites/gkoberger/'
-    args['year'] = 2011
+    template_object = env.get_template(template_file)
 
-    rendered = env.get_template(template).render(args)
+    if not render:
+        return template_object
+
+    rendered = template_object.render(args)
 
     if output:
         with open(output, 'w') as o:
            o.write(rendered)
-    else:
-        return rendered
+
+    return rendered
+
+#def render_tempate(template, args):
+    #args['base'] = 'file:///Users/gkoberger/Sites/gkoberger/'
+    #args['year'] = 2011
+
+    #return template.render(args)
+
 
 if __name__ == '__main__':
     folder = sys.argv[1] if len(sys.argv) > 2 else None
     #main(folder)
 
     compile_notepads()
+    compile_magazines()
     compile_home()
