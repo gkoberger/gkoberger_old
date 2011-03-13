@@ -1,0 +1,50 @@
+{% extends template %}
+
+{% block title %}I've Been Had!{% endblock %}
+
+{% block preview %}After ten years of using the same password, using strange programs and logging in on public computers, it finally happened- someone broke into all my accounts. 
+
+It was a long time coming- I started to get a bit cocky about my online security, after all.{% endblock %}
+
+{% block content %}<p>After ten years of using the same password, using strange programs and logging in on public computers, it finally happened- someone broke into all my accounts.</p>
+
+<p>It was a long time coming- I started to get a bit cocky about my online security, after all.  Same passwords everywhere, no spyware programs running, no encryption anywhere.  But hey- ten years without anything going wrong?  You let your guard down.<!--more--></p>
+<p><strong>First Sign: PayPal Email</strong></p>
+<p>Last night, I got an email from PayPal asking me to confirm a purchase.  Honestly, I probably wouldn't have really thought twice about it (given how many fake PayPal emails I get), had I not enabled GMails new <a href="http://gmailblog.blogspot.com/2008/07/fighting-phishing-with-ebay-and-paypal.html" target="_blank">anti-phishing</a> plugin literally minutes before.  Convenient, huh?</p>
+<p>So, I checked it out.  I had a $30 charge- and I hadn't bought anything recently.  Thinking it was possible I may have bought something and forgotten about it (a subscription or pre-order, perhaps?), I investigated a bit further.  It was for a "digital credit card" on EBay- nope, definitely not mine.  Nothing in my eBay account about it, either- so, it was just a PayPal problem.</p>
+<p><img src="http://www.blog.gkoberger.net/wp-content/uploads/2009/07/ebay.jpg" alt="Virtual Credit Cards on EBay"/><i>EBay knows me so well now</i></p>
+<p>Not a big deal- PayPal's good at stuff like that, right?  So I disputed the charge, and went to bed.</p>
+<p><strong>Up Next: Locked Out of GMail</strong></p>
+<p>The next morning, as usual, I went to check my email.  Whoops, wrong password.  That's cool- it was early and I was still half asleep.  So I tried again.  Still nothing.  And again.  Maybe it was a GMail issue?  After all, they've been down a few times recently.  So, I hit Twitter to get the scoop- nothing.</p>
+<p>That's when I started getting a bit worried.</p>
+<p>I tried to reset my password, and logged into my old Hotmail account (the account I had when I first got GMail) to get the reset link.  Nothing.  (As I would later find out, Hotmail does this thing where it shuts down your account and deletes all your emails if you don't use it for a while.  So, Google did try to send it to me, it just never got sent.)</p>
+<p>That's when I started to get really worried.</p>
+<p><strong>Google Knows A Lot About Me</strong></p>
+<p>I never really worried about Google having a ton of information about me- I trusted them.  But I never realized how much they know about me, until it mattered.   Among other things, they have a list of every site I've visited in the past few years, every email I've sent or received, copies of my social security card and drivers license, most of my files (as I use GMail as a thumb-drive replacement), a lot of my passwords (or the ability to reset passwords via email), email addresses of everyone I've ever contacted, my home address- the list goes on and on.</p>
+<p>I also never realized how much I relied on Google, either.  The first form I filled out said I had to wait 24 hours to reset my account.  Better than nothing, right?  Then I realized how much I used Google- that's 24 hours without all my emails, files, and documents.  And I couldn't even IM people about it- I was locked out of Google Talk, too.</p>
+<p><strong>GMail Emergency Account Recovery Form</strong></p>
+<p>Not wanting to wait 24 hours, I kept looking.  I eventually found their <a href="https://www.google.com/support/accounts/bin/request.py?ara=1&amp;hl=en" target="_blank">account recovery form</a>- it asks you a bunch of questions only you can answer (and not of the "Favorite high school teacher?" variety), and apparently analyzes your answers.</p>
+<p>I was pretty impressed by this form.  It asked for things like five people I contact often, four of my GMail labels, approximately when I signed up for GMail, and the most recent password I could remember.  It also used my IP address, to make sure I've accessed the account before.  I guess I passed the test, as it emailed me about a half hour later to let me know how to reset my password.</p>
+<p>GMail, like every other site I'm going to mention, did a great job of helping me out.  I really liked the recovery form- it was incredibly logical, and seemed safe to me.</p>
+<p><strong>Google Knows A Lot About Them, Too</strong></p>
+<p>After logging in, I checked GMails logs- someone or something, with an IP in NYC, accessed my account at 12:30, 1:21 and 1:40.  That's all the info Google was willing to part with- but at least it confirmed my account was indeed compromised, and not just a random glitch.</p>
+<p>And, they did some searches for "buy vcc with paypal" (VCC stands for Virtual Credit Card):</p>
+<p><img src="http://www.blog.gkoberger.net/wp-content/uploads/2009/07/hacked_history.jpg" alt="buy vcc with paypal"/></p>
+<p>Spooky that Google logs all that, huh?  But mighty useful.</p>
+<p><strong>PayPal Round Two</strong></p>
+<p>In my newly unlocked inbox was another email from PayPal, telling me they were locking down my account due to suspicious activity- while it clearly meant this was far from over, it was a bit of a relief.  This means they were in it for the money- I knew I could get my money back through PayPal or my credit cards, it was all the data in my account I was really worried about.</p>
+<p>So, I went to PayPal to figure that out.  They of course did a wonderful job- it wasn't a fun process, but it certainly was thorough.  I had to do things like confirm my location via a land line, and enter in my card information.  I managed to clear that up (I had two charges; one from the night before was still pending investigation, while the second one was automatically refunded by PayPal), and changed my password.</p>
+<p><strong>Next Up: Amazon</strong></p>
+<p>Of course, I checked all the big sites I have accounts with as soon as I realized there was a problem.  On Amazon, there was nothing in my list of recent purchases- so, I just assumed I got lucky there.</p>
+<p>Of course, I couldn't have been so lucky- I got a call at about 10am from a lady at Amazon, asking me to confirm some purchases.  A few went through (straight to my credit card; so I have to wait 24 hours before I can dispute them), however Amazon managed to catch it before I was charged $500 for a bunch of $50 "XBox Game Points."  Seems Amazon has a separate list of bought digital items- which I never would have noticed had they not called me.</p>
+<p>The lady told me she had to close my account- which was fine with me, I was just grateful Amazon was nice enough to call me.</p>
+<p><strong>The Aftermath</strong></p>
+<p>Overall?  Seems like it's all going to be fine.  I'll keep an eye on my credit cards, but overall I think I dodged a bullet, thanks to the wonderful companies I dealt with today.  Google, PayPal and Amazon all made it easy for me to take my accounts back, and keep charges down to a minimum.</p>
+<p>One thing that bothered me still, though, was why they needed my Google passwords.  After all, I couldn't find anything around the time my account was "hacked" that indicated they had touched anything.</p>
+<p>So, I was determined to figure it out- and eventually I did.  They had been deleting confirmation emails from Amazon for a while.  Not enough to flag any system (Amazon, PayPal or my banks), or raise any suspicions from me.  And it was working, too.</p>
+<p>Then, they (presumably) got greedy- they started taking more, and (most importantly) changed my GMail account.  So they went from possibly getting away with a few hundred, to getting nothing.  Whoops.</p>
+<p><strong>How'd It Happen?</strong></p>
+<p>I used the a few of the same passwords over and over again- I know it's not a good idea, but it saved time when typing passwords in.  I didn't have to think, I just typed.  If you add up the seconds it takes to remember your password for a given site (or, the minutes it would take to either get it wrong a few times, or to look it up)- over the past 10 years, I've probably saved a lot of time.  And, nothing bad every happened, so why not?</p>
+<p>There's a lot of things that could have done it.  A virus, or maybe a good phishing attack.  I got caught by the FBAction.net phishing scheme- I opened it on purpose because I wanted to see if it was any good, forgot I opened it, and later instinctively put in my Facebook username and password.  Not my proudest moment, but maybe that was it?</p>
+<p>Or maybe at some point I used my email username and password on some sort of site that eventually got hacked.  Whoever did it could have easily run all the usernames and passwords through a variety of common sites, hoping to get in.</p>
+<p>Either way, it could have been a lot worse.  So, thanks Google, Amazon and PayPal.  I owe you one.</p>{% endblock %}

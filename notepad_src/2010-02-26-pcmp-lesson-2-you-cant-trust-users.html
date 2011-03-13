@@ -1,0 +1,15 @@
+{% extends template %}
+
+{% block title %}PCMP Lesson 2: You Can't Trust Users{% endblock %}
+
+{% block preview %}<em>Over the weekend, I created a small app called </em><em><a href="http://pleasecallmyphone. com" target="_blank">PleaseCallMyPhone.{% endblock %}
+
+{% block content %}<p><em>Over the weekend, I created a small app called </em><em><a href="http://pleasecallmyphone.com" target="_blank">PleaseCallMyPhone.com</a>.  It does just that- it calls your phone.  I made it as a remedy for lost phones, however it is simple enough that you could use it for other things.  It only took me a day to make, however I wanted to share a few quick lessons I learned from making it.</em></p>
+<p>I created Please Call My Phone for me- <em>I</em> kept losing my phone, so <em>I </em>needed a way to find it.  I decided to spruce it up, however, and throw it in my portfolio.  After all, it couldn't hurt.</p>
+<p>Deciding to let anyone use it, however, meant having to cut a few features.  I could no longer let people enter in their own messages, since I knew I'd end up sending out a large number of monotone text-to-speech "I'm going to kill you" messages to unsuspecting recipients.</p>
+<p>I figured my friendly "Hey, this is Gregory from PleaseCallMyPhone.com" message would be enough to dissuade people from using the application for nefarious purposes.  Sure, people could still call their friends numbers- but, why?  What would be the benefit of sending friends a phone call that clearly explains what it is, and how they can block the number?</p>
+<p>I could have limited the calls per phone, or the calls per IP.  But what if someone really couldn't find their phone?  They might need to call it 2-3 times, especially if it's on vibrate (I recommend people add the number to their phones and set the ringer to a non-vibrating one, although I know most people won't be that proactive).  I wanted my application to be as useful as possible.</p>
+<p>I was wrong to trust people.  The amount of people (both friends and people I don't know) who abused the system was unbelievable.  So, I had to take the service offline temporarily until I have time to lock it down.</p>
+<p>I know I should learn, but I'm still surprised by peoples boredom- everything from weird emails from my contact form to finding SQL injection attempts saved in my signup forms.  It's a shame I couldn't make a simple little toy, and have people use it the way I intended it.</p>
+<p>But that's my problem, I suppose.</p>
+<p><em><a href="http://www.blog.gkoberger.net/2010/02/22/pcmp-lesson-1-easy-isnt-easy/">Lesson #1</a> was posted Monday, and Lesson #3 will be posted soon.</em></p>{% endblock %}

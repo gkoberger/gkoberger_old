@@ -1,0 +1,27 @@
+{% extends template %}
+
+{% block title %}A Solution To E-Mail Validation{% endblock %}
+
+{% block preview %}Whenever it comes time to validate an email address, I always end up going through the same exact process. 
+
+I start with a simple regular expression- for example, this:
+
+<code>(.{% endblock %}
+
+{% block content %}<p>Whenever it comes time to validate an email address, I always end up going through the same exact process.</p>
+
+<p>I start with a simple regular expression- for example, this:</p>
+
+<p><code>(.+)@[\w]+\.[a-zA-Z]+</code></p>
+<p>It works great for a majority of email addresses- however, it's not perfect.  It lets through a lot of invalid email addresses. For example, ".name@something.a" is considered a valid email address by this regular expression.  So, let's take a few steps to correct this:</p>
+<p><code>([-a-zA-Z0-9])([-.a-zA-Z0-9])*@[\w]+\.[a-zA-Z]{2,5}</code></p>
+<p>A bit better, right?  But what about valid email addresses, such as <em>john+smith@mail.something.com</em> and <em>$A12345@example.mobile</em>?  Same goes for the seemingly invalid email addresses such as <em>"Abc\@def"@example.com</em>.  But, alas, these <a href="http://tools.ietf.org/html/rfc3696#section-3">are all valid</a>.</p>
+<p><!--more--></p>
+<p>No, I'm not going to even attempt a regex that accommodates these.  Others <a href="http://haacked.com/archive/2007/08/21/i-knew-how-to-validate-an-email-address-until-i.aspx">have tried</a>.  However, it's futile; email validation ends up either being too strict with what it rejects, or too liberal with what it lets through.  Or, in many cases- both.</p>
+<p>But for the sake of argument, let's assume we do create a regex that follows the RFC perfectly.  That still doesn't stop people from getting through with something like <em>youre.bad@validation.com</em>.  Sure, we could even go as far as checking to make sure it's a <a href="http://www.webdigi.co.uk/blog/2009/how-to-check-if-an-email-address-exists-without-sending-an-email/">real, actual email address</a>.  But even then, there is no stopping <em>johnsmith@gmail.com</em>- an email address that surely exists, however probably is not owned by the person filling out the form.</p>
+<p>Depressing, huh?</p>
+<p>Well, what about this one:</p>
+<p><code>(.+)@(.+)</code></p>
+<p>Here's the secret.  This is not a programming problem- it's a usability issue.  <strong>If the user benefits from giving you their real email address, they will.  If not, you should not be asking for an email address.</strong></p>
+<p>It's that simple, really.  Just make sure they at least attempted an email address (otherwise, they may mix up the fields), and throw in a good reason to hand it over- and you will never have a problem.</p>
+<p><em>Thanks to <a href="http://twitter.com/foofy">Chancey Matthews</a> for reminding me checking for an @ symbol is good enough, and haacked.com for <a href="http://haacked.com/archive/2007/08/21/i-knew-how-to-validate-an-email-address-until-i.aspx">reading the RTC</a> so I didn't have to.</em></p>{% endblock %}
