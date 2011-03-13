@@ -6,6 +6,7 @@
 *.rej
 *.swo
 *.swp
+*.swn
 *.vi
 *~
 
@@ -31,5 +32,8 @@ publish
 build/buildinfo.properties
 
 # gkoberger-specific
+app/
 settings.json
-magazine-rendered/*
+
+
+

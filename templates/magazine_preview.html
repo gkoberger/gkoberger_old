@@ -1,0 +1,15 @@
+<li>
+  <a href="magazine/{{ url }}" class="article_icon">
+    <div class="article_icon_inner" id="{{ ns }}">
+      {% block preview %}{% endblock %}
+    </div>
+  </a>
+  <h3 class="title"><a href="magazine/{{ url }}">{% block title %}{% endblock %}</a></h3>
+  {{ date|datetimeformat }}
+  <style>{{ self.preview_css()|namespacer(ns) }}</style>
+  {# <script>
+  (function($el) {
+    {{ self.preview_js() }}
+  })($('#{{ ns }}'));
+</script> #}
+</li>

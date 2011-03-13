@@ -215,12 +215,8 @@ button {  width: auto; overflow: visible; }
 .clearfix { zoom: 1; }
 
 
-
-
-
-
- /* Primary Styles
-    Author: Gregory Koberger
+/* Primary Styles
+Author: Gregory Koberger
  */
 
 body.magazine {
@@ -328,13 +324,13 @@ body.magazine {
  */
 
 
-    body {
-        background-color: #602929;
-        margin: 0;
-    }
-    nav.main {
-         padding-top: 17px;
-        float: right;
+body {
+    background-color: #602929;
+    margin: 0;
+}
+nav.main {
+    padding-top: 17px;
+    float: right;
 }
 
 nav.main a {
@@ -362,33 +358,33 @@ nav.main a:hover {
 .pattern {
     background-image: url("../images/bg-pattern.png");
 }
-    #container {
+#container {
     background-color: #EBEBEA;
     border-top: 1px solid #FFFFFF;
     border-bottom: 1px solid #FFFFFF;
     box-shadow: 0 0 10px #000000;
     margin-top: 15px;
-    }
-    #home #header {
+}
+#home #header {
     background-image: url("../images/bg.png");
     background-repeat: repeat-x;
-    }
-    header, #article {
-        width: 1200px;
-        overflow: auto;
-        margin: auto;
-    }
-    #sections, #notes {
-        width: 1200px;
-        margin: auto;
-    }
+}
+header, #article {
+    width: 1200px;
+    overflow: auto;
+    margin: auto;
+}
+#sections, #notes {
+    width: 1200px;
+    margin: auto;
+}
 
-    #notes {
-        width: 1070px;
-        position: relative;
-    }
+#notes {
+    width: 1070px;
+    position: relative;
+}
 
-    #intro {
+#intro {
     box-shadow: 0 14px 17px -17px #888888;
     color: #444444;
     font-size: 30px;
@@ -397,7 +393,7 @@ nav.main a:hover {
     padding-top: 0.5em;
     text-align: center;
     text-shadow: 1px 1px 1px #FFFFFF;
-    }
+}
 
 #intro a {
     font-weight: bold;
@@ -414,7 +410,7 @@ nav.main a:hover {
     color: #BF4F0F;
 }
 
-    #section_articles ul {
+#section_articles ul {
     list-style: none outside none;
     margin: 0;
     overflow: auto;
@@ -422,11 +418,11 @@ nav.main a:hover {
 }
 
 #section_articles li {
-        float: left;
-         padding-left: 8px;
-         color: #777;
-         font-family: Verdana;
-         font-size: 12px;
+    float: left;
+    padding-left: 8px;
+    color: #777;
+    font-family: Verdana;
+    font-size: 12px;
     margin-left: 14px;
 }
 
@@ -467,7 +463,7 @@ nav.main a:hover {
     margin-left: 21px;
 }
 #section_articles ul li h3 {
-    margin: 0;
+    margin: 10px 0 3px;
 }
 #section_notepad ul li p {
     line-height: 1.5em;
@@ -495,7 +491,7 @@ nav.main a:hover {
     margin: auto;
     padding: 6px;
     width: 142px;
-        margin-top: 30px;
+    margin-top: 30px;
 }
 
 .logo div {
@@ -606,25 +602,25 @@ a#logo.small:hover .logo div {
 }
 
 #logo.small {
-     float: left;
-     margin-top: 13px;
+    float: left;
+    margin-top: 13px;
 }
 
 #logo.small .logo {
-     float: left;
-     height: 45px;
-     margin: 0pt 15px 0pt 0pt;
-     padding: 3px;
-     width: 45px;
+    float: left;
+    height: 45px;
+    margin: 0pt 15px 0pt 0pt;
+    padding: 3px;
+    width: 45px;
 }
 
 #logo.small .logo div {
-     border: 2px solid #CCCCCC;
-     font-size: 40px;
-     height: 41px;
-     line-height: 25px;
-     text-shadow: none;
-     width: 41px;
+    border: 2px solid #CCCCCC;
+    font-size: 40px;
+    height: 41px;
+    line-height: 25px;
+    text-shadow: none;
+    width: 41px;
 }
 
 #logo.small #header_spread h1 {
@@ -637,19 +633,19 @@ a#logo.small:hover .logo div {
 }
 
 #logo.small .subtitle hr {
-     display: none;
+    display: none;
 }
 
 #logo.small #header_spread div.subtitle .subtitle_text {
-     font-size: 13px;
-     padding: 0pt;
-     position: relative;
-     top: 0pt;
+    font-size: 13px;
+    padding: 0pt;
+    position: relative;
+    top: 0pt;
 }
 
 #logo.small #header_spread div.subtitle {
-     margin: 0pt;
-     text-align: left;
+    margin: 0pt;
+    text-align: left;
 }
 
 
@@ -677,7 +673,7 @@ a#logo.small:hover .logo div {
 }
 
 #notebook .note {
-  margin-top: 3em;
+    margin-top: 3em;
     clear: both;
     overflow: auto;
 }
@@ -712,7 +708,7 @@ a#logo.small:hover .logo div {
 }
 
 .text p {
-  color: #333;
+    color: #333;
     line-height: 2em;
     margin-bottom: 1em;
     font-size:16px;
@@ -738,7 +734,7 @@ a#logo.small:hover .logo div {
 
 
 section {
-       padding-bottom: 2em;
+    padding-bottom: 2em;
 }
 
 .article_icon {
@@ -749,6 +745,15 @@ section {
     width: 260px;
     margin-bottom: 5px;
     margin-top: 10px;
+    display: block;
+    text-decoration: none;
+    border: 0;
+}
+
+.article_icon_inner {
+    overflow: hidden;
+    height: 150px;
+    width: 260px;
 }
 
 #section_articles ul li:first-child  {

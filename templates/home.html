@@ -9,11 +9,7 @@
   <section id="section_articles">
     <ul>
       {% for article in articles: %}
-      <li>
-        <div class="article_icon"></div>
-        <h3 class="title">Test title!</h3>
-        July 8, 2010
-      </li>
+        {{ article }}
       {% endfor %}
     </ul>
   </section>
@@ -21,7 +17,6 @@
     <h2 class="title">
       <span class="pattern"><a href="notepad.html">Notepad</a></span>
     </h2>
-    <div class="section_subtitle meta">Brilliant musings too profound to keep to myself.  Or whatever happens to be on my mind.</div>
     <ul>
       {% for note in notes %}
         {{ note }}
@@ -31,6 +26,3 @@
 </div>
 
 {% include "footer.html" %}
-
-
-{{ test }}

@@ -2,105 +2,62 @@ import datetime
 import json
 import os
 import re
+import shutil
 import sys
 import webbrowser
 
 from jinja2 import FileSystemLoader, Environment
 
-def compile(folder):
-    old_folder = 'magazine/%s/source' % folder
-    new_folder = 'magazine/%s' % folder
-
-    # Get the settings.
-    settings_file = open('settings.json')
-    settings = json.load(settings_file)
-
-    # Get the variables.
-    data_file = open('%s/data.json' % old_folder)
-    data = dict(settings.items() + json.load(data_file).items())
-
-    # Set up the header.
-    input = 'magazine-header.html'
-    header = output_file(input, False, data, return_file=True)
-    data.setdefault('header', header)
-
-    # Copy over the article-specific stuff.
-    for file in os.listdir(old_folder):
-        input = '%s/%s' % (old_folder, file)
-        output = '%s/%s' % (new_folder, file)
-        output_file(input, output, data)
-
-    # Integrate it into the main content.
-    data.setdefault('content', open('%s/content.html' % new_folder).read())
-    input = 'magazine-frame.html'
-    output = '%s/index.html' % new_folder
-    output_file(input, output, data)
-
-    # Remove unnecessary files.  I'm looking at you, content.html and data.json.
-    remove_files = ["content.html", "data.json"]
-    for file in remove_files:
-        os.remove('%s/%s' % (new_folder, file))
-
-def output_file(input_file, output_file, data, return_file=False):
-    # Inefficient, but we only do it once so it doesn't matter.
-    input = open(input_file)
-    output_buffer = []
-
-    for line in input:
-        if input_file.endswith("html"):
-            for (k, v) in data.items():
-                line = line.replace("<!-- [%s] -->" % k, v)
-        output_buffer.append(line)
-
-    if output_file:
-        output = open(output_file, 'a')
-        for line in output_buffer:
-            output.write(line)
-        output.close()
-
-    if return_file:
-        return '\n'.join(output_buffer)
-
-def main(f):
-    to_compile = os.listdir("magazine")
-
-    # Rerender each folder.
-    for folder in to_compile:
-        compile(folder)
-
-    # Open if folder passed in
-    if f:
-        webbrowser.open(f)
-
 def compile_home():
     args = {'page': 'home'}
 
     # Notepads
-    to_compile = get_list('notepad')[:5]
+    to_compile = get_list('notepad_src')[:5]
     notes = []
 
+    template = get_template('notepad_preview.html', render=False)
+
     for note in to_compile:
-        d = re.search('(\d{4})-(\d{2})-(\d{2})-(.*).html', note)
-        date = datetime.datetime(int(d.group(1)), int(d.group(2)), int(d.group(3)))
-        slug = d.group(4)
-        notes.append(render_notepad(note, args={'date': date, 'slug': slug, 'preview': True}))
+        notes.append(render_notepad(note['filename'], args={'template': template, 'date': note['date'], 'slug': note['slug'], 'preview': True}))
 
     args['notes'] = notes
 
-    get_template('home.html', args, 'index.html')
+    # Articles
+    to_compile_article = get_list('magazine_src')[:4]
+    articles = []
 
-def render_magazine(template, args={}, output=None):
-    args['template'] = get_template('magazine.html', render=False)
+    template = get_template('magazine_preview.html', render=False)
 
-    get_template(('magazine_src', template), args, output='magazine/%s' % output)
+    for article in to_compile_article:
+        articles.append(render_magazine(article['filename'], args={'url': article['filename'],
+                'date': article['date'],
+                'slug': article['slug'],
+                'template': template}))
+
+    args['articles'] = articles
+
+    get_template('home.html', args, 'app/index.html')
+
+def render_magazine(template, args={}, output=None, render=True):
+    if not 'template' in args:
+        args['template'] = get_template('magazine.html', render=False)
+
+    if 'slug' in args:
+        args['ns'] = "article-%s" % args['slug']
+
+    return get_template(('magazine_src', template), args, output='app/magazine/%s' % output, render=render)
 
 def render_notepad(template, args={}):
-    args['template'] = get_template('notepad.html', render=False)
+    if 'template' not in args:
+        args['template'] = get_template('notepad_single.html', render=False)
 
-    return get_template(('notepad', template), args=args)
+    return get_template(('notepad_src', template), args=args)
 
 def datetimeformat(value, format='%B %d, %Y'):
     return value.strftime(format)
+
+def namespacer(value, namespace):
+    return re.sub('#namespace', '#%s' % namespace, value)
 
 def get_list(folder):
     to_compile = os.listdir(folder)
@@ -109,27 +66,50 @@ def get_list(folder):
 
     to_compile.sort(reverse=True)
 
-    return to_compile
+    return_list = []
+
+    for f in to_compile:
+        d = re.search('(\d{4})-(\d{2})-(\d{2})-(.*).html', f)
+        date = datetime.datetime(int(d.group(1)), int(d.group(2)), int(d.group(3)))
+        slug = d.group(4)
+        return_list.append({'date':date, 'slug':slug, 'filename':f})
+
+    return return_list
 
 def compile_magazines():
     to_compile = get_list('magazine_src')
 
-    for article in to_compile:
-        render_magazine(article, {'page': 'magazine'}, article)
+    for (i, article) in enumerate(to_compile):
+        nav_prev = nav_next = False
+
+        # gosh this is crazy inefficient.
+        if i > 0:
+            nav_next_template = render_magazine(to_compile[i - 1]['filename'], {}, render=False)
+            nav_next = (to_compile[i - 1]['filename'], get_block(nav_next_template, 'title'))
+        if i < len(to_compile) - 1:
+            nav_prev_template = render_magazine(to_compile[i + 1]['filename'], {}, render=False)
+            nav_prev = (to_compile[i + 1]['filename'], get_block(nav_prev_template, 'title'))
+
+        args = {'date': article['date'],
+                'slug': article['slug'],
+                'page': 'magazine',
+                'nav_next': nav_next,
+                'nav_prev': nav_prev}
+
+        render_magazine(article['filename'], args, article['filename'])
+
+def get_block(template, block=''):
+    return''.join([i for i in template.blocks.get(block)({})])
 
 def compile_notepads():
-    to_compile = get_list('notepad')
+    to_compile = get_list('notepad_src')
 
     notes = []
 
     for note in to_compile:
-        d = re.search('(\d{4})-(\d{2})-(\d{2})-(.*).html', note)
-        date = datetime.datetime(int(d.group(1)), int(d.group(2)), int(d.group(3)))
-        slug = d.group(4)
+        notes.append(render_notepad(note['filename'], args={'date': note['date'], 'slug': note['slug'] }))
 
-        notes.append(render_notepad(note, args={'date': date, 'slug': slug}))
-
-    get_template('notepad.html', args={'notes': notes, 'page': 'notebook'}, output='notepad.html')
+    get_template('notepad.html', args={'notes': notes, 'page': 'notebook'}, output='app/notepad.html')
 
 def get_template(template, args={}, output=None, render=True):
 
@@ -144,10 +124,16 @@ def get_template(template, args={}, output=None, render=True):
         template_file = template
 
     env = Environment(loader=loader)
+    env.filters['namespacer'] = namespacer
     env.filters['datetimeformat'] = datetimeformat
-    env.globals = {'base':'file:///Users/gkoberger/Sites/gkoberger/',
+
+    # TODO: move this out
+    fopen = open('settings.json', 'r')
+    settings = json.load(fopen)
+    fopen.close()
+    env.globals = {'base': settings['base'],
                    'year': 2011,
-                   'article_url': get_list('magazine_src')[0]}
+                   'article_url': get_list('magazine_src')[0]['filename']}
 
     template_object = env.get_template(template_file)
 
@@ -157,8 +143,10 @@ def get_template(template, args={}, output=None, render=True):
     rendered = template_object.render(args)
 
     if output:
-        with open(output, 'w') as o:
-           o.write(rendered)
+        # Can't use `with` because my server doesn't support it yet
+        fopen = open(output, 'w')
+        fopen.write(rendered)
+        fopen.close()
 
     return rendered
 
@@ -168,10 +156,16 @@ def get_template(template, args={}, output=None, render=True):
 
     #return template.render(args)
 
+def move_base():
+    shutil.rmtree('app')
+    shutil.copytree('app-base', 'app')
+
+    shutil.copytree('js', 'app/js')
+    shutil.copytree('css', 'app/css')
+    shutil.copytree('images', 'app/images')
 
 if __name__ == '__main__':
-    folder = sys.argv[1] if len(sys.argv) > 2 else None
-    #main(folder)
+    move_base()
 
     compile_notepads()
     compile_magazines()

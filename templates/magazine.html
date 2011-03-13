@@ -6,10 +6,17 @@
   </div>
 
   <div class="magazine_nav">
-    <a href="#" class="prev"><strong>PREV</strong><br>article name</a>
-    <h2 class="title">{{ self.title() }}</h2>
-    <div class="author meta">by {% block author %}<a href="http://gkoberger.net">Gregory Koberger</a>{% endblock %}</div>
-    <a href="#" class="next"><strong>NEXT</strong><br>article name</a>
+    {% if nav_prev %}
+    <a href="{{ base }}/magazine/{{ nav_prev[0] }}" class="prev"><strong>&laquo; PREV</strong><br>{{ nav_prev[1] }}</a>
+    {% endif %}
+    <div class="author">
+      by {% block author %}<a href="http://gkoberger.net">Gregory Koberger</a>{% endblock %}
+      <br>
+      <span>{{ date|datetimeformat }}</span>
+    </div>
+    {% if nav_next %}
+      <a href="{{ base }}/magazine/{{ nav_next[0] }}" class="next"><strong>NEXT &raquo;</strong><br>{{ nav_next[1] }}</a>
+    {% endif %}
   </div>
 
   <div class="magazine_body text">
@@ -19,11 +26,11 @@
 
 <style type="text/css">
   .magazine_header {
-    height: 200px;
+    height: 300px;
   }
   .magazine_header h1 {
-    font-size: 60px;
-    padding-top: 50px;
+    font-size: 90px;
+    padding-top: 70px;
     text-align: center;
     text-shadow: 0 1px 1px #FFFFFF, 0 3px 0 #B6BAB5;
   }
@@ -35,17 +42,36 @@
     position: relative;
   }
 
+  .magazine_nav span {
+    color: #777;
+  }
+
   .magazine_nav .prev {
-    position: absolute;
     left: 0pt;
-    top: 20px;
   }
 
   .magazine_nav .next {
-    position: absolute;
-    right: 0pt;
+    right: 0;
     text-align: right;
-    top: 20px;
+  }
+
+  .magazine_nav .prev, .magazine_nav .next {
+    color: #555555;
+    position: absolute;
+    text-decoration: none;
+    top: 10px;
+  }
+
+  .magazine_nav .prev strong, .magazine_nav .next strong {
+    color: #333;
+  }
+
+  .magazine_nav .prev:hover, .magazine_nav .next strong:hover {
+    color: #333;
+  }
+
+  .magazine_nav .prev:hover strong, .magazine_nav .next strong:hover strong {
+    color: #111;
   }
 
   .magazine_nav h2.title {
