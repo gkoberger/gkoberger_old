@@ -127,10 +127,10 @@ def get_template(template, args={}, output=None, render=True):
     env.filters['namespacer'] = namespacer
     env.filters['datetimeformat'] = datetimeformat
 
-    # TODO: move this out
-    fopen = open('settings.json', 'r')
-    settings = json.load(fopen)
-    fopen.close()
+    settings = {}
+    with open('settings.json', 'r') as f:
+        settings = json.load(f)
+
     env.globals = {'base': settings['base'],
                    'year': 2011,
                    'article_url': get_list('magazine_src')[0]['filename']}
@@ -143,10 +143,8 @@ def get_template(template, args={}, output=None, render=True):
     rendered = template_object.render(args)
 
     if output:
-        # Can't use `with` because my server doesn't support it yet
-        fopen = open(output, 'w')
-        fopen.write(rendered)
-        fopen.close()
+        with open(output, 'w') as o:
+           o.write(rendered)
 
     return rendered
 
