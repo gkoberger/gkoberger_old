@@ -107,12 +107,12 @@ def compile_notepads():
     notes = []
 
     for note in to_compile:
-        notes.append(render_notepad(note['filename'], args={'date': note['date'], 'slug': note['slug'] }))
+        f = render_notepad(note['filename'], args={'date': note['date'], 'slug': note['slug'] })
+        notes.append(f)
 
     get_template('notepad.html', args={'notes': notes, 'page': 'notebook'}, output='app/notepad.html')
 
 def get_template(template, args={}, output=None, render=True):
-
     loader = False
     template_file = False
 
@@ -144,7 +144,12 @@ def get_template(template, args={}, output=None, render=True):
 
     if output:
         with open(output, 'w') as o:
-           o.write(rendered)
+           rendered = unicode(rendered)
+           rendered = rendered.replace(u"\xe9", " ")
+           rendered = rendered.replace(u"\u2019", " ")
+           rendered = rendered.replace(u"\u00A0", " ")
+
+           o.write(unicode(rendered))
 
     return rendered
 

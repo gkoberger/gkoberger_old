@@ -26,51 +26,139 @@ $(function(){
 
 
 function initNotepad() {
+    var articles = $('.note'),
+        smoothScroll = false,
+        window_top = 0;
+
+    $(document).scroll(function(){
+        window_top = $(window).scrollTop();
+        articles.trigger('page-scroll', [window_top]);
+    });
+
+    $('.note').each(function() {
+        var isScrolled = false,
+            $sidebar = $(this).find('.sidebar'),
+            sidebar_top = $sidebar.offset()['top'],
+            $sidebar_scroll = $sidebar.find('.sidebar_scroll'),
+            $text = $(this).find('.text'),
+            $title = $sidebar.find('.sidebar_title'),
+            sidebar_height = $sidebar_scroll.outerHeight(),
+            text_height = $text.outerHeight(),
+            timeout = false,
+            title_height = $title.height();
+
+        //$title.hide();
+
+        $(this).bind("page-scroll", function(e, window_top){
+            if(sidebar_top < window_top || sidebar_top - window_top > 0) {
+                sidebar_top = $sidebar.offset()['top']; // Ugh, typekit's fault
+                var newscroll = window_top - sidebar_top;
+
+                if((newscroll + sidebar_height) > text_height) {
+                    // Below the article
+                    if(! (!isScrolled && smoothScroll)) {
+                      clearTimeout(timeout);
+                      $sidebar_scroll.stop().css({'position': 'absolute', 'top': text_height - sidebar_height });
+                      //$title.show();
+                      isScrolled = true;
+                    }
+                } else {
+                    if(newscroll < 0) {
+                        // Above the article
+                        isScrolled = false;
+                        newscroll = 0;
+                        clearTimeout(timeout);
+                        $sidebar_scroll.stop().css({'position': 'relative', 'top': 0});
+                        //$title.hide();
+                    } else {
+                        // On the article
+                        if(! isScrolled) {
+                            clearTimeout(timeout);
+                            //$sidebar_scroll.css({'position': 'absolute', 'top': title_height * -1});
+                            //$title.show();
+                            timeout = setTimeout(function(){
+                                isScrolled = true;
+                                $sidebar_scroll.animate({'top': newscroll}, function(){
+                                    $sidebar_scroll.css({'position': 'fixed', 'top': 0});
+                                });
+                            }, 550);
+                        } else {
+                            $sidebar_scroll.stop().css({'position': 'fixed', 'top': 0});
+                        }
+                    }
+                }
+            }
+        });
+    });
+
+    $('.nav_next').click(function(){
+        smoothScroll = true;
+          articles.trigger('page-scroll', [window_top]);
+        $('html').animate({scrollTop: $(this).closest('.note').next().offset()['top'] },'slow', function() {
+            smoothScroll = false;
+            articles.trigger('page-scroll', [window_top]);
+        });
+        return false;
+    });
+
+    $('.nav_prev').click(function(){
+        smoothScroll = true;
+        $('html').animate({scrollTop: $(this).closest('.note').prev().offset()['top'] },'slow', function() {
+            smoothScroll = false;
+            articles.trigger('page-scroll', [window_top]);
+        });
+        return false;
+    });
+
+    $('.nav_top').click(function(){
+        smoothScroll = true;
+        $('html').animate({scrollTop: 0} ,'slow', function() {
+            smoothScroll = false;
+            articles.trigger('page-scroll', [window_top]);
+        });
+
+        return false;
+        });
+
   // TODO: Optimize this!!
+    /*
   function scrollSidebar(instant){
     var window_top = $(window).scrollTop();
 
     instant = (instant == true);
 
     $('.note').each(function(){
-      var $sidebar = $(this).find('.sidebar'),
-          sidebar_top = $sidebar.offset()['top'],
-          $sidebar_scroll = $sidebar.find('.sidebar_scroll');
-
-      if(sidebar_top < window_top || sidebar_top > 0) {
+        if(sidebar_top < window_top || sidebar_top > 0) {
         var newscroll = window_top - sidebar_top,
             sidebar_height = $sidebar_scroll.outerHeight(),
             $text = $(this).find('.text'),
             text_height = $text.outerHeight(),
             $title = $sidebar.find('.title');
 
-    console.log($title);
-    console.log((newscroll + sidebar_height) , text_height);
-
         if((newscroll + sidebar_height) > text_height) {
-          /* Below the article */
+          // Below the article
           $sidebar_scroll.css({'position': 'absolute', 'top': text_height - sidebar_height });
           $title.css({'visibility': 'visible'});
         } else {
           if(newscroll < 0) {
-            /* Above the article */
+            // Above the article
               console.log(1);
             newscroll = 0;
             $sidebar_scroll.css({'position': 'relative', 'top': 0});
             $title.css({'visibility': 'hidden'});
           } else {
-            /* On the article */
+            // On the article
             $sidebar_scroll.css({'position': 'fixed', 'top': 0});
             $title.css({'visibility': 'visible'});
           }
         }
       }
     });
+ }
+*/
 
-  }
-
-  scrollSidebar(true);
-  $(document).scroll(scrollSidebar);
+  //scrollSidebar(true);
+  //$(document).scroll(scrollSidebar);
 }
 
 

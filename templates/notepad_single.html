@@ -1,15 +1,27 @@
 <div class="note" id="{{ slug }}">
-  <h2 class="title">{{ self.title() }}</h2>
-  <div class="text">
-    {% block content %}{% endblock %}
-  </div>
-  <div class="sidebar">
-    <div class="sidebar_scroll">
-      <strong class="title">{{ self.title() }}</strong>
-      {{ date|datetimeformat }}<br />
-      by {% block author %}<a href="http://gkoberger.net/">Gregory</a>{% endblock %}<br />
-      0 comments<br />
-      <!-- t f a c -->
+  <div class="title_date gar">{{ date|datetimeformat }}</div>
+  <h2 class="title">
+    <a href="notepad.html#{{ slug }}">{{ self.title() }}</a>
+  </h2>
+  <div class="note_container">
+    <div class="text">
+      {% block content %}{% endblock %}
+    </div>
+    <div class="sidebar">
+      <div class="sidebar_scroll">
+        <!-- <div class="sidebar_title">{{ self.title() }}</div> -->
+        {{ date|datetimeformat }}<br />
+        by {% block author %}<a href="http://gkoberger.net/">Gregory</a>{% endblock %}<br />
+        0 comments<br />
+        <!-- t f a c -->
+        <div class="sidebar_nav">
+          <a href="#" class="nav_prev">&laquo; prev</a>
+          &middot;
+          <a href="#" class="nav_top">top</a>
+          &middot;
+          <a href="#" class="nav_next">next &raquo;</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>

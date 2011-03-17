@@ -4,37 +4,57 @@
 
 {% block preview %}After spending hours upon hours fighting with frameworks, I got fed up.   They are certainly tempting, since they take care of the initial structuring of your program.{% endblock %}
 
-{% block content %}<p>After spending hours upon hours fighting with frameworks, I got fed up.  They are certainly tempting, since they take care of the initial structuring of your program.  However, once you get past that- what do they bring to the table?  Are they really worth the inevitable aggravation?</p>
+{% block content %}<p>After spending hours upon hours fighting with frameworks, I got fed up.  They are certainly tempting, since they take care of the initial
+structuring of your program.  However, once you get past that&mdash; what do they bring to the table?  Are they really worth the inevitable aggravation?</p>
 
 <p>Some people will have thought about this thoroughly, and come to a different conclusion than me.  Others will have just a gut reaction to me saying that procedural programming still has a place in PHP.  Either way, a lot of people are going to disagree.</p>
 
 <p>So, with that, here goes my argument that PHP is already MVC-ready.</p>
 
-<p><strong>Views</strong></p>
-<p>PHP is unique from many compiled, desktop-centric languages in that all presentation is done using a separate language (a markup language, but a language none the less).  Short of XML output and the like, all PHP needs to be <em>echo</em>'d and <em>print</em>'d out among longhand HTML.  Even in my earliest, blissfully-ignorant-to-MVC days, it was apparent that it made more sense to separate the HTML from the PHP.  (Of course, there is a subtle  yet distinct difference between separating the PHP from the HTML, and the logic from the presentation- but remember, I was still MVC-ignorant back then). A simple <em>include</em> does the job.  So, why do we need a framework to do this for us?</p>
+<h3>Views</h3>
+<p>PHP is unique from many compiled, desktop-centric languages in that all presentation is done using a separate language (a markup language, but a language
+none the less).  Short of XML output and the like, all PHP needs to be <em>echo</em>'d and <em>print</em>'d out among longhand HTML.  Even in my earliest,
+blissfully-ignorant-to-MVC days, it was apparent that it made more sense to separate the HTML from the PHP.  (Of course, there is a subtle  yet distinct
+difference between separating the PHP from the HTML, and the logic from the presentation&mdash; but remember, I was still MVC-ignorant back then). A simple <em>include</em> does the job.  So, why do we need a framework to do this for us?</p>
 <p>Of course, you could argue the <a href="http://www.prodevtips.com/2008/02/05/why-php-as-a-templating-language-sucks/" target="_blank">merits</a> or <a href="http://www.massassi.com/php/articles/template_engines/" target="_blank">disadvantages</a> of using a templating engine like Smarty, but the point is moot- none of the major PHP frameworks really have any templating features beyond what an include can do.</p>
-<p><strong>Models</strong></p>
-<p>Models are covered by objects- they take care of the data.  More often than not, the job of the model is to convert raw data (often from a database) into something the controller can work with.  Models take care of the tedious business logic, creating a bridge between the data and the code.  Writing out SQL statements in the controller quickly gets messy- models make it easy to keep the data all in sync, across the entire program.</p>
-<p>One thing that has always bugged me is that in frameworks, you have to load a model before you can use it.  Why?  With PHP, you can <a href="http://us3.php.net/manual/en/language.oop5.autoload.php">automate</a> this- going through a framework just makes debugging even harder.  That's not to say that extending a generic Model class can't help your models- however, we don't need a full <em>framework</em> for that.</p>
-<p><strong>Controller</strong></p>
+
+<h3>Models</h3>
+<p>Models are covered by objects&mdash; they take care of the data.  More often than not, the job of the model is to convert raw data (often from a database)
+into something the controller can work with.  Models take care of the tedious business logic, creating a bridge between the data and the code.  Writing out SQL
+statements in the controller quickly gets messy&mdash; models make it easy to keep the data all in sync, across the entire program.</p>
+<p>One thing that has always bugged me is that in frameworks, you have to load a model before you can use it.  Why?  With PHP, you can <a
+  href="http://us3.php.net/manual/en/language.oop5.autoload.php">automate</a> this&mdash; going through a framework just makes debugging even harder.  That's
+not to say that extending a generic Model class can't help your models&mdash; however, we don't need a full <em>framework</em> for that.</p>
+
+<h3>Controller</h3>
 <p>With me so far?  Well, here is where I will probably lose you.</p>
-<p>First, let's make something clear. I can't say enough good things about OOP- so I'm not even going to bother trying.  Barring "Hello World," I can't think of a single program that would not benefit from OOP.</p>
-<p>However, here's a quote from Rasmus Lerdorf (the creator of PHP):</p>
-<p><blockquote><span>PHP has traditionally been a procedural language, and OOP features have crept in over the years to the point where PHP can be used as a decent OOP language.</span></blockquote></p>
-<p>I never understood why we are so fond of using OOP for the controller portion of MVC.  I understand the arguments for it- however, given the bland, generic way frameworks currently utilize OOP in controllers, it seems it is used more for the sake of being object oriented than because it is the right tool for the job.</p>
+<p>First, let's make something clear. I can't say enough good things about OOP&mdash; so I'm not even going to bother trying.  Barring "Hello World," I can't think of a single program that would not benefit from OOP.</p>
+<p>However, here's a quote from the creator of PHP:</p>
+
+<blockquote><span>PHP has traditionally been a procedural language, and OOP features have crept in over the years to the point where PHP can be used as a decent OOP language.</span></blockquote>
+<cite><strong>Rasmus Ledorf</strong>, creator of PHP</cite>
+
+<p>I never understood why we are so fond of using OOP for the controller portion of MVC.  I understand the arguments for it&mdash; however, given the bland, generic way frameworks currently utilize OOP in controllers, it seems it is used more for the sake of being object oriented than because it is the right tool for the job.</p>
 <p>How about this for an alternative: One index.php file, that takes care of routing.  It can be more flexible, in my opinion, than the regex-based routing implementations in most frameworks.  Yes, I do agree that programming is easier when we can look at a URL and instantly know the class and method the code is in.  However, I also feel there's merit in dropping the "automagic" that happens when a framework handles our routing. (And honestly, I've never worked on a framework based project that had a URL structure that mapped directly to the class-defined structure anyway.)</p>
 <p>If we do it this way, we can move the structure from the classes to actual folders.  We can split the PHP up among a bunch of smaller, procedural files.  On top of that, if we commit to mirroring the URL structure, we don't lose anything in the way of navigating code.</p>
-<p><strong>Libraries and Helpers</p>
-<p></strong></p>
-<p>In the spirit of not reusing code, we can still make liberal use of libraries and helpers- basically, classes or functions that handle any code we may need to use more than once.  These would have to be <em>include</em>'d on a use-by-use basis, of course- but how hard is that?</p>
-<p>In my opinion, the biggest problem with frameworks is they're not very good at letting you do things your way.  For a team of inexperienced or lazy programmers?  This is great, as it makes sure everyone is on the same page and does things the "right" way.  However, more often than not, I find it annoying that I'm suck doing things the frameworks' way.</p>
-<p>JavaScript framework/libraries have it right- you can use them as much as you want, but if for whatever reason you want to use straight JavaScript?  They stay out of your way.  Why can't PHP do it this way?  We should worth with PHP libraries, not frameworks.</p>
-<p><strong>The Benefits</strong></p>
-<p><ul><li>Libraries no longer have to be framework-specific.  This opens us up to a lot more prewritten code that we can utilize.</li></p>
-<p>	<li>Faster.  No matter how fast frameworks are, they're still slower than straight PHP.</li></p>
-<p>	<li>Easier to follow the code, if you don't have to loop in and out of foreign code to debug it.  Using a frameworks loader will often break most PHP IDEs and debuggers.</li></p>
-<p>	<li>Less things that can go wrong.  If something breaks with just PHP, it's either PHP or you (and, more than likely, it's you).  If you are using a framework, there is a third party that could also be at fault.</li></p>
-<p></ul><strong>Conclusion</strong></p>
-<p>Model-View-Controller architectures and Object Oriented programming are fundamental to making intelligent, easy to read applications in PHP.  When we start a program, we need to take the time to think about how we can structure the code in a comprehensible way.  However, we don't necessarily need an MVC framework in order to keep our program separated into models, views and controllers.  PHP is already MVC-ready- so rather than focus on frameworks (which, <a href="http://www.blog.gkoberger.net/2009/07/13/some-codeigniter-gotchas/">in my opinion</a>, tend to be lacking), we should create our own well-thought-out architectures and use libraries for the code we want to outsource to open source.</p>
+
+<h3>Libraries and Helpers</h3>
+<p>In the spirit of not reusing code, we can still make liberal use of libraries and helpers&mdash; basically, classes or functions that handle any code we may
+need to use more than once.  These would have to be <em>include</em>'d on a use-by-use basis, of course&mdash; but how hard is that?</p>
+<p>In my opinion, the biggest problem with frameworks is they're not very good at letting you do things your way.  For a team of inexperienced or lazy
+programmers?  This is great, as it makes sure everyone is on the same page and does things the "right" way.  However, more often than not, I find it annoying
+that I am suck doing things the framework's way.</p>
+<p>JavaScript framework/libraries have it right&mdash; you can use them as much as you want, but if for whatever reason you want to use straight JavaScript?  They stay out of your way.  Why can't PHP do it this way?  We should worth with PHP libraries, not frameworks.</p>
+<h3>The Benefits</h3>
+<ul><li>Libraries no longer have to be framework-specific.  This opens us up to a lot more prewritten code that we can utilize.</li>
+<li>Faster.  No matter how fast frameworks are, they're still slower than straight PHP.</li>
+<li>Easier to follow the code, if you don't have to loop in and out of foreign code to debug it.  Using a frameworks loader will often break most PHP IDEs and debuggers.</li>
+<li>Less things that can go wrong.  If something breaks with just PHP, it is either PHP or you (and, more than likely, it is you).  If you are using a framework, there is a third party that could also be at fault.</li>
+</ul>
+
+<h3>Conclusion</h3>
+<p>Model-View-Controller architectures and Object Oriented programming are fundamental to making intelligent, easy to read applications in PHP.  When we start a
+program, we need to take the time to think about how we can structure the code in a comprehensible way.  However, we don't necessarily need an MVC framework in
+order to keep our program separated into models, views and controllers.  PHP is already MVC-ready&mdash; so rather than focus on frameworks (which, <a href="http://www.blog.gkoberger.net/2009/07/13/some-codeigniter-gotchas/">in my opinion</a>, tend to be lacking), we should create our own well-thought-out architectures and use libraries for the code we want to outsource to open source.</p>
 <p>Sure, it's not as glamorous or trendy as an MVC PHP framework.  But at least <a href="http://toys.lerdorf.com/archives/38-The-no-framework-PHP-MVC-framework.html" target="_blank">one person</a> agrees with me.</p>
-<p><div id="_mcePaste" style="overflow: hidden; position: absolute; left: -10000px; top: 890px; width: 1px; height: 1px;">http://www.blog.gkoberger.net/2009/07/13/some-codeigniter-gotchas/</div></p>{% endblock %}
+{% endblock %}

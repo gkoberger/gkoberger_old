@@ -219,6 +219,23 @@ button {  width: auto; overflow: visible; }
 Author: Gregory Koberger
  */
 
+/* Global Styles */
+
+a:hover {
+    color: #602929 !important;
+    text-decoration: none;
+}
+
+p a:hover {
+    border-bottom: 1px solid #BBB !important;
+}
+
+em {
+    font-style: italic;
+}
+
+/* Other */
+
 body.magazine {
     border-width: 10px 0 0;
     border-style: solid;
@@ -430,13 +447,13 @@ header, #article {
     color: #333333;
     font-size: 23px;
     line-height: 19px;
-    margin: 15px 0 0;
+    margin: 3px 0 0;
     text-shadow: 1px 1px 0 #FFFFFF;
     text-transform: uppercase;
 }
 
 #section_notepad li span {
-    color: #777;
+    color: #AAA;
     font-size: 11px;
 }
 
@@ -548,7 +565,9 @@ header, #article {
     position:relative;
 }
 .amperstand {
-    color: #333;
+    font-family: baskerville;
+    font-style: italic;
+    color: #444;
 }
 
 .subtitle hr {
@@ -665,64 +684,193 @@ a#logo.small:hover .logo div {
 }
 
 #notebook #notes h2.title {
-    text-transform: uppercase;
-    border-bottom: 2px dotted #DDDDDD;
+    border-bottom: 1px dotted #BBBBBB;
+    color: #333333;
     font-size: 40px;
-    margin-left: 0;
-    width: 810px;
+    margin: 10px auto 0.3em;
+    text-align: center;
+    text-transform: uppercase;
+    width: 850px;
+}
+
+#notebook .note .text a {
+    text-decoration: none;
+    border-bottom: 1px solid #CCCCCC;
+    color: #000000;
+}
+
+#notebook #notes .title_date {
+    font-weight: normal;
+    letter-spacing: 3px;
+    position: relative;
+    top: 10px;
+    font-size: 14px;
+    color: #aaa;
+    text-align: center;
 }
 
 #notebook .note {
-    margin-top: 3em;
+    margin-top: 6em;
     clear: both;
     overflow: auto;
 }
 
-#notebook .sidebar {
-    color: #999;
-    float: left;
-    font-size: 14px;
-    line-height: 1.4em;
-    margin-left: 20px;
-    width: 150px;
-    position: relative;
-    margin-top: -10px;
+#notebook .note .note_container {
+    margin: auto;
+    width: 850px;
 }
 
-#notebook .sidebar .title {
-    display: block;
-    font-size: 19px;
+#notebook .sidebar {
+    color: #CCC;
+    float: left;
+    font-size: 14px;
+    line-height: 1em;
+    margin-left: 50px;
+    width: 125px;
+    position: relative;
+}
+
+#notebook .sidebar .sidebar_title {
     padding-bottom: 5px;
-    margin-top: 10px;
-    visibility: hidden;
+    font-weight: bold;
+    color: #888;
+    font-size: 12px;
+    padding-bottom: 5px;
 }
 
 #notebook .sidebar .sidebar_scroll {
+    color: #CCCCCC;
+    font-size: 13px;
+    line-height: 1.3em;
+    padding-top: 20px;
     position: absolute;
+    width: 125px;
 }
+
+#notebook .sidebar a {
+    color: #AAA;
+    text-decoration: none;
+}
+
+#notebook .sidebar a:hover {
+    border-bottom: 1px solid #BBB;
+}
+
+#notebook .sidebar .sidebar_nav {
+    text-align: center;
+    border-top: 1px dotted #CCC;
+    padding-top: 12px;
+    margin-top: 12px;
+    color: #777;
+    font-size: 12px;
+}
+
+#notebook .sidebar .sidebar_nav a {
+    color: #999;
+    text-decoration: none;
+}
+
 
 #notebook .text {
-    padding-top: 17px;
     float: left;
-    width: 660px;
+    margin-left: 150px;
+    padding-top: 1em;
+    text-align: justify;
+    width: 500px;
+    margin-left: 175px;
 }
 
-.text p {
-    color: #333;
-    line-height: 2em;
+.text {
+    color: #555555;
+    font: 17px/29px baskerville,Georgia,"Times New Roman",Times,serif;
+}
+
+#notebook .text p:first-child:first-letter {
+     color: #602929;
+     float: left;
+     font-size: 3.5em;
+     margin-right: 5px;
+     padding-top: 9px;
+}
+
+#notebook .text p:first-child:first-line {
+     text-transform: uppercase;
+}
+
+#notebook .text h3,
+#notebook .text h4 {
+    border-bottom: 1px dotted #CCCCCC;
+    font-size: 25px;
+    margin-bottom: 10px;
+    margin-top: 1.5em;
+    padding-bottom: 10px;
+    text-align: center;
+    font-family: "myriad-pro-condensed-1","myriad-pro-condensed-2",sans-serif;
+}
+
+.text p, .text ul, .text ol {
     margin-bottom: 1em;
-    font-size:16px;
-    font-family: Georgia;
 }
 
+.text li {
+  margin-bottom: 0.5em;
+}
 
+.text code {
+    background-color: #DDDDDD;
+    border-left: 3px solid #CCCCCC;
+    display: block;
+    font-size: 13px;
+    line-height: 1em;
+    margin-bottom: 1em;
+    padding: 10px;
+    text-align: left;
+}
 
+/* From Pure CSS Speech Bubbles
+ * Nicolas Gallagher
+ * http://nicolasgallagher.com/pure-css-speech-bubbles/ */
 
+.text blockquote:after {
+     border-color: #DDDDDD transparent;
+     border-style: solid;
+     border-width: 20px 0pt 0pt 20px;
+     bottom: -20px;
+     content: "";
+     display: block;
+     height: 0pt;
+     left: 50px;
+     position: absolute;
+     width: 0pt;
+}
+
+.text blockquote {
+     background-color: #DDDDDD;
+     border-radius: 10px 10px 10px 10px;
+     color: #555555;
+     line-height: 1.7em;
+     margin: 1em 0pt 2em;
+     padding: 15px;
+     position: relative;
+}
+
+.text blockquote + cite {
+    color: #999;
+    display: block;
+    margin-bottom: 1em;
+    margin-top: -2em;
+    padding-left: 80px;
+}
+
+.text cite strong {
+    color: #666666;
+    font-weight: normal;
+}
 
 #sections #section_notepad h2 {
     font-size: 36px;
     text-shadow: 0 1px 1px #FFFFFF, 0 3px 0 #B6BAB5;
-    margin-bottom: 0;
+    margin-bottom: 10px;
     margin-top: -25px;
     text-align: center;
 }
