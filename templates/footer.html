@@ -15,6 +15,18 @@
   <script src="{{ base }}/js/plugins.js"></script>
   <script src="{{ base }}/js/script.js"></script>
 
+  {% if page == "notebook" %}
+    <script type="text/javascript" src="{{ base }}/js/syntaxhighlighter/scripts/shCore.js"></script>
+    <script type="text/javascript" src="{{ base }}/js/syntaxhighlighter/scripts/shBrushPhp.js"></script>
+    <script type="text/javascript" src="{{ base }}/js/syntaxhighlighter/scripts/shBrushXml.js"></script>
+    <link type="text/css" rel="stylesheet" href="{{ base }}/js/syntaxhighlighter/styles/shCoreDefault.css"/>
+    <script type="text/javascript">
+      SyntaxHighlighter.config.tagName = 'code';
+      SyntaxHighlighter.defaults['toolbar'] = false;
+
+      SyntaxHighlighter.all();</script>
+  {% endif %}
+
   <!--[if lt IE 7 ]>
   <script src="js/libs/dd_belatedpng.js"></script>
   <script>DD_belatedPNG.fix('img, .png_bg'); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>

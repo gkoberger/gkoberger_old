@@ -816,6 +816,7 @@ a#logo.small:hover .logo div {
   margin-bottom: 0.5em;
 }
 
+/*
 .text code {
     background-color: #DDDDDD;
     border-left: 3px solid #CCCCCC;
@@ -826,6 +827,7 @@ a#logo.small:hover .logo div {
     padding: 10px;
     text-align: left;
 }
+*/
 
 /* From Pure CSS Speech Bubbles
  * Nicolas Gallagher

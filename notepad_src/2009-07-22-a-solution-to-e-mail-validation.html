@@ -8,10 +8,10 @@
 
 <p>I start with a simple regular expression&mdash; for example, this:</p>
 
-<code>(.+)@[\w]+\.[a-zA-Z]+</code>
+<code class="brush: php">(.+)@[\w]+\.[a-zA-Z]+</code>
 
 <p>It works great for a majority of email addresses&mdash; however, it is not perfect.  It lets through a lot of invalid email addresses. For example, ".name@something.a" is considered a valid email address by this regular expression.  So, let's take a few steps to correct this:</p>
-<code>([-a-zA-Z0-9])([-.a-zA-Z0-9])*@[\w]+\.[a-zA-Z]{2,5}</code>
+<code class="brush: php">([-a-zA-Z0-9])([-.a-zA-Z0-9])*@[\w]+\.[a-zA-Z]{2,5}</code>
 
 <p>A bit better, right?  But what about valid email addresses, such as <em>john+smith@mail.something.com</em> and <em>$A12345@example.mobile</em>?  Same goes for the seemingly invalid email addresses such as <em>"Abc\@def"@example.com</em>.  But, alas, these <a href="http://tools.ietf.org/html/rfc3696#section-3">are all valid</a>.</p>
 
@@ -27,7 +27,7 @@ there is no stopping <em>johnsmith@gmail.com</em>&mdash; an email address that s
 <p>Depressing, huh?</p>
 
 <p>Well, what about this one:</p>
-<code>(.+)@(.+)</code>
+<code class="brush: php">(.+)@(.+)</code>
 
 <p>Here's the secret.  This is not a programming problem- it's a usability issue.  <strong>If the user benefits from giving you their real email address, they will.  If not, you should not be asking for an email address.</strong></p>
 

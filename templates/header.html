@@ -10,7 +10,13 @@
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>{{ title }} Gregory Koberger</title>
+  <title>
+    {% if title: %}
+      gk :: {{ title }}
+    {% else %}
+      Gregory Koberger
+    {% endif %}
+  </title>
   <meta name="description" content="Portfolio of Gregory Koberger, web developer and user experience designer.">
   <meta name="author" content="Gregory Koberger">
 

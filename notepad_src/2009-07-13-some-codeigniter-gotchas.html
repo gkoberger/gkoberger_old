@@ -20,10 +20,10 @@ struggling with CodeIgniter, I figured I wouldd mention some CodeIgniter-specifi
 making progress- it was time consuming, but it wasn't frustrating.  It felt rewarding- plugging along in Notepad.exe, making slow but steady progress.  Then,
 things changed.  I started using PHP frameworks- and things started to go downhill. Rather than investing my time in programming, I started spending more and more time debugging.  And debugging became harder- after all, frameworks tend to break native error reporting to a certain extent.</p>
 <p>Here is the code:</p>
-<code>$this-&gt;load-&gt;model('whatever');</code>
+<code class="brush: php">$this-&gt;load-&gt;model('whatever');</code>
 <p>Here's the problem- IDEs and even PHP itself has a hard time following that.  A lot of times, errors will show up as being in the Load or Model classes- not helpful, when you know the actual problem is in your code.</p>
 <p>Like, this error:</p>
-<code>Filename: libraries/Model.php
+<code class="brush: php">Filename: libraries/Model.php
 Line Number: 70</code>
 
 <p>The error is in my code, not the file/line given.  Where is it?  Your guess is as good as mine- CodeIgniter isn't telling.</p>
@@ -31,23 +31,23 @@ Line Number: 70</code>
 <h3>Conventions</h3>
 <p>CodeIgniter almost seems to take pride in being illogical when it comes to conventions.  While PHP's conventions may be laughable, CodeIgniter's are prohibitive.</p>
 <p>For example, what is the output of this code? (And, let's assume these two lines are on separate pages- otherwise, the cookie wouldn't yet be set.)</p>
-<code>set_cookie('test', 'value');
-<br>echo get_cookie('test');</code>
+<code class="brush: php">set_cookie('test', 'value');
+echo get_cookie('test');</code>
 <p>I know what you're thinking- and you're wrong.  It's not "test."  For whatever reason (which isn't documented in the documentation), set_cookie() automatically appends the prefix from the config files, while get_cookie() does not.  So, you would have to do the following to get the expected results:</p>
-<code>set_cookie('test', 'value');<br>
+<code class="brush: php">set_cookie('test', 'value');
 echo get_cookie('prefix_test');</code>
 <p>Great, huh?  I'm sure the reason is so that you can read any cookie, however it makes the whole thing incredibly confusing.</p>
 <p>Another example is callbacks.  Maybe this is a standard practice, who knows.  But I don't like it.  In CodeIgniter, for validation, you can specify a rule.  So, something like this:</p>
-<code>$rules['email'] = "required|valid_email|unique_email";</code>
+<code class="brush: php">$rules['email'] = "required|valid_email|unique_email";</code>
 <p>The "unique_email" part is a custom function- and it has to be called unique_email_callback.  I have two problems with this.  One, it's not easy to figure out unless you read the docs- code should be easy to follow.  And, secondly, why are these callback functions written as strings?  This is code- I shouldn't be writing out function names as strings.  It makes it much harder to follow.</p>
 <h3>Attaching Libraries/Models/etc To Everything</h3>
 <p>Maybe the biggest problem is that if you load any sort of library, view, or model- it's attached to every single object.  So, let's say you have an object, with a property called "parent."</p>
 <p>So, this code works:</p>
-<code>echo $whatever-&gt;parent; // Prints out '3'</code>
+<code class="brush: php">echo $whatever-&gt;parent; // Prints out '3'</code>
 <p>Now, somewhere else on your page, in a completely different object, having nothing to do with $whatever, you do this:</p>
-<code>$this-&gt;load-&gt;model('parent');</code>
+<code class="brush: php">$this-&gt;load-&gt;model('parent');</code>
 <p>Your old code?  No longer works:</p>
-<code>echo $whatever-&gt;parent; // No longer '3'</code>
+<code class="brush: php">echo $whatever-&gt;parent; // No longer '3'</code>
 <p>Does this make sense, to a certain extent?  Yes.  Logically, yes.  But, it is incredibly&mdash; you can't have, for example, a model with a 'section' attribute and also have a 'section' model.  This has caused things to break for me more often that anything else- a perfect example of how changing something in one part of the code can affect something completely unrelated.  Something that doesn't happen with straight up PHP.</p>
 <h3>And there's more</h3>
 <p>There's more.  Lots more.  And maybe someday, I will document more of the problems I have with frameworks.  Or maybe I'll switch to something better.
