@@ -42,12 +42,43 @@ function initMobile() {
 {% endblock %}
 
 {% block preview %}
-alskdfjalskdfjalskdfjalskdfjalskdfjalskdfjalksdjfalksdfjalksdfj
+<div class="parallax">
+  <div class="l4_bg"></div>
+  <div class="l3_logo"></div>
+  <div class="l2_name"></div>
+  <div class="l1_bar"></div>
+</div>
 {% endblock %}
 
 {% block preview_css %}
-  #namespace {
-    background-color: red;
+  #namespace .l4_bg {
+    background-image: url(http://technospect.com/project/3/bg.png);
+    width: 270px;
+    height: 160px;
+  }
+
+  #namespace .l3_logo {
+    width: 280px;
+    height: 170px;
+    background-position: center 15px;
+    background-repeat: no-repeat;
+    background-image: url('assets/l3_logo.png');
+  }
+
+  #namespace .l2_name {
+    background-image: url('assets/l2_name.png');
+    width: 290px;
+    height: 180px;
+    background-position: center 120px;
+    background-repeat: no-repeat;
+  }
+
+  #namespace .l1_bar {
+    width: 320px;
+    height: 210px;
+    background-repeat: no-repeat;
+    background-position: 255px 10px;
+    background-image: url('assets/l1_bar.png');
   }
 {% endblock %}
 

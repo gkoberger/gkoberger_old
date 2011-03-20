@@ -9,22 +9,35 @@
   </div> <!--! end of #container -->
 
   <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.4.4.js"%3E%3C/script%3E'))</script>
 
   <script src="{{ base }}/js/plugins.js"></script>
   <script src="{{ base }}/js/script.js"></script>
 
-  {% if page == "notebook" %}
-    <script type="text/javascript" src="{{ base }}/js/syntaxhighlighter/scripts/shCore.js"></script>
-    <script type="text/javascript" src="{{ base }}/js/syntaxhighlighter/scripts/shBrushPhp.js"></script>
-    <script type="text/javascript" src="{{ base }}/js/syntaxhighlighter/scripts/shBrushXml.js"></script>
-    <link type="text/css" rel="stylesheet" href="{{ base }}/js/syntaxhighlighter/styles/shCoreDefault.css"/>
-    <script type="text/javascript">
-      SyntaxHighlighter.config.tagName = 'code';
-      SyntaxHighlighter.defaults['toolbar'] = false;
+  {% if page == "home" %}
+  <script type="text/javascript" src="{{ base }}/js/jquery.event.frame.js"></script>
+  <script type="text/javascript" src="{{ base }}/js/jquery.jparallax.js"></script>
+  <script>
+    $(function() {
+      $('.parallax').children().parallax();
+      $('.parallax').append("<div class='parallax_front'></div>");
+    });
+  </script>
+  {% endif %}
 
-      SyntaxHighlighter.all();</script>
+  {% if page == "notebook" %}
+  <script type="text/javascript" src="{{ base }}/js/syntaxhighlighter/scripts/shCore.js"></script>
+  <script type="text/javascript" src="{{ base }}/js/syntaxhighlighter/scripts/shBrushPhp.js"></script>
+  <script type="text/javascript" src="{{ base }}/js/syntaxhighlighter/scripts/shBrushXml.js"></script>
+  <link type="text/css" rel="stylesheet" href="{{ base }}/js/syntaxhighlighter/styles/shCoreDefault.css"/>
+  <script type="text/javascript">
+    SyntaxHighlighter.config.tagName = 'code';
+    SyntaxHighlighter.defaults['gutter'] = false;
+    SyntaxHighlighter.defaults['toolbar'] = false;
+
+    SyntaxHighlighter.all();
+  </script>
   {% endif %}
 
   <!--[if lt IE 7 ]>

@@ -427,7 +427,7 @@ header, #article {
     color: #BF4F0F;
 }
 
-#section_articles ul {
+#section_articles > ul {
     list-style: none outside none;
     margin: 0;
     overflow: auto;
@@ -465,13 +465,13 @@ header, #article {
     padding-bottom: 5px;
 }
 
-#section_notepad ul {
+#section_notepad > ul {
     overflow: auto;
     margin: 0;
     padding: 0 8px;
 }
 
-#section_notepad ul li {
+#section_notepad > ul li {
     font-family: Verdana;
     font-size: 12px;
     float: left;
@@ -479,10 +479,10 @@ header, #article {
     list-style: none;
     margin-left: 21px;
 }
-#section_articles ul li h3 {
+#section_articles > ul li h3 {
     margin: 10px 0 3px;
 }
-#section_notepad ul li p {
+#section_notepad > ul li p {
     line-height: 1.5em;
     margin-top: 0.5em;
     font-size:14px;
@@ -497,7 +497,7 @@ header, #article {
     text-shadow: 1px 1px 0 #fff;
 }
 
-#section_notepad ul li:first-child {
+#section_notepad > ul li:first-child {
     margin-left: 0;
 }
 
@@ -906,7 +906,26 @@ section {
     width: 260px;
 }
 
-#section_articles ul li:first-child  {
+.article_icon_inner .parallax {
+    position:relative;
+    overflow:hidden;
+    height:150px;
+    width:260px;
+    margin: 0;
+}
+.article_icon_inner .parallax div {
+    position: absolute;
+}
+
+.parallax_front {
+  width: 260px;
+  height: 150px;
+  box-shadow: 0 0 10px #333333 inset;
+  -webkit-box-shadow: 0 0 10px #333333 inset;
+  -moz-box-shadow: 0 0 10px #333333 inset;
+}
+
+#section_articles > ul li:first-child  {
     margin-left: 0;
 }
 

@@ -31,6 +31,7 @@ def compile_home():
     for article in to_compile_article:
         articles.append(render_magazine(article['filename'], args={'url': article['filename'],
                 'date': article['date'],
+                'file': article['filename'],
                 'slug': article['slug'],
                 'template': template}))
 
@@ -56,8 +57,10 @@ def render_notepad(template, args={}):
 def datetimeformat(value, format='%B %d, %Y'):
     return value.strftime(format)
 
-def namespacer(value, namespace):
-    return re.sub('#namespace', '#%s' % namespace, value)
+def namespacer(value, namespace, f):
+    value = re.sub('#namespace', '#%s' % namespace, value)
+    value = re.sub('assets/', 'magazine/%s/' % f.split('.')[0], value)
+    return value
 
 def get_list(folder):
     to_compile = os.listdir(folder)
@@ -95,6 +98,11 @@ def compile_magazines():
                 'page': 'magazine',
                 'nav_next': nav_next,
                 'nav_prev': nav_prev}
+
+        # Move assets
+        template_name = article['filename'].split('.')[0]
+        if os.path.exists('magazine_src/%s' % template_name):
+            shutil.copytree('magazine_src/%s' % template_name, 'app/magazine/%s' % template_name)
 
         render_magazine(article['filename'], args, article['filename'])
 

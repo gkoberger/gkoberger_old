@@ -6,7 +6,7 @@
   </a>
   <h3 class="title"><a href="magazine/{{ url }}">{% block title %}{% endblock %}</a></h3>
   {{ date|datetimeformat }}
-  <style>{{ self.preview_css()|namespacer(ns) }}</style>
+  <style>{{ self.preview_css()|namespacer(ns, file) }}</style>
   {# <script>
   (function($el) {
     {{ self.preview_js() }}
