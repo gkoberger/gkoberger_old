@@ -46,6 +46,8 @@ def render_magazine(template, args={}, output=None, render=True):
     if 'slug' in args:
         args['ns'] = "article-%s" % args['slug']
 
+    args['file'] = template
+
     return get_template(('magazine_src', template), args, output='app/magazine/%s' % output, render=render)
 
 def render_notepad(template, args={}):

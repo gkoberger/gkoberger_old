@@ -236,6 +236,10 @@ em {
 
 /* Other */
 
+#header + div { /* This is either really clever or really bad. */
+    clear: both;
+}
+
 body.magazine {
     border-width: 10px 0 0;
     border-style: solid;
@@ -388,7 +392,6 @@ nav.main a:hover {
 }
 header, #article {
     width: 1200px;
-    overflow: auto;
     margin: auto;
 }
 #sections, #notes {
@@ -660,6 +663,8 @@ a#logo.small:hover .logo div {
     padding: 0pt;
     position: relative;
     top: 0pt;
+    background-color: transparent;
+    background-image: none;
 }
 
 #logo.small #header_spread div.subtitle {
@@ -775,17 +780,17 @@ a#logo.small:hover .logo div {
     float: left;
     margin-left: 150px;
     padding-top: 1em;
-    text-align: justify;
     width: 500px;
     margin-left: 175px;
 }
 
 .text {
+    text-align: justify;
     color: #555555;
     font: 17px/29px baskerville,Georgia,"Times New Roman",Times,serif;
 }
 
-#notebook .text p:first-child:first-letter {
+.text p:first-child:first-letter {
      color: #602929;
      float: left;
      font-size: 3.5em;
@@ -793,7 +798,7 @@ a#logo.small:hover .logo div {
      padding-top: 9px;
 }
 
-#notebook .text p:first-child:first-line {
+.text p:first-child:first-line {
      text-transform: uppercase;
 }
 
@@ -852,8 +857,12 @@ a#logo.small:hover .logo div {
      color: #555555;
      line-height: 1.7em;
      margin: 1em 0pt 2em;
-     padding: 15px;
+     padding: 15px 20px;
      position: relative;
+}
+
+.text blockquote:first-child {
+    margin-top: 0;
 }
 
 .text blockquote + cite {

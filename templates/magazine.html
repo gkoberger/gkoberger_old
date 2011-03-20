@@ -3,7 +3,9 @@
 
 <div id="article">
   <div class="magazine_header">
-    <h1>{% block header %}{% block title %}{% endblock %}{% endblock %}</h1>
+    {% block header %}
+    <h1>{% block title %}{% endblock %}</h1>
+    {% endblock %}
   </div>
 
   <div class="magazine_nav">
@@ -88,5 +90,12 @@
     margin: 2em 15em 0pt;
   }
 
+
 </style>
+
+{{ self.content_css()|namespacer(ns, file) }}
+
+<script>
+  {% block content_js %}{% endblock %}
+</script>
 {% include "footer.html" %}
