@@ -929,9 +929,17 @@ section {
 .parallax_front {
   width: 260px;
   height: 150px;
-  box-shadow: 0 0 10px #333333 inset;
-  -webkit-box-shadow: 0 0 10px #333333 inset;
-  -moz-box-shadow: 0 0 10px #333333 inset;
+  box-shadow: 0 0 5px #666 inset;
+  -webkit-box-shadow: 0 0 5px #666 inset;
+  -moz-box-shadow: 0 0 5px #666 inset;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+}
+
+#section_articles a:hover .parallax_front {
+  box-shadow: 0 0 10px #333 inset;
+  -webkit-box-shadow: 0 0 10px #333 inset;
+  -moz-box-shadow: 0 0 10px #333 inset;
 }
 
 #section_articles > ul li:first-child  {
