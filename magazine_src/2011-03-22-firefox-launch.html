@@ -1,0 +1,260 @@
+{% extends template %}
+
+{% block title %}Site Redesign{% endblock %}
+
+
+{% block header %}
+
+<div id="redesign_outside">
+  <div id="redesign_inside" class="gar">
+    g
+  </div>
+</div>
+
+<div class="redesign_title_container">
+  <div class="gar redesign_title">
+    <div class="r_tl r"></div>
+    <div class="r_tr r"></div>
+    <div class="r_bl r"></div>
+    <div class="r_br r"></div>
+    <div class="r_tm r"></div>
+    <div class="r_lm r"></div>
+    <div class="r_bm r"></div>
+    <div class="r_rm r"></div>
+    site redesign!
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<blockquote>I can never stand still. I must explore and experiment. I am never satisfied with my work. I resent the limitations of my own imagination.</blockquote>
+<cite><strong>Walter Elias Disney</strong></cite>
+
+<p>
+Two years ago, I finished my <a href="http://old.gkoberger.net">prior redesign</a> of my site.  About a year ago, I started a new redesign.  And after months of
+works, it is done.
+</p>
+
+<p>
+Okay, not done.  There are a number of things left to do&mdash; I am missing a bunch of pages, and there are a lot of little details I haven't had time for.
+However, I managed to get to a point where I had most of the major bases covered.
+</p>
+
+<p>A lot has changed since my previous version.  Browsers have caught up to developers and designers&mdash; we no longer have to use images and hacks and Flash
+to get what we want.  And since I work at a company at the forefront of this movement, it seemed wrong not update my site to take full advantage of all the new
+technology we have available to us.</p>
+
+
+
+<p>
+Donec fringilla felis at urna mollis aliquet in nec nisi. Etiam et eros sed nisl ornare bibendum sed eget tellus. Morbi sed blandit mauris. Nulla non metus justo, ac eleifend sapien. Nunc quis viverra augue. Quisque ullamcorper, mi quis condimentum mollis, urna tellus vestibulum erat, sit amet euismod augue orci sed lorem. Maecenas pulvinar leo vitae ligula convallis dapibus. Phasellus sagittis elit justo, vitae auctor velit. Vestibulum eu est a velit tempor ullamcorper. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis ut mauris nunc, at fringilla tortor. Duis at enim sit amet ante auctor ultricies. Aliquam neque sapien, porttitor ut interdum non, porta sed velit. Nulla sollicitudin ornare lacus sed pretium. Duis sapien velit, mollis ac tincidunt non, iaculis non augue. Vivamus fringilla rhoncus sagittis. Cras blandit condimentum neque eget malesuada. Proin aliquam nunc eu ipsum placerat quis dapibus magna auctor. Aliquam et eleifend eros. Nullam id aliquam elit.
+</p>
+{% endblock %}
+
+{% block content_css %}
+<style>
+  body {
+    background-image: url('../assets/top.gif');
+    background-repeat: repeat-x;
+  }
+
+  #container {
+    background-image: url('../assets/bg.gif');
+    -moz-box-shadow: 0 6px 20px #BBBBBB inset;
+    -webkit-box-shadow: 0 6px 20px #BBBBBB inset;
+    box-shadow: 0 6px 20px #BBBBBB inset;
+    border-top: 0px none;
+  }
+
+  .subtitle_text, .subtitle_text .amperstand {
+    color: #333;
+  }
+
+#redesign_outside {
+    background-color: #CCCCCC;
+    border-radius: 150px 150px 150px 150px;
+    height: 150px;
+    margin: auto;
+    padding: 10px;
+    width: 150px;
+    }
+
+#redesign_inside {
+  background-color: rgb(221, 221, 221);
+  border-radius: 150px 150px 150px 150px;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  font-size: 150px;
+  line-height: 85px;
+  color: rgb(255, 255, 255);
+}
+
+.redesign_title {
+    -webkit-transform: rotate(2deg);
+    -moz-transform: rotate(2deg);
+    border: 1px solid #888888;
+    display: inline-block;
+    font-size: 73px;
+    font-weight: bold;
+    margin: 10px auto;
+    padding: 0 10px;
+    position: relative;
+    }
+
+    .r {
+      border: 1px solid #888;
+      background-color: #fff;
+      width: 7px;
+      height: 7px;
+      position: absolute;
+      }
+
+      .r_tl { top: -4px; left: -4px; }
+      .r_tr { top: -4px; right: -4px; }
+      .r_bl { bottom: -4px; left: -4px; }
+      .r_br { bottom: -4px; right: -4px; }
+
+      .r_lm { top: 50%; margin-top: -4px; left: -4px; }
+      .r_tm { left: 50%; margin-left: -4px; top: -4px; }
+      .r_bm { left: 50%; margin-left: -4px; bottom: -4px; }
+      .r_rm { top: 50%; margin-top: -4px; right: -4px; }
+
+      .text p:first-child {
+        color: #000;
+      }
+
+.redesign_title_container {
+  text-align: center;
+}
+
+.magazine_body {
+  margin: 2em 12em 0;
+  background-color: #FFFFFF;
+  border: 1px solid #BBBBBB;
+  -moz-box-shadow: 0 0 15px #BBBBBB;
+  -webkit-box-shadow: 0 0 15px #BBBBBB;
+  box-shadow: 0 0 15px #BBBBBB;
+  padding: 50px;
+}
+
+#logo.small .logo div {
+  border: 0px none;
+  background-color: transparent;
+    font-family: Arial;
+    font-size: 28px;
+    line-height: 41px;
+    width: 100%;
+}
+
+a#logo:hover div.logo svg {
+    margin: 4px -2px;
+  }
+
+a#logo.small:hover .logo div {
+    background-color: transparent;
+    padding-left: 10px;
+}
+
+.logo {
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-box-shadow: 0 0 8px #444;
+  -webkit-box-shadow: 0 0 8px #444;
+  box-shadow: 0 0 8px #444;
+  background-image: -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      color-stop(0.10, rgb(16,53,104)),
+      color-stop(0.75, rgb(44,106,213))
+  );
+  background-image: -moz-linear-gradient(
+      center bottom,
+      rgb(16,53,104) 10%,
+      rgb(44,106,213) 75%
+  );
+}
+
+.site a {
+  color: blue !important;
+}
+
+.mobile a {
+  color: green !important;
+}
+</style>
+{% endblock %}
+
+{% block content_js %}
+function initBoth() {
+  $('.logo div span').text("Gk");
+}
+
+function initSite() {
+  alert('site');
+}
+
+function initMobile() {
+  alert('mobile');
+}
+{% endblock %}
+
+{% block preview %}
+<div class="parallax">
+  <div class="logo_safari"></div>
+  <div class="logo_chrome"></div>
+  <div class="logo_opera"></div>
+  <div class="logo_ie"></div>
+  <div class="logo_fx"></div>
+</div>
+{% endblock %}
+
+{% block preview_css %}
+  #namespace .parallax {
+    background-color: #CCC;
+  }
+
+  #namespace .logo_fx {
+    background-image: url('assets/fx.png');
+    width: 270px;
+    height: 160px;
+    background-repeat: no-repeat;
+    background-position: center 0px;
+  }
+
+  #namespace .logo_ie {
+    background-image: url('assets/ie.png');
+    width: 280px;
+    height: 170px;
+    background-repeat: no-repeat;
+    background-position: -98px 53px;
+  }
+
+  #namespace .logo_opera {
+    background-image: url('assets/opera.png');
+    width: 360px;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-position: -10px 13px;
+  }
+
+  #namespace .logo_safari {
+    background-image: url('assets/safari.png');
+    width: 330px;
+    height: 220px;
+    background-repeat: no-repeat;
+    background-position: 148px -13px;
+  }
+
+  #namespace .logo_chrome {
+    background-image: url('assets/chrome.png');
+    width: 290px;
+    height: 180px;
+    background-repeat: no-repeat;
+    background-position: 148px 35px;
+  }
+
+{% endblock %}
+
