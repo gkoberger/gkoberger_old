@@ -22,6 +22,11 @@ $(function(){
     if($('#notebook').length > 0) {
       initNotepad();
     }
+
+    $('.parallax').each(function(){
+        $(this).children().parallax();
+    });
+    $('.parallax').append("<div class='parallax_front'></div>");
 });
 
 
