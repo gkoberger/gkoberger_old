@@ -381,6 +381,7 @@ nav.main a:hover {
 }
 #container {
     background-color: #EBEBEA;
+    min-width: 1200px;
     border-top: 1px solid #FFFFFF;
     border-bottom: 1px solid #FFFFFF;
     box-shadow: 0 0 10px #000000;
