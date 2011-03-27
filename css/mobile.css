@@ -13,7 +13,8 @@ nav.main {
     font-size: 10px;
 }
 
-nav.main a {
+nav.main a,
+nav.main a:last-child {
     font-size: 10px;
     margin: 0 3px;
 }
