@@ -203,18 +203,26 @@ function initMobile() {
 
 {% block preview %}
 <div class="parallax">
-  <div class="l4_bg"></div>
-  <div class="l3_logo"></div>
-  <div class="l2_name"></div>
-  <div class="l1_bar"></div>
+  <div class="bg gar">g</div>
 </div>
 {% endblock %}
 
 {% block preview_css %}
-  #namespace .l4_bg {
+  #namespace .bg {
     background-image: url('assets/bg.gif');
-    width: 270px;
-    height: 160px;
+    background-position: 11px 8px;
+    color: #333333;
+    font-size: 200px;
+    height: 150px;
+    line-height: 67px;
+    text-align: center;
+    width: 260px;
+     -webkit-transition: color 0.3s ease-in-out ;
+     -moz-transition: color 0.3s ease-in-out;
+  }
+
+  #namespace:hover .bg {
+    color: #7A1818;
   }
 
   #namespace .l3_logo {

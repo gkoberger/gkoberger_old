@@ -23,13 +23,13 @@
   </div>
 
   <div class="magazine_body text">
-    {% block content %}{% endblock %}
+    {{ self.content()|namespacer(ns, file) }}
   </div>
 </div>
 
 <style type="text/css">
   .magazine_header {
-    height: 300px;
+    height: 420px;
   }
   .magazine_header h1 {
     font-size: 90px;

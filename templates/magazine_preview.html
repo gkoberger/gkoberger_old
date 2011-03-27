@@ -1,10 +1,16 @@
 <li>
-  <a href="magazine/{{ url }}" class="article_icon">
-    <div class="article_icon_inner" id="{{ ns }}">
+  <a href="magazine/{{ url }}" class="article_icon" id="{{ ns }}">
+    <div class="article_icon_inner">
       {% block preview %}{% endblock %}
     </div>
   </a>
-  <h3 class="title"><a href="magazine/{{ url }}">{% block title %}{% endblock %}</a></h3>
+  <h3 class="title"><a href="magazine/{{ url }}">
+      {% if short_title %}
+        {{ short_title }}
+      {% else %}
+        {{ self.title() }}
+        {% endif %}
+    </a></h3>
   {{ date|datetimeformat }}
   <style>{{ self.preview_css()|namespacer(ns, file) }}</style>
   {# <script>
