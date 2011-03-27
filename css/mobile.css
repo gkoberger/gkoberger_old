@@ -3,6 +3,10 @@ header {
     text-align: center;
 }
 
+#container {
+    min-width: auto;
+}
+
 nav.main {
     float: none;
     margin-left: 15px;
@@ -10,7 +14,7 @@ nav.main {
 }
 
 nav.main a {
-    font-size: 15px;
+    font-size: 10px;
     margin: 0 3px;
 }
 
