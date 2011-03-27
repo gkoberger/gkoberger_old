@@ -6,10 +6,12 @@ header {
 nav.main {
     float: none;
     margin-left: 15px;
+    font-size: 10px;
 }
 
 nav.main a {
     font-size: 15px;
+    margin: 0 3px;
 }
 
 #header_spread h1 {
