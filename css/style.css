@@ -967,6 +967,11 @@ footer a:hover {
     text-decoration: underline;
 }
 
+#detect_mobile {
+    width: 1px;
+    height: 1px;
+}
+
 
 /*
  * media queries for responsive design
