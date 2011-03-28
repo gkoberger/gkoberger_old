@@ -103,7 +103,7 @@ header, #article {
 a#logo.small {
     float: none;
     margin: auto;
-    width: 339px;
+    width: auto;
 }
 
 a#logo.small .logo {
