@@ -79,8 +79,21 @@ header, #article {
     width: auto
 }
 
-.mobile .magazine_header {
+.magazine_header {
     height: auto;
+}
+
+.text p {
+    font-size: 14px;
+    line-height: 1.3em;
+}
+
+.magazine_body {
+    margin: 20px;
+}
+
+.magazine_body {
+    max-width: 100%;
 }
 
 /* Small Logo */
