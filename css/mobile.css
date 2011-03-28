@@ -9,7 +9,7 @@ header {
 
 nav.main {
     float: none;
-    margin-left: 15px;
+    margin: 0;
     font-size: 10px;
 }
 
@@ -60,10 +60,39 @@ nav.main a:last-child {
     border-bottom: 1px dotted #aaa;
 }
 
-#section_notepad {
-    display: none;
+/* Notepad - Front Page */
+#section_notepad > ul li {
+    float: none;
+    margin: 0 0 20px;
 }
 
+#section_notepad > ul {
+    margin: auto;
+    overflow: auto;
+    padding: 0 8px;
+    text-align: center;
+    width: 220px;
+}
+
+/* Small Logo */
+a#logo.small {
+    float: none;
+    margin: auto;
+    width: 339px;
+}
+
+a#logo.small .logo {
+    float: none;
+    margin: auto;
+}
+
+#logo.small #header_spread h1,
+#logo.small #header_spread div.subtitle {
+    text-align: center;
+    width: auto;
+}
+
+/* Footer */
 footer {
     width: auto;
 }
