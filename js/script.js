@@ -5,8 +5,6 @@ $(function(){
         $('body').addClass('screen');
     }
 
-    alert($('body').attr('class'));
-
     if(typeof initBoth == 'function') {
       initBoth();
     }

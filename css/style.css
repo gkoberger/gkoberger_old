@@ -678,8 +678,69 @@ a#logo.small:hover .logo div {
     text-align: left;
 }
 
+/* Articles */
+.magazine_header {
+    height: 420px;
+}
 
+.magazine_header h1 {
+    font-size: 90px;
+    padding-top: 70px;
+    text-align: center;
+    text-shadow: 0 1px 1px #FFFFFF, 0 3px 0 #B6BAB5;
+}
 
+.magazine_nav {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+    position: relative;
+}
+
+.magazine_nav span {
+    color: #777;
+}
+
+.magazine_nav .prev {
+    left: 0pt;
+}
+
+.magazine_nav .next {
+    right: 0;
+    text-align: right;
+}
+
+.magazine_nav .prev, .magazine_nav .next {
+    color: #555555;
+    position: absolute;
+    text-decoration: none;
+    top: 10px;
+}
+
+.magazine_nav .prev strong, .magazine_nav .next strong {
+    color: #333;
+}
+
+.magazine_nav .prev:hover, .magazine_nav .next strong:hover {
+    color: #333;
+}
+
+.magazine_nav .prev:hover strong, .magazine_nav .next strong:hover strong {
+    color: #111;
+}
+
+.magazine_nav h2.title {
+    text-align: center;
+    font-size: 30px;
+}
+
+.magazine_nav .author {
+    text-align: center;
+}
+
+.magazine_body {
+    margin: 2em 15em 0pt;
+}
 
 /* Notebook */
 

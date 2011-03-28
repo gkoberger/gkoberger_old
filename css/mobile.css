@@ -10,8 +10,8 @@ header {
 }
 
 nav.main {
-    float: none
-    margin: 0;
+    float: none;
+    margin: 0 auto;
     font-size: 10px;
 }
 
@@ -94,7 +94,7 @@ header, #article {
     margin: 20px;
 }
 
-.magazine_body {
+.magazine_body img {
     max-width: 100%;
 }
 
