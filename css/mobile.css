@@ -74,6 +74,15 @@ nav.main a:last-child {
     width: 220px;
 }
 
+/* Article Page */
+header, #article {
+    width: auto
+}
+
+.mobile .magazine_header {
+    height: auto;
+}
+
 /* Small Logo */
 a#logo.small {
     float: none;
