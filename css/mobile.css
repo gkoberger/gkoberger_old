@@ -99,6 +99,33 @@ header, #article {
     max-width: 100%;
 }
 
+code {
+    background-color: #ccc;
+    font-size: 11px;
+    margin-bottom: 10px;
+}
+
+/* Notepad Page */
+#notebook #notes,
+#notebook #notes h2.title,
+#notebook .note .note_container{
+    width: auto;
+}
+
+#notebook img {
+    width: 100%;
+}
+
+#notebook .text {
+    width: auto;
+    padding: 1em;
+    margin: 0;
+}
+
+#notebook .sidebar {
+    display: none;
+}
+
 /* Small Logo */
 a#logo.small {
     float: none;
