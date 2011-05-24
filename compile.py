@@ -18,7 +18,9 @@ def compile_home():
     template = get_template('notepad_preview.html', render=False)
 
     for note in to_compile:
-        notes.append(render_notepad(note['filename'], args={'template': template, 'date': note['date'], 'slug': note['slug'], 'preview': True}))
+        args_np={'template': template, 'date': note['date'],
+                 'slug': note['slug'], 'preview': True}
+        notes.append(render_notepad(note['filename'], args=args_np))
 
     args['notes'] = notes
 
@@ -29,7 +31,8 @@ def compile_home():
     template = get_template('magazine_preview.html', render=False)
 
     for article in to_compile_article:
-        articles.append(render_magazine(article['filename'], args={'url': article['filename'],
+        articles.append(render_magazine(article['filename'], args={
+                'url': article['filename'],
                 'date': article['date'],
                 'file': article['filename'],
                 'slug': article['slug'],
@@ -48,7 +51,8 @@ def render_magazine(template, args={}, output=None, render=True):
 
     args['file'] = template
 
-    return get_template(('magazine_src', template), args, output='app/magazine/%s' % output, render=render)
+    return get_template(('magazine_src', template), args, render=render,
+                        output='app/magazine/%s' % output)
 
 def render_notepad(template, args={}):
     if 'template' not in args:
@@ -58,6 +62,24 @@ def render_notepad(template, args={}):
 
 def datetimeformat(value, format='%B %d, %Y'):
     return value.strftime(format)
+
+def footnoter(value):
+    i = 1
+    match = "\(\(\(((?:.|\n)*?)\)\)\)"
+    link = "<sup id='fnc-%s'>[<a href='#fn-%s'>%s</a>]</sup>"
+    footnote = "<li id='fn-%s'>%s [<a href='#fnc-%s'>&#x21A9;</a>]</li>"
+
+    fns = []
+
+    while re.search(match, value):
+        footnote_text = re.search(match, value)
+        value = re.sub(match, link % (i, i, i), value, 1)
+        fns.append(footnote % (i, footnote_text.group(1), i))
+        i += 1
+
+    if fns:
+        value = value + ("<ol class='footnotes'>%s</ol>" % '\n'.join(fns))
+    return value
 
 def namespacer(value, namespace, f):
     value = re.sub('#namespace', '#%s' % namespace, value)
@@ -134,6 +156,7 @@ def get_template(template, args={}, output=None, render=True):
         template_file = template
 
     env = Environment(loader=loader)
+    env.filters['footnoter'] = footnoter
     env.filters['namespacer'] = namespacer
     env.filters['datetimeformat'] = datetimeformat
 

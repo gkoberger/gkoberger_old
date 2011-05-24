@@ -165,7 +165,7 @@ input:invalid, textarea:invalid {
 
 /* These selection declarations have to be separate.
    No text-shadow: twitter.com/miketaylr/status/12228805301 */
-::-moz-selection{ background: #BF8585; color:#fff; text-shadow: none; }
+::-moz-selection{ background: #602929; color:#fff; text-shadow: none; }
 ::selection { background:#FF5E99; color:#fff; text-shadow: none; }
 
 /*  j.mp/webkit-tap-highlight-color */
@@ -325,12 +325,14 @@ body.magazine {
     font-weight: 600;
 }
 
+a .title,
 .title a {
     color: #333333;
     text-decoration: none;
 }
 
-.title a:hover {
+.title a:hover,
+a:hover .title {
     color: #8B4242;
 }
 
@@ -389,7 +391,6 @@ nav.main a:hover {
     margin-top: 15px;
 }
 #home #header {
-    background-image: url("../images/bg.png");
     background-repeat: repeat-x;
 }
 header, #article {
@@ -448,13 +449,20 @@ header, #article {
     margin-left: 14px;
 }
 
+#section_articles li > a {
+    display: block;
+    color: #666;
+    text-decoration: none;
+}
+
 #sections h3 {
-    color: #333333;
     font-size: 23px;
     line-height: 19px;
     margin: 3px 0 0;
     text-shadow: 1px 1px 0 #FFFFFF;
     text-transform: uppercase;
+    -webkit-transition: color 0.2s ease-in;
+    -moz-transition: color 0.2s ease-in;
 }
 
 #section_notepad li span {
@@ -542,6 +550,7 @@ header, #article {
     width: 500px;
     z-index: 105;
     margin-top: 15px;
+    font-weight: normal;
 }
 #header_spread h1 span {
     z-index: 105;
@@ -613,8 +622,7 @@ a#logo.small {
     display: block;
 }
 
-a#logo.small:hover #header_spread h1,
-a#logo.small:hover #header_spread div.subtitle .subtitle_text {
+a#logo.small:hover #header_spread h1 {
     color: #8B4242;
 }
 
@@ -693,7 +701,7 @@ a#logo.small:hover .logo div {
 .magazine_nav {
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
-    padding: 10px 0;
+    padding: 10px;
     position: relative;
 }
 
@@ -702,11 +710,11 @@ a#logo.small:hover .logo div {
 }
 
 .magazine_nav .prev {
-    left: 0pt;
+    left: 10px;
 }
 
 .magazine_nav .next {
-    right: 0;
+    right: 10px;
     text-align: right;
 }
 
@@ -766,9 +774,14 @@ a#logo.small:hover .logo div {
 }
 
 #notebook .note .text a {
+    border-bottom: 1px dotted #AAAAAA;
+    color: #5E1818;
     text-decoration: none;
-    border-bottom: 1px solid #CCCCCC;
-    color: #000000;
+}
+
+#notebook .note .text a:hover {
+    color: #000;
+    border-bottom: 1px solid #777;
 }
 
 #notebook #notes .title_date {
@@ -1007,6 +1020,14 @@ section {
 
 #section_articles > ul li:first-child  {
     margin-left: 0;
+}
+
+.footnotes {
+    border-top: 1px solid #666666;
+    color: #333333;
+    font-size: 14px;
+    list-style-position: inside;
+    margin: 1em 0 0;
 }
 
 footer {

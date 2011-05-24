@@ -1,15 +1,15 @@
 {% extends template %}
 
-{% block title %}Why You Shouldn't Use Firefox (And Why Mozilla Won't Mind){% endblock %}
+{% block title %}You Don't Have to Use Firefox (And Why Mozilla Does't Mind){% endblock %}
 
-{% set short_title = "Why You Shouldn't Use Firefox" %}
+{% set short_title = "You Don't Have to Use Firefox" %}
 
 {% block header %}
 <div id="logo_fx"></div>
 <h1 class="meta">
-  Why You Shouldn&rsquo;t Use Firefox
+  You Don&rsquo;t Have to Use Firefox
 </h1>
-<h2 class="meta">(And Why Mozilla Won&rsquo;t Mind)</h2>
+<h2 class="meta">(And Why Mozilla Doesn&rsquo;t Mind)</h2>
 {% endblock %}
 
 {% block content %}
@@ -106,7 +106,8 @@ and is no longer a choice forced upon you.  The fact that you have an equal choi
 
 <a target="_blank" href="http://www.mozilla.com/products/download.html" id="download" class="meta">Download Firefox 4</a>
 <p class="download_other">And, in the spirit of this article: &nbsp;<a target="_blank" href="http://www.google.com/chrome/index.html?">Chrome</a> &middot; <a target="_blank" href="http://www.apple.com/safari/">Safari</a>
-&middot; <a target="_blank" href="http://www.opera.com/">Opera</a></p>
+&middot; <a target="_blank" href="http://www.opera.com/">Opera</a>(((I didn't include Internet Explorer because I don't believe it is a proper alternative.
+While it has come a long way since IE6, it is still far behind the other "modern browers".)))</p>
 
 {% endblock %}
 
@@ -117,13 +118,13 @@ and is no longer a choice forced upon you.  The fact that you have an equal choi
   }
 
   a, a:active, a:visited {
-    color: #9AD4DE;
+    color: #DE7211;
     text-decoration: none;
   }
 
   a:hover {
     color: #5DA0AB;
-    border-bottom: 1px solid #5DA0AB;
+    border-bottom: 1px solid #FFF;
   }
 
   #container {
@@ -222,12 +223,23 @@ and is no longer a choice forced upon you.  The fact that you have an equal choi
 
   .text p:first-child:first-letter {
     color: #DE7211;
+    font-family: Georgia, Garamond, Times New Roman, Serif;
   }
 
   .text p {
     color: #DDDDDD;
-    font-family: Georgia, Garamond, Times New Roman, Serif;
-    font-size: 18px;
+  }
+
+  .text p,
+  .text blockquote,
+  .text cite {
+    font-family: "ff-meta-web-pro-1","ff-meta-web-pro-2",sans-serif;
+    font-size: 15px;
+    font-weight: normal;
+  }
+
+  .text cite strong {
+    color: #eee;
   }
 
   .text p.download_other {
@@ -258,6 +270,11 @@ and is no longer a choice forced upon you.  The fact that you have an equal choi
   #download:hover {
     -moz-transition: box-shadow 0.2s ease-in-out 0s;
     box-shadow: 0 3px rgba(0, 0, 0, 0.15), 0 -4px rgba(0, 0, 0, 0.15) inset, 0 0 80px rgba(0, 0, 0, 0.3) inset;
+  }
+
+  .footnotes {
+    color: #aaa;
+    border-top-color: #aaa;
   }
 
   .mobile h1, .mobile h2{
