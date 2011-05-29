@@ -1,5 +1,5 @@
 $(function(){
-    if($('#detect_mobile').is(':hidden')) {
+    if($('#detect_mobile').is(':hidden') || location.hash == "#mobile") {
         $('body').addClass('mobile');
     } else {
         $('body').addClass('screen');
@@ -9,7 +9,7 @@ $(function(){
       initBoth();
     }
 
-    if($('body').hasClass('.mobile')) {
+    if($('body').hasClass('mobile')) {
       if(typeof initMobile == 'function') {
         initMobile();
       }
@@ -22,6 +22,12 @@ $(function(){
     if($('#notebook').length > 0) {
       initNotepad();
     }
+
+    /* for testing */
+    if(location.hash == "#mobile") {
+        $('head').append($('<link rel="stylesheet" href="/css/mobile.css">'));
+    }
+
     /*
     $('.parallax').each(function(){
         $(this).children().parallax();

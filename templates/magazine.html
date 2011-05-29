@@ -1,6 +1,7 @@
 {% set title = "%s [article]" % self.title() %}
-{% include "header.html" %}
+{% extends "parent.html" %}
 
+{% block body %}
 <div id="article">
   <div class="magazine_header">
     {% block header %}
@@ -8,28 +9,43 @@
     {% endblock %}
   </div>
 
-  <div class="magazine_nav">
-    {% if nav_prev %}
-    <a href="{{ base }}/magazine/{{ nav_prev[0] }}" class="prev"><strong>&laquo; PREV</strong><br>{{ nav_prev[1] }}</a>
-    {% endif %}
-    <div class="author">
-      by {% block author %}<a href="http://gkoberger.net">Gregory Koberger</a>{% endblock %}
-      <br>
-      <span>{{ date|datetimeformat }}</span>
+  <div class="magazine_body_container">
+    <div class="magazine_nav">
+      {% if nav_next %}
+      <a href="{{ base }}/magazine/{{ nav_next[0] }}" class="next">
+        <span class="arrow">&laquo;</span>
+        <strong>OLDER</strong>
+        <span class="nav_title">
+          {{ nav_next[1] }}
+        </span>
+      </a>
+      {% endif %}
+      <div class="magazine_meta">
+        <div class="meta_author">
+          by {% block author %}<a href="http://gkoberger.net">Gregory Koberger</a>{% endblock %}
+        </div>
+        <div class="meta_date">
+          <span>{{ date|datetimeformat }}</span>
+        </div>
+      </div>
+      {% if nav_prev %}
+      <a href="{{ base }}/magazine/{{ nav_prev[0] }}" class="prev">
+        <span class="arrow">&raquo;</span>
+        <strong>NEWER</strong>
+        <span class="nav_title">
+          {{ nav_prev[1] }}
+        </span>
+      </a>
+      {% endif %}
     </div>
-    {% if nav_next %}
-      <a href="{{ base }}/magazine/{{ nav_next[0] }}" class="next"><strong>NEXT &raquo;</strong><br>{{ nav_next[1] }}</a>
-    {% endif %}
-  </div>
 
-  <div class="magazine_body text">
-    {{ self.content()|namespacer(ns, file)|footnoter }}
+    <div class="magazine_body text">
+      {{ self.content()|namespacer(ns, file)|footnoter }}
+    </div>
   </div>
 </div>
 
 {{ self.content_css()|namespacer(ns, file) }}
 
-<script>
-  {% block content_js %}{% endblock %}
-</script>
-{% include "footer.html" %}
+{% block content_js %}{% endblock %}
+{% endblock %}

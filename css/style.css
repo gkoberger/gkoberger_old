@@ -166,7 +166,7 @@ input:invalid, textarea:invalid {
 /* These selection declarations have to be separate.
    No text-shadow: twitter.com/miketaylr/status/12228805301 */
 ::-moz-selection{ background: #602929; color:#fff; text-shadow: none; }
-::selection { background:#FF5E99; color:#fff; text-shadow: none; }
+::selection { background:#602929; color:#fff; text-shadow: none; }
 
 /*  j.mp/webkit-tap-highlight-color */
 a:link { -webkit-tap-highlight-color: #FF5E99; }
@@ -353,8 +353,10 @@ body {
 }
 
 nav.main {
+    position: absolute;
+    right: 0;
     padding-top: 17px;
-    float: right;
+    z-index: 100;
 }
 
 nav.main a {
@@ -392,6 +394,9 @@ nav.main a:hover {
 }
 #home #header {
     background-repeat: repeat-x;
+}
+header {
+    position: relative;
 }
 header, #article {
     width: 1200px;
@@ -436,7 +441,7 @@ header, #article {
 #section_articles > ul {
     list-style: none outside none;
     margin: 0;
-    overflow: auto;
+    overflow: hidden;
     padding: 0;
 }
 
@@ -602,6 +607,11 @@ header, #article {
 
 /* Logo */
 
+#logo {
+    position: relative;
+    z-index: 1000;
+}
+
 #logo div svg {
     display: none;
 }
@@ -701,40 +711,52 @@ a#logo.small:hover .logo div {
 .magazine_nav {
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
-    padding: 10px;
+    padding: 10px 0;
     position: relative;
 }
 
-.magazine_nav span {
-    color: #777;
+.magazine_nav .arrow {
+    font-family: Baskerville,Georgia;
+    font-size: 53px;
+    line-height: 0.35em;
+    opacity: 0.5;
+    padding: 0 10px;
+}
+.magazine_nav .prev .arrow {
+    float: right;
+}
+.magazine_nav .next .arrow {
+    float: left;
 }
 
 .magazine_nav .prev {
-    left: 10px;
-}
-
-.magazine_nav .next {
-    right: 10px;
+    right: 0px;
     text-align: right;
 }
 
 .magazine_nav .prev, .magazine_nav .next {
-    color: #555555;
+    color: #222;
     position: absolute;
     text-decoration: none;
     top: 10px;
+    width: 400px;
 }
 
 .magazine_nav .prev strong, .magazine_nav .next strong {
-    color: #333;
+    opacity: 0.8;
+    display: block;
+    font-family: Baskerville,Georgia;
+    font-size: 1.3em;
+    line-height: 1em;
 }
 
-.magazine_nav .prev:hover, .magazine_nav .next strong:hover {
-    color: #333;
+.magazine_nav .nav_title {
+    opacity: 0.5;
 }
 
-.magazine_nav .prev:hover strong, .magazine_nav .next strong:hover strong {
-    color: #111;
+.magazine_nav a:hover .arrow,
+.magazine_nav a:hover strong {
+    opacity: 1;
 }
 
 .magazine_nav h2.title {
@@ -742,7 +764,7 @@ a#logo.small:hover .logo div {
     font-size: 30px;
 }
 
-.magazine_nav .author {
+.magazine_nav .magazine_meta {
     text-align: center;
 }
 
@@ -871,11 +893,15 @@ a#logo.small:hover .logo div {
 }
 
 .text p:first-child:first-letter {
-     color: #602929;
-     float: left;
-     font-size: 3.5em;
-     margin-right: 5px;
-     padding-top: 9px;
+   font-size: 3.5em;
+    line-height: 0.7;
+    margin-top: 0.15em;
+    float: left;
+    display: block;
+    margin-right: 5px;
+    margin-left: -0.1em;
+    color: #602929;
+    text-transform: uppercase;
 }
 
 .text p:first-child:first-line {
@@ -1050,7 +1076,7 @@ footer a:hover {
 }
 
 #detect_mobile {
-    width: 1px;
+    width: 0px;
     height: 1px;
 }
 

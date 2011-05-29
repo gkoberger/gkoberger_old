@@ -1,8 +1,9 @@
 {% set title="Gregory's Notepad" %}
-{% include "header.html" %}
+{% extends "parent.html" %}
+{% block body %}
 <div id="notes">
   {% for note in notes %}
   {{ note }}
   {% endfor %}
 </div>
-{% include "footer.html" %}
+{% endblock %}

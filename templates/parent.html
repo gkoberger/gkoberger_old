@@ -30,7 +30,7 @@
   <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
   <script src="js/libs/modernizr-1.6.min.js"></script>
 
-  <script type="text/javascript" src="http://use.typekit.com/lvj2lqg.js"></script>
+  <script type="text/javascript" src="http://use.typekit.com/{%- block typekit -%}lvj2lqg{%- endblock -%}.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 
@@ -72,4 +72,66 @@
         </{% if page != "home" %}a{% else %}div{% endif %}>
     </header>
   </div>
+
+  {% block body %}{% endblock %}
+
+    <footer>
+      Designed and programmed by <a href="http://gkoberger.net">Gregory Koberger</a> 2005&dash;{{ year }}. This work is licensed under a <a rel="license"
+      href="http://creativecommons.org/licenses/by/1.0/">Creative Commons License</a>.
+    <br>Lovingly handcrafted using the finest HTML5 technologies available.  Site source is available on <a href="http://github.com/gkoberger/gkoberger">github</a>.
+
+    </footer>
+    <div id="detect_mobile"></div>
+    </div>
+  </div> <!--! end of #container -->
+
+  <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.4.4.js"%3E%3C/script%3E'))</script>
+
+  <script src="{{ base }}/js/plugins.js"></script>
+  <script src="{{ base }}/js/script.js"></script>
+
+  {% if page == "home" %}
+  <script type="text/javascript" src="{{ base }}/js/jquery.event.frame.js"></script>
+  <script type="text/javascript" src="{{ base }}/js/jquery.jparallax.js"></script>
+  <script>
+  </script>
+  {% endif %}
+
+  {% if page == "notebook" %}
+  <script type="text/javascript" src="{{ base }}/js/syntaxhighlighter/scripts/shCore.js"></script>
+  <script type="text/javascript" src="{{ base }}/js/syntaxhighlighter/scripts/shBrushPhp.js"></script>
+  <script type="text/javascript" src="{{ base }}/js/syntaxhighlighter/scripts/shBrushXml.js"></script>
+  <link type="text/css" rel="stylesheet" href="{{ base }}/js/syntaxhighlighter/styles/shCoreDefault.css"/>
+  <script type="text/javascript">
+    if($('body').hasClass('screen')) {
+      SyntaxHighlighter.config.tagName = 'code';
+      SyntaxHighlighter.defaults['gutter'] = false;
+      SyntaxHighlighter.defaults['toolbar'] = false;
+
+      SyntaxHighlighter.all();
+    }
+  </script>
+  {% endif %}
+
+  <!--[if lt IE 7 ]>
+  <script src="js/libs/dd_belatedpng.js"></script>
+  <script>DD_belatedPNG.fix('img, .png_bg'); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb </script>
+  <![endif]-->
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-142380-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+</body>
+</html>
 
