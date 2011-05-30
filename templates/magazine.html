@@ -9,6 +9,7 @@
     {% endblock %}
   </div>
 
+
   <div class="magazine_body_container">
     <div class="magazine_nav">
       {% if nav_next %}
@@ -26,6 +27,18 @@
         </div>
         <div class="meta_date">
           <span>{{ date|datetimeformat }}</span>
+        </div>
+        <div class="magazine_header_mobile">
+          <strong>
+      {% if short_title %}
+        {{ short_title }}
+      {% else %}
+        {{ self.title() }}
+        {% endif %}
+          </strong>
+          <div>
+          {{ self.author() }} &bullet; {{ date|datetimeformat }}
+          </div>
         </div>
       </div>
       {% if nav_prev %}

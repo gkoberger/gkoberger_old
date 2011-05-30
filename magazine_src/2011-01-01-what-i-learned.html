@@ -179,7 +179,7 @@ text-shadow: 0pt 0pt 3px rgb(85, 85, 85); color: rgb(170, 170, 170); font-size: 
   color: #fff;
 }
 
-.magazine_meta div {
+.magazine_meta .meta_author, .magazine_meta .meta_date {
     float: left;
     padding-top: 8px;
     width: 550px;
@@ -207,13 +207,13 @@ padding: 0;
 list-style: none;
 }
 .magazine_body ol.cd li {
-margin: 0;
+margin: 2em 0 0;
 padding: 0;
 }
 
 .screen .magazine_body ol.cd li {
-margin-top: -100px;
-    width: 420px;
+  margin-top: -100px;
+  width: 420px;
   min-height: 250px;
 }
 
@@ -270,13 +270,26 @@ h2.things {
     position: relative;
     top: 10px;
 }
+
 #container {
+  background-color: #214C74;
   border-bottom: 1px solid #4F6F8E;
   border-top: 1px solid #4F6F8E;
+}
+
+.mobile #header {
+  background-color: #214C74;
+}
+
+.screen #container {
     background-image: url("/assets/bg.png");
 }
 
 .magazine_body_container {
+  background-color: #0E2941;
+}
+
+.screen .magazine_body_container {
     background-image: url("/assets/buildings_pattern.png");
     margin-top: -97px;
     padding-top: 97px;
@@ -323,6 +336,13 @@ a#logo.small:hover #header_spread .amperstand {
      color: #FFFFFF;
      text-shadow: 1px 1px 0pt #000000;
      width: 450px;
+}
+
+.mobile .magazine_body .intro {
+  width: auto;
+}
+.mobile .magazine_body ol.cd li {
+    color: #fff;
 }
 
 .magazine_body ol.cd li {
@@ -376,7 +396,7 @@ color: #602929;
   }
 
 .pic1 img, .pic2 img {
-  max-width: 100%;
+  max-width: 90%;
 }
 
   .pic2 {
@@ -446,6 +466,11 @@ h2.things .sub {
     -webkit-transition: all 0.2s ease-in;
     -moz-transition: all 0.2s ease-in;
   pointer-events: none;
+}
+.mobile #big2011 {
+  font-size: 100px;
+  height: 80px;
+  line-height: 100px;
 }
 #big2011.on {
   color: #fff;

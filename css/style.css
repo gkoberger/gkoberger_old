@@ -234,6 +234,12 @@ em {
     font-style: italic;
 }
 
+/* Typkit Font Stacks */
+#logo_inside, .gar, .rit, .tk-adobe-garamond-pro, h1, h1.test {
+    font-family: "adobe-garamond-pro-1","adobe-garamond-pro-2",Garamond, "Adobe Garamond", serif !important;
+}
+
+
 /* Other */
 
 #header + div { /* This is either really clever or really bad. */
@@ -706,6 +712,10 @@ a#logo.small:hover .logo div {
     padding-top: 70px;
     text-align: center;
     text-shadow: 0 1px 1px #FFFFFF, 0 3px 0 #B6BAB5;
+}
+
+.magazine_header_mobile {
+    display: none;
 }
 
 .magazine_nav {

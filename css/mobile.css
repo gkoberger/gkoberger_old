@@ -1,4 +1,8 @@
-#detect_mobile { display: none; }
+/* This uses !important a lot in order to force stuff to happen.  We really need
+ * some styles to overwrite EVERYTHING, so we use !important to make it
+ * happen. Normally, !important is bad-- you shouldn't try this at home.*/
+
+#detect_mobile, .mobile_hidden, .mobile_hide { display: none; }
 
 header {
     width: auto;
@@ -10,6 +14,7 @@ header {
 }
 
 nav.main {
+    position: static;
     float: none;
     margin: 0 auto;
     font-size: 10px;
@@ -82,7 +87,24 @@ header, #article {
 }
 
 .magazine_header {
-    height: auto;
+    display: none;
+}
+
+.magazine_header_mobile {
+    display: block;
+}
+
+.magazine_nav .prev, .magazine_nav .next {
+    width: auto;
+}
+
+.magazine_meta .meta_author, .magazine_meta .meta_date {
+    display: none;
+}
+
+.magazine_nav .prev strong, .magazine_nav .prev .nav_title,
+.magazine_nav .next strong, .magazine_nav .next .nav_title {
+    display: none;
 }
 
 .text p {
@@ -92,11 +114,12 @@ header, #article {
 }
 
 .magazine_body {
-    margin: 20px;
+    margin: 20px !important;
 }
 
-.magazine_body img {
-    max-width: 100%;
+.magazine_body img, .magazine_body iframe {
+    max-width: 80%;
+    margin: 0 auto 2em;
 }
 
 code {
@@ -128,6 +151,7 @@ code {
 
 /* Small Logo */
 a#logo.small {
+    padding: 20px 0;
     float: none;
     margin: auto;
     width: auto;
