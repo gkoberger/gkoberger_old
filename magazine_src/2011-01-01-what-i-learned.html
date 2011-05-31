@@ -136,15 +136,14 @@ nav.main a.current {
 }
 
 #nye_ball {
-background-color: #999999;
+    position: absolute;
+    background-color: #999999;
     background: -moz-radial-gradient(60px 60px , #E5E5E5, #999999 127px, #CCCCCC 330px) repeat scroll 0 0 transparent;
     background: -webkit-radial-gradient(60px 60px , #E5E5E5, #999999 127px, #CCCCCC 330px) repeat scroll 0 0 transparent;
-
     border-radius: 200px;
     box-shadow: 0 0 30px #042930;
     height: 200px;
     width: 200px;
-
 }
 
 #nye_ball div {
@@ -566,7 +565,7 @@ top: 5px;
       jQuery(window).load(regeneratePositions).resize(regeneratePositions);
       regeneratePositions();
 
-      jQuery(document).unbind("scroll").bind("scroll", function () {
+      jQuery(document).bind("scroll", function () {
         function highlightElement(){
           var window_scroll = $(window).scrollTop();
 
@@ -606,7 +605,6 @@ top: 5px;
 
           ball_top = 0;
           ball_bottom = window_height - ball_height;
-
           ball_offset = ((top_offset * -1) / (end_offset - window_height - start_offset)) * ball_bottom;
 
           if (ball_offset > ball_bottom && inside) { /* Reached bottom, pop it out */
@@ -632,6 +630,7 @@ top: 5px;
               });
               inside = true;
             }
+            console.log(ball_offset);
             nye_ball.css({
               'top': ball_offset
             });

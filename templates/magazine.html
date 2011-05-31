@@ -12,15 +12,7 @@
 
   <div class="magazine_body_container">
     <div class="magazine_nav">
-      {% if nav_next %}
-      <a href="{{ base }}/magazine/{{ nav_next[0] }}" class="next">
-        <span class="arrow">&laquo;</span>
-        <strong>NEWER</strong>
-        <span class="nav_title">
-          {{ nav_next[1] }}
-        </span>
-      </a>
-      {% endif %}
+      {{ nav_next }}
       <div class="magazine_meta">
         <div class="meta_author">
           by {% block author %}<a href="http://gkoberger.net">Gregory Koberger</a>{% endblock %}
@@ -41,15 +33,7 @@
           </div>
         </div>
       </div>
-      {% if nav_prev %}
-      <a href="{{ base }}/magazine/{{ nav_prev[0] }}" class="prev">
-        <span class="arrow">&raquo;</span>
-        <strong>OLDER</strong>
-        <span class="nav_title">
-          {{ nav_prev[1] }}
-        </span>
-      </a>
-      {% endif %}
+      {{ nav_prev }}
     </div>
 
     <div class="magazine_body text">

@@ -107,15 +107,29 @@ def compile_magazines():
     to_compile = get_list('magazine_src')
 
     for (i, article) in enumerate(to_compile):
-        nav_prev = nav_next = False
+        nav_prev = nav_next = ""
 
         # gosh this is crazy inefficient.
         if i > 0:
-            nav_next_template = render_magazine(to_compile[i - 1]['filename'], {}, render=False)
-            nav_next = (to_compile[i - 1]['filename'], get_block(nav_next_template, 'title'))
+            template = get_template('magazine_nav.html', render=False)
+            a = to_compile[i - 1]
+            nav_next = render_magazine(a['filename'], args={
+                        'url': a['filename'],
+                        'date':a['date'],
+                        'file': a['filename'],
+                        'slug': a['slug'],
+                        'type': 'next',
+                        'template': template})
         if i < len(to_compile) - 1:
-            nav_prev_template = render_magazine(to_compile[i + 1]['filename'], {}, render=False)
-            nav_prev = (to_compile[i + 1]['filename'], get_block(nav_prev_template, 'title'))
+            template = get_template('magazine_nav.html', render=False)
+            a = to_compile[i + 1]
+            nav_prev = render_magazine(a['filename'], args={
+                        'url': a['filename'],
+                        'date': a['date'],
+                        'file': a['filename'],
+                        'slug': a['slug'],
+                        'type': 'prev',
+                        'template': template})
 
         args = {'date': article['date'],
                 'slug': article['slug'],
@@ -131,7 +145,7 @@ def compile_magazines():
         render_magazine(article['filename'], args, article['filename'])
 
 def get_block(template, block=''):
-    return''.join([i for i in template.blocks.get(block)({})])
+    return ''.join([i for i in template.blocks.get(block)({})])
 
 def compile_notepads():
     to_compile = get_list('notepad_src')

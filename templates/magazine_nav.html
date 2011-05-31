@@ -1,0 +1,16 @@
+<a href="{{ base }}/magazine/{{ url }}" class="{{ type }}">
+  {% if type == 'prev' %}
+  <span class="arrow">&raquo;</span>
+  <strong>OLDER</strong>
+  {% else %}
+  <span class="arrow">&laquo;</span>
+  <strong>NEWER</strong>
+  {% endif %}
+  <span class="nav_title">
+    {% if short_title %}
+    {{ short_title }}
+    {% else %}
+    {{ self.title() }}
+    {% endif %}
+  </span>
+</a>
