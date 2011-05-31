@@ -234,11 +234,14 @@ em {
     font-style: italic;
 }
 
-/* Typkit Font Stacks */
+/* Typekit Font Stacks */
 #logo_inside, .gar, .rit, .tk-adobe-garamond-pro, h1, h1.test {
     font-family: "adobe-garamond-pro-1","adobe-garamond-pro-2",Garamond, "Adobe Garamond", serif !important;
 }
 
+.article, .meta, .mozilla, .tk-ff-meta-web-pro {
+    font-family: "ff-meta-web-pro-1","ff-meta-web-pro-2",sans-serif !important;
+}
 
 /* Other */
 

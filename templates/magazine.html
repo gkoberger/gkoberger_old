@@ -15,7 +15,7 @@
       {% if nav_next %}
       <a href="{{ base }}/magazine/{{ nav_next[0] }}" class="next">
         <span class="arrow">&laquo;</span>
-        <strong>OLDER</strong>
+        <strong>NEWER</strong>
         <span class="nav_title">
           {{ nav_next[1] }}
         </span>
@@ -37,14 +37,14 @@
         {% endif %}
           </strong>
           <div>
-          {{ self.author() }} &bullet; {{ date|datetimeformat }}
+          {{ self.author() }} &bull; {{ date|datetimeformat }}
           </div>
         </div>
       </div>
       {% if nav_prev %}
       <a href="{{ base }}/magazine/{{ nav_prev[0] }}" class="prev">
         <span class="arrow">&raquo;</span>
-        <strong>NEWER</strong>
+        <strong>OLDER</strong>
         <span class="nav_title">
           {{ nav_prev[1] }}
         </span>

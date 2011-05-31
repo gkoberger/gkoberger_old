@@ -47,8 +47,6 @@ market faced severe stagnation for over 5 years.</p>
 Foundation.  These days, Mozilla is a fairly large and well known company.  However, at the time, it was a small community taking on one of the largest and most
 powerful software companies on the planet.</p>
 
-<p><strong>TODO: Paragraph summing this up; link to other places; image</strong></p>
-
 <h3>Why You <em>Shouldn&rsquo;t</em> Use Firefox</h3>
 
 <p>It comes down to <strong>choice</strong>. Thanks to Mozilla, you have a choice.
@@ -60,9 +58,7 @@ today.</blockquote>
     href="http://www.nytimes.com/2009/07/26/technology/companies/26mozilla.html">The New York Times</a></cite>
 
 <p>So, maybe you like Google's minimalistic approach to design. Try Chrome.  Perhaps you want incredibly tight integration with your OS.  Use Internet Explorer or Safari.
-Suppose you want the kid who sat behind you in algebra to stare at you while you browse.  Lucky for you, there's RockMelt.  The point is that you have a choice, and
-that is exactly what Mozilla has always been about.
-</p>
+Suppose you want everyone you've ever met <a href="http://www.searchenginepeople.com/wp-content/uploads/2010/11/rockmelt.jpg">staring back at you while you browse</a>.  Lucky for you, there's RockMelt.  The point is that you have a choice, and that is exactly what Mozilla has always been about.</p>
 
 <p>You no longer are tied to a single browser because your favorite website is <em>Best Viewed in Internet Explorer</em>.  Specific browser vendors can't use
 their browsers to serve their own purposes, as they know their users have a number of high quality alternatives.  If you truly prefer Internet Explorer or
@@ -95,19 +91,17 @@ no access to your history, even if subpoenaed.  Google, on the other hand, store
   icon (GMail Labs)</a>, it's quite handy.  When the page changes, the pinned tab glows.</p>
 <p><strong>Switch To Tab:</strong> It's easy to end up with 50 tabs, which quickly becomes a huge mess.  Yes, there is now Panorama, which lets you drag, group
 and organize tabs.  However, my favorite way to fight tab bloat is the new "Switch To Tab" feature.  Let's say you have Twitter open.  If you open a new tab and
-start typing "twitter", the first option will let you switch to the Twitter tab rather than opening a new one.  You can also search open tabs from the Awesomebar by
-typing something like "% twitter."</p>
+start typing "twitter", the first option will let you switch to the Twitter tab rather than opening a new one.  You can also search open tabs from the Awesomebar by typing something like "% twitter."</p>
 <p><strong>The Rest:</strong> There are a <a target="_blank" href="http://www.cio.com/article/677530/10_Things_to_Drool_Over_in_Firefox_4">ton of new features</a> that have
 been added to a long list of <a target="_blank" href="http://www.mozilla.com/en-US/firefox/features/">classic Firefox features</a>.  You should definitely check Firefox 4 out if you haven't already.  I promise, you won't be disappointed.</p>
 
 <h3>Conclusion</h3>
-<p>So, that is why you shouldn't use Firefox 4.  You should at least try it&mdash; you will like it.  However, if you truly prefer Chrome, Safari or Opera, use it.  Which browser you use comes purely down to personal preference,
+<p>So, that is why you don't have to use Firefox 4.  You should definitely try it&mdash; I guarentee you will like it.  However, if you truly prefer Chrome, Safari or Opera, use it.  Which browser you use comes purely down to personal preference,
 and is no longer a choice forced upon you.  The fact that you have an equal choice that is what is important to Mozilla and it's Mission.</p>
 
 <a target="_blank" href="http://www.mozilla.com/products/download.html" id="download" class="meta">Download Firefox 4</a>
 <p class="download_other">And, in the spirit of this article: &nbsp;<a target="_blank" href="http://www.google.com/chrome/index.html?">Chrome</a> &middot; <a target="_blank" href="http://www.apple.com/safari/">Safari</a>
-&middot; <a target="_blank" href="http://www.opera.com/">Opera</a>(((I didn't include Internet Explorer because I don't believe it is a proper alternative.
-While it has come a long way since IE6, it is still far behind the other "modern browers".)))</p>
+&middot; <a target="_blank" href="http://www.opera.com/">Opera</a>(((I didn't include Internet Explorer because I don't believe it is a proper alternative.  While it has come a long way since IE6, it is still far behind the other "modern browers".)))</p>
 
 {% endblock %}
 
@@ -117,14 +111,29 @@ While it has come a long way since IE6, it is still far behind the other "modern
     background-color: #0F0B2B;
   }
 
-  a, a:active, a:visited {
+  .magazine_body a, .magazine_body a:active, .magazine_body a:visited {
     color: #DE7211;
     text-decoration: none;
   }
 
-  a:hover {
+  .magazine_body a:hover {
     color: #5DA0AB;
     border-bottom: 1px solid #FFF;
+  }
+
+  .magazine_nav {
+    color: #8D9CAE;
+  }
+
+  .magazine_nav a.prev,
+  .magazine_nav a.next,
+  .magazine_meta a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .magazine_meta a:hover {
+    color: #5DA0AB;
   }
 
   #container {
@@ -140,13 +149,19 @@ While it has come a long way since IE6, it is still far behind the other "modern
     text-shadow: none;
   }
 
+  a#logo.small #header_spread h1 {
+    color: #DDD;
+  }
+
+  a#logo.small:hover #header_spread h1 {
+    color: #fff;
+  }
+
   a#logo.small:hover,
-  a#logo.small #header_spread h1,
-  a#logo.small:hover #header_spread h1, a#logo.small:hover #header_spread div.subtitle .subtitle_text,
+  a#logo.small:hover #header_spread div.subtitle .subtitle_text,
   a#logo.small:hover #header_spread div.subtitle,
   a#logo.small:hover #header_spread .amperstand {
-    color: #fff;
-    border-bottom: none;
+    color: #AAA;
   }
 
   #logo.small .logo,
@@ -170,7 +185,7 @@ While it has come a long way since IE6, it is still far behind the other "modern
   }
 
   nav.main a {
-    color: #eee;
+    color: #97A2B8;
   }
 
   nav.main a:hover {
@@ -294,16 +309,6 @@ While it has come a long way since IE6, it is still far behind the other "modern
     width: 90%;
   }
 
-/*
-.site a {
-  color: blue !important;
-}
-
-.mobile a {
-  color: green !important;
-
-}
-*/
 </style>
 {% endblock %}
 

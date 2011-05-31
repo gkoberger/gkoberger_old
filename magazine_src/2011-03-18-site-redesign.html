@@ -27,28 +27,42 @@
 {% endblock %}
 
 {% block content %}
+<div class="meta">
 <blockquote>I can never stand still. I must explore and experiment. I am never satisfied with my work. I resent the limitations of my own imagination.</blockquote>
 <cite><strong>Walter Elias Disney</strong></cite>
 
-<p>
-Two years ago, I finished my <a href="http://old.gkoberger.net">prior redesign</a> of my site.  About a year ago, I started a new redesign.  And after months of
-works, it is done.
-</p>
+<h3>Intro</h3>
+<p>You know what they say&mdash; the cobbler's children never have shoes.  I&rsquo;ve spent a good majority of the past two years hunched over either vim or Photoshop, yet my personal website hasn&rsquo;t gotten much love.  So, it was time to rebuild the engine and a give it a fresh coat of paint.  My old site was clunky and cluttered, so I went the exact opposite direction with this redesign.</p>
 
-<p>
-Okay, not done.  There are a number of things left to do&mdash; I am missing a bunch of pages, and there are a lot of little details I haven't had time for.
-However, I managed to get to a point where I had most of the major bases covered.
-</p>
+<img src="../assets/beforeafter.png" alt="Before and After">
 
-<p>A lot has changed since my previous version.  Browsers have caught up to developers and designers&mdash; we no longer have to use images and hacks and Flash
-to get what we want.  And since I work at a company at the forefront of this movement, it seemed wrong not update my site to take full advantage of all the new
-technology we have available to us.</p>
+<h3>Design</h3>
+<p>I get bored of designs easily.  So, I wanted a way to keep things interesting without having to redesign my site every few months.  I have always loved the idea of creating a new design for each blog post, so I went with that.  It gives me a chance to experiment without having to redesign a whole site.</p>
 
+<p>For the rest of the site, I wanted something minimalistic.  It&rsquo;s easy to keep throwing gradients and borders and background images at a site until it looks decent&mdash; <a href="http://old.gkoberger.net">case in point</a>.  Creating something that looks beautiful without any clutter is a much bigger design challenge, and it was one I felt I was ready to take on.</p>
 
+<figure>
+  <a href="http://www.dropmocks.com/mVsXf">
+    <img src="../assets/mocks.png" alt="Old mockups of the redesign.">
+  </a>
+</figure>
+<figcaption>From the drawing board.  <a href="http://www.dropmocks.com/mVsXf" target="_new">View more</a>.</figcaption>
 
-<p>
-Donec fringilla felis at urna mollis aliquet in nec nisi. Etiam et eros sed nisl ornare bibendum sed eget tellus. Morbi sed blandit mauris. Nulla non metus justo, ac eleifend sapien. Nunc quis viverra augue. Quisque ullamcorper, mi quis condimentum mollis, urna tellus vestibulum erat, sit amet euismod augue orci sed lorem. Maecenas pulvinar leo vitae ligula convallis dapibus. Phasellus sagittis elit justo, vitae auctor velit. Vestibulum eu est a velit tempor ullamcorper. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis ut mauris nunc, at fringilla tortor. Duis at enim sit amet ante auctor ultricies. Aliquam neque sapien, porttitor ut interdum non, porta sed velit. Nulla sollicitudin ornare lacus sed pretium. Duis sapien velit, mollis ac tincidunt non, iaculis non augue. Vivamus fringilla rhoncus sagittis. Cras blandit condimentum neque eget malesuada. Proin aliquam nunc eu ipsum placerat quis dapibus magna auctor. Aliquam et eleifend eros. Nullam id aliquam elit.
-</p>
+<h3>Mobile</h3>
+<p>Since I spend so much time reading on my Droid, I felt it was only right I had an iPhone/Android version of the site.  It will almost certainly need some tweaking, but it&rsquo;s a start.  The site uses the same HTML, and loads a mobile style sheet on top of it.  I might eventually create a separate mobile version of the site to speed up load times, but for now this works.</p>
+
+<figure>
+  <img src="../assets/mobile.png" alt="Mobile version">
+</figure>
+<figcaption>Same HTML, different CSS.</figcaption>
+
+<h3>Back end</h3>
+
+<p>The biggest reason I don&rsquo;t update my current site is that it&rsquo;s written in Drupal.  I paid for that mistake dearly.  RIT was pushing to use Drupal for all their sites, so I figured using it for my site would be a great way to learn it.  As it turns out, Drupal is awful.</p>
+
+<p>So, for the new version, I took it 100% the opposite way.  The whole site is just static HTML files, generated using Python and Jinja2.  You can check out the <a href="https://github.com/gkoberger/gkoberger">(absolutely horrible) code</a> on Github.  Don&rsquo;t judge me.</p>
+
+</div>
 {% endblock %}
 
 {% block content_css %}
@@ -59,11 +73,15 @@ Donec fringilla felis at urna mollis aliquet in nec nisi. Etiam et eros sed nisl
   }
 
   #container {
-    background-image: url('../assets/bg.gif');
+    background-image: url('../assets/bg-article.gif');
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
     border-top: 0px none;
+  }
+
+  .text {
+    color: #222;
   }
 
   .subtitle_text, .subtitle_text .amperstand {
@@ -77,10 +95,6 @@ Donec fringilla felis at urna mollis aliquet in nec nisi. Etiam et eros sed nisl
     margin: auto;
     padding: 10px;
     width: 200px;
-  }
-
-  .magazine_nav {
-    background-color: #fff;
   }
 
   #redesign_inside {
@@ -132,16 +146,6 @@ Donec fringilla felis at urna mollis aliquet in nec nisi. Etiam et eros sed nisl
     text-align: center;
   }
 
-  .magazine_body {
-    margin: 2em 12em 0;
-    background-color: #FFFFFF;
-    border: 1px solid #BBBBBB;
-    -moz-box-shadow: 0 0 15px #BBBBBB;
-    -webkit-box-shadow: 0 0 15px #BBBBBB;
-    box-shadow: 0 0 15px #BBBBBB;
-    padding: 50px;
-  }
-
   #logo.small .logo div {
     border: 0px none;
     background-color: transparent;
@@ -161,7 +165,8 @@ Donec fringilla felis at urna mollis aliquet in nec nisi. Etiam et eros sed nisl
   }
 
   .logo {
-    background-image: -moz-radial-gradient(10px 10px 80deg, circle farthest-corner, #3070CA 0%, #14396E 100%);
+    background: -moz-radial-gradient(10px 10px 80deg, circle farthest-corner, #3070CA 0%, #14396E 100%);
+    background: -webkit-gradient(radial, 20% 20%,5,60% 60%,80,from(#3070CA),to(#14396E));
     border-radius: 0 0 0 0;
     box-shadow: 2px 2px 2px #999999;
     font-weight: bold;
@@ -169,6 +174,60 @@ Donec fringilla felis at urna mollis aliquet in nec nisi. Etiam et eros sed nisl
     text-align: center;
     text-shadow: none;
   }
+
+  .magazine_body img {
+    margin: 0 auto 2em;
+  }
+
+  figcaption {
+    color: #777777;
+    font-style: italic;
+    margin-bottom: 2em;
+    text-align: center;
+  }
+
+  .magazine_body figure {
+    margin-bottom: 0;
+    margin-left: -30px;
+    text-align: center;
+    width: 750px;
+  }
+
+  .magazine_body figure a {
+    opacity: 0.8;
+    border-bottom: none;
+  }
+
+  .magazine_body figure a:hover {
+    opacity: 1;
+    border-bottom: none;
+  }
+
+  .magazine_body figure img {
+    margin: 0;
+  }
+
+  nav.main a:hover, nav.main a:active {
+       color: #1B4684;
+  }
+
+  .magazine_body_container a {
+        text-decoration: none;
+       color: #1B4684;
+  }
+
+  .magazine_body a {
+       border-bottom: 1px solid #CCCCCC;
+       text-decoration: none;
+  }
+
+  .magazine_body a:hover, .magazine_body a:active {
+      color: #0D3060;
+  }
+
+
+  ::-moz-selection{ background: #1B4684; }
+  ::selection { background: #1B4684; }
 
 </style>
 {% endblock %}
