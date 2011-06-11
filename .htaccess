@@ -350,7 +350,7 @@ Options -MultiViews
 # custom 404 page
 # ----------------------------------------------------------------------
 
-ErrorDocument 404 /404.html
+ErrorDocument 404 /404.php
 
 
 

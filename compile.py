@@ -207,8 +207,30 @@ def get_template(template, args={}, output=None, render=True):
     #return template.render(args)
 
 def move_base():
-    shutil.rmtree('app')
-    shutil.copytree('app-base', 'app')
+    folder = 'app'
+    for the_file in os.listdir(folder):
+        file_path = os.path.join(folder, the_file)
+        try:
+            if os.path.isfile(file_path):
+                os.unlink(file_path)
+            else:
+                shutil.rmtree(file_path)
+        except Exception, e:
+            print e
+
+    folder = 'app-base'
+    for the_file in os.listdir(folder):
+        file_path = os.path.join(folder, the_file)
+        try:
+            if os.path.isfile(file_path):
+                shutil.copy('app-base/%s' % the_file, 'app/%s' % the_file)
+            else:
+                shutil.copytree('app-base/%s' % the_file, 'app/%s' % the_file)
+        except Exception, e:
+            print e
+
+
+
 
     shutil.copytree('js', 'app/js')
     shutil.copytree('css', 'app/css')
