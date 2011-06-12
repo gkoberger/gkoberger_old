@@ -8,6 +8,11 @@ import webbrowser
 
 from jinja2 import FileSystemLoader, Environment
 
+# This file is crazy inefficient, however I didn't care because it's only run
+# once every few weeks.  Eventually I'll go through and clean it up.
+
+# So, don't judge me for some of the horrible, horrible things I do here.
+
 def compile_home():
     args = {'page': 'home'}
 
@@ -32,7 +37,7 @@ def compile_home():
 
     for article in to_compile_article:
         articles.append(render_magazine(article['filename'], args={
-                'url': article['filename'],
+                'filename': article['filename'],
                 'date': article['date'],
                 'file': article['filename'],
                 'slug': article['slug'],
@@ -90,6 +95,18 @@ def namespacer(value, namespace, f):
     value = re.sub('assets/', 'magazine/%s/' % f.split('.')[0], value)
     return value
 
+def url(*url):
+    settings = {}
+    with open('settings.json', 'r') as f:
+        settings = json.load(f)
+
+    url = '/'.join(url)
+    if settings['prod']:
+        url = re.sub('\.html', '', url)
+        url = re.sub('^/?magazine/', '/m/', url)
+    return url
+
+
 def get_list(folder):
     to_compile = os.listdir(folder)
     to_compile = [f for f in to_compile
@@ -118,7 +135,7 @@ def compile_magazines():
             template = get_template('magazine_nav.html', render=False)
             a = to_compile[i - 1]
             nav_next = render_magazine(a['filename'], args={
-                        'url': a['filename'],
+                        'filename': a['filename'],
                         'date':a['date'],
                         'file': a['filename'],
                         'slug': a['slug'],
@@ -128,7 +145,7 @@ def compile_magazines():
             template = get_template('magazine_nav.html', render=False)
             a = to_compile[i + 1]
             nav_prev = render_magazine(a['filename'], args={
-                        'url': a['filename'],
+                        'filename': a['filename'],
                         'date': a['date'],
                         'file': a['filename'],
                         'slug': a['slug'],
@@ -175,6 +192,7 @@ def get_template(template, args={}, output=None, render=True):
 
     env = Environment(loader=loader)
     env.filters['footnoter'] = footnoter
+    env.filters['url'] = url
     env.filters['namespacer'] = namespacer
     env.filters['datetimeformat'] = datetimeformat
 
@@ -247,4 +265,5 @@ if __name__ == '__main__':
     compile_magazines()
     compile_home()
 
+    compile_page('about')
     compile_page('portfolio')

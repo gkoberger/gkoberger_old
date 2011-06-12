@@ -1,5 +1,5 @@
 <li>
-<a href="magazine/{{ url }}" id="{{ ns }}">
+<a href="{{'magazine'|url(filename) }}" id="{{ ns }}">
     <div class="article_icon">
       <div class="article_icon_inner">
         {% block preview %}{% endblock %}

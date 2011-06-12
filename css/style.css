@@ -1143,6 +1143,17 @@ footer a:hover {
     background-position: -16px 0;
 }
 
+.about_intro {
+    width: 1200px;
+}
+
+.about_longer {
+    font-size: 20px;
+    margin: auto auto 4em;
+    text-align: center;
+    width: 1200px;
+}
+
 
 
 /* Caution */

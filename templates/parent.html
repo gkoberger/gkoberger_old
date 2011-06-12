@@ -39,19 +39,21 @@
     <div id="header">
       <header>
         <nav class="main">
-        <a href="{{ base }}/magazine/{{ article_url }}"{% if page == "magazine" %} class="current"{% endif %}>articles</a>
+        <a href="{{ "magazine"|url(article_url) }}"{% if page == "magazine" %} class="current"{% endif %}>articles</a>
           &bull;
-          <a href="{{ base }}/notepad.html"{% if page == "notebook" %} class="current"{% endif %}>notepad</a>
+          <a href="{{ "notepad.html"|url }}"{% if page == "notebook" %} class="current"{% endif %}>notepad</a>
           &bull;
-          <a href="#">portfolio</a>
+          <a href="{{ "portfolio.html"|url }}">portfolio</a>
           &bull;
-          <a href="#">about</a>
+          <a href="{{ "about.html"|url }}">about</a>
+          <!--
           &bull;
           <a href="#">contact</a>
+          -->
         </nav>
         <span class="mobile_hidden">&nbsp;</span>
 
-        <{% if page != "home" %}a class="small" href="{{ base }}/index.html" {% else %}div{% endif %} id="logo">
+        <{% if page != "home" %}a class="small" href="/" {% else %}div{% endif %} id="logo">
           <div class="logo gar">
             <div>
               <span>g</span>
@@ -76,7 +78,7 @@
   {% block body %}{% endblock %}
 
     <footer>
-      Designed and programmed by <a href="http://gkoberger.net">Gregory Koberger</a> 2005&ndash;{{ year }}. This work is licensed under a <a rel="license"
+      Designed and programmed by <a href="/">Gregory Koberger</a> 2005&ndash;{{ year }}. This work is licensed under a <a rel="license"
       href="http://creativecommons.org/licenses/by/1.0/">Creative Commons License</a>.
     <br>Lovingly handcrafted using the finest HTML5 technologies available.  Site source is available on <a href="http://github.com/gkoberger/gkoberger">github</a>.
 
