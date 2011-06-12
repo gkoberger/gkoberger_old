@@ -7,7 +7,7 @@
  *
  * @version
  * 3.0.83 (July 02 2010)
- *
+ * 
  * @copyright
  * Copyright (C) 2004-2010 Alex Gorbatchev.
  *
@@ -57,7 +57,7 @@
   margin: 1em 0 1em 0 !important;
   position: relative !important;
   overflow: auto !important;
-  font-size: 0.8em !important;
+  font-size: 1em !important;
 }
 .syntaxhighlighter.source {
   overflow: hidden !important;
@@ -84,7 +84,6 @@
 .syntaxhighlighter table td.code .container {
   position: relative !important;
 }
-
 .syntaxhighlighter table td.code .container textarea {
   box-sizing: border-box !important;
   position: absolute !important;

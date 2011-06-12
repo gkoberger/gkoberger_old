@@ -42,6 +42,10 @@ def compile_home():
 
     get_template('home.html', args, 'app/index.html')
 
+def compile_page(file):
+    args = {'page': file}
+    get_template('%s.html' % file, args, 'app/%s.html' % file)
+
 def render_magazine(template, args={}, output=None, render=True):
     if not 'template' in args:
         args['template'] = get_template('magazine.html', render=False)
@@ -242,3 +246,5 @@ if __name__ == '__main__':
     compile_notepads()
     compile_magazines()
     compile_home()
+
+    compile_page('portfolio')

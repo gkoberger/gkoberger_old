@@ -1094,6 +1094,75 @@ footer a:hover {
 }
 
 
+/* CSS */
+
+#portfolio .item {
+    margin: 3em auto 0;
+    width: 1200px;
+}
+#portfolio .item .image {
+    background-color: #FFFFFF;
+    display: block;
+    float: left;
+    margin-right: 2em;
+    padding: 10px;
+    box-shadow: 0 0 5px #999999;
+}
+#portfolio .item .image a, .item .image img {
+    display: block;
+}
+#portfolio .item .image img {
+    border: 1px solid #ccc;
+}
+
+#portfolio .title {
+    font-size: 30px;
+}
+
+#portfolio .info > p {
+   line-height: 1.5em;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+#portfolio .item .block {
+    margin-right: 1em;
+}
+
+#portfolio .item .block, .item .block p {
+    display: inline-block;
+}
+
+#portfolio .item .icon {
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+}
+
+#portfolio .item .icon:hover {
+    background-position: -16px 0;
+}
+
+
+
+/* Caution */
+.caution {
+margin: 1em auto; box-shadow: 0pt 3px 3px -3px rgb(170, 170, 170); overflow: auto; padding: 3em 200px 10px; width: 800px;
+}
+
+.caution strong {
+display: block; font-size: 38px; float: left; text-align: left; padding-right: 1em;
+}
+
+.caution strong span {
+  display: block; font-size: 18px; margin-bottom: -9px; text-transform: lowercase; font-family: Baskerville; font-style: italic; font-weight: normal; color: rgb(153, 153, 153);
+}
+
+.caution div {
+  color: #555;
+}
+
+
 /*
  * media queries for responsive design
  * these follow after primary styles so they will successfully override.

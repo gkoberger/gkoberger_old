@@ -100,19 +100,21 @@
   {% endif %}
 
   {% if page == "notebook" %}
-  <script type="text/javascript" src="{{ base }}/js/syntaxhighlighter/scripts/xregexp.js"></script>
-  <script type="text/javascript" src="{{ base }}/js/syntaxhighlighter/src/shCore.js"></script>
-  <script type="text/javascript" src="{{ base }}/js/syntaxhighlighter/scripts/shBrushPhp.js"></script>
-  <script type="text/javascript" src="{{ base }}/js/syntaxhighlighter/scripts/shBrushXml.js"></script>
-  <link type="text/css" rel="stylesheet" href="{{ base }}/js/syntaxhighlighter/styles/shCoreDefault.css"/>
+  <script type="text/javascript" src="{{ base }}/js/xregexp.js"></script>
+  <script type="text/javascript" src="{{ base }}/js/sh/src/shCore.js"></script>
+  <script type="text/javascript" src="{{ base }}/js/sh/scripts/shBrushPhp.js"></script>
+  <script type="text/javascript" src="{{ base }}/js/sh/scripts/shBrushXml.js"></script>
+  <link type="text/css" rel="stylesheet" href="{{ base }}/js/sh/styles/shCoreDefault.css"/>
   <script type="text/javascript">
-    if($('body').hasClass('screen')) {
-      SyntaxHighlighter.config.tagName = 'code';
-      SyntaxHighlighter.defaults['gutter'] = false;
-      SyntaxHighlighter.defaults['toolbar'] = false;
+    $(function() {
+      if($('body').hasClass('screen')) {
+        SyntaxHighlighter.config.tagName = 'code';
+        SyntaxHighlighter.defaults['gutter'] = false;
+        SyntaxHighlighter.defaults['toolbar'] = false;
 
-      SyntaxHighlighter.all();
-    }
+        SyntaxHighlighter.all();
+      }
+    });
   </script>
   {% endif %}
 
