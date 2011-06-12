@@ -319,6 +319,15 @@ FileETag None
 # </IfModule>
 
 
+# ---------------------------------------------------------------------
+# Redirect stuff!
+# ---------------------------------------------------------------------
+
+RewriteRule   ^app/portfolio/?$  app/portfolio.html
+RewriteRule   ^app/about/?$  app/about.html
+RewriteRule   ^app/notepad/?$  app/notepad.html
+RewriteRule   ^app/m/(.*)/?$  app/magazine/$1.html
+
 
 # ----------------------------------------------------------------------
 # Prevent SSL cert warnings
