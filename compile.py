@@ -104,6 +104,7 @@ def url(*url):
     if settings['prod']:
         url = re.sub('\.html', '', url)
         url = re.sub('^/?magazine/', '/m/', url)
+        url = '/%s' % re.sub('^/', '', url)
     return url
 
 
