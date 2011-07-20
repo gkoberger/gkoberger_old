@@ -266,5 +266,6 @@ if __name__ == '__main__':
     compile_magazines()
     compile_home()
 
+    compile_page('p404')
     compile_page('about')
     compile_page('portfolio')

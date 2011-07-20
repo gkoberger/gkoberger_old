@@ -1143,7 +1143,7 @@ footer a:hover {
     background-position: -16px 0;
 }
 
-#about .about_intro {
+#about #intro, #p404 #intro {
     padding-top: 2em;
     width: 1200px;
 }
