@@ -60,8 +60,9 @@ def render_magazine(template, args={}, output=None, render=True):
 
     args['file'] = template
 
+    out_file = 'app/magazine/%s' % output if output else None
     return get_template(('magazine_src', template), args, render=render,
-                        output='app/magazine/%s' % output)
+                        output=out_file)
 
 def render_notepad(file, args={}):
     if 'template' not in args:
