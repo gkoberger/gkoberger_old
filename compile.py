@@ -63,11 +63,11 @@ def render_magazine(template, args={}, output=None, render=True):
     return get_template(('magazine_src', template), args, render=render,
                         output='app/magazine/%s' % output)
 
-def render_notepad(template, args={}):
+def render_notepad(file, args={}):
     if 'template' not in args:
         args['template'] = get_template('notepad_single.html', render=False)
 
-    return get_template(('notepad_src', template), args=args)
+    return get_template(('notepad_src', file), args=args)
 
 def datetimeformat(value, format='%B %d, %Y'):
     return value.strftime(format)
@@ -95,16 +95,22 @@ def namespacer(value, namespace, f):
     value = re.sub('assets/', 'magazine/%s/' % f.split('.')[0], value)
     return value
 
-def url(*url):
+def url(url, use_base=False):
     settings = {}
     with open('settings.json', 'r') as f:
         settings = json.load(f)
 
-    url = '/'.join(url)
     if settings['prod']:
         url = re.sub('\.html', '', url)
         url = re.sub('^/?magazine/', '/m/', url)
-        url = '/%s' % re.sub('^/', '', url)
+
+    url = '/%s' % re.sub('^/', '', url)
+
+    if use_base and 'base' in settings:
+        base = re.sub('/$', '', settings['base'])
+        url = re.sub('^/', '', url)
+        url = ('%s/%s' % (base, url))
+
     return url
 
 
@@ -162,12 +168,32 @@ def compile_magazines():
         # Move assets
         template_name = article['filename'].split('.')[0]
         if os.path.exists('magazine_src/%s' % template_name):
-            shutil.copytree('magazine_src/%s' % template_name, 'app/magazine/%s' % template_name)
+            shutil.copytree('magazine_src/%s' % template_name,
+                            'app/magazine/%s' % template_name)
 
         render_magazine(article['filename'], args, article['filename'])
 
 def get_block(template, block=''):
     return ''.join([i for i in template.blocks.get(block)({})])
+
+def compile_rss():
+    to_compile = get_list('notepad_src')[:15]
+    notes = []
+    first_date = False
+    for note in to_compile:
+        if not first_date:
+            first_date = note['date']
+        template = get_template('feed-item.rss', render=False)
+        f = render_notepad(note['filename'], args={'template': template,
+                                                   'date': note['date'],
+                                                   'slug': note['slug'] })
+        notes.append(f)
+
+    desc = 'All blog posts and articles on gkoberger.net'
+    get_template('feed.rss', args={'notes': notes, 'date': first_date,
+                                   'title': 'All Updates',
+                                   'desc': desc},
+                 output='app/feed.rss')
 
 def compile_notepads():
     to_compile = get_list('notepad_src')
@@ -269,3 +295,5 @@ if __name__ == '__main__':
     compile_page('p404')
     compile_page('about')
     compile_page('portfolio')
+
+    compile_rss()

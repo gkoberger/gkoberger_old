@@ -1,4 +1,4 @@
-<a href="{{ "magazine"|url(filename) }}" class="{{ type }}">
+<a href="{{ ("magazine/%s" % filename)|url }}" class="{{ type }}">
   {% if type == 'prev' %}
   <span class="arrow">&raquo;</span>
   <strong>OLDER</strong>

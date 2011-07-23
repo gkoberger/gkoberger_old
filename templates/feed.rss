@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+    <title>Gregory Koberger{% if title %} - {{ title }}{% endif %}</title>
+    {% if desc %}
+        <description>{{ desc }}</description>
+    {% endif %}
+    <link>http://gkoberger.net</link>
+    <lastBuildDate>{{ date|datetimeformat }} 00:00:01 PST</lastBuildDate>
+    <pubDate>{{ date|datetimeformat }} 00:00:01 PST</pubDate>
+{% for note in notes %}
+{{ note }}
+{% endfor %}
+</channel>
+</rss>

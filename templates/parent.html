@@ -39,7 +39,7 @@
     <div id="header">
       <header>
         <nav class="main">
-        <a href="{{ "magazine"|url(article_url) }}"{% if page == "magazine" %} class="current"{% endif %}>articles</a>
+        <a href="{{ ("magazine/%s" % article_url)|url }}"{% if page == "magazine" %} class="current"{% endif %}>articles</a>
           &bull;
           <a href="{{ "notepad.html"|url }}"{% if page == "notebook" %} class="current"{% endif %}>notepad</a>
           &bull;
