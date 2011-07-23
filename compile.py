@@ -95,6 +95,18 @@ def namespacer(value, namespace, f):
     value = re.sub('assets/', 'magazine/%s/' % f.split('.')[0], value)
     return value
 
+def escaper(text):
+    codes = [
+            ('&', '&amp;'),
+            ('<', '&lt;'),
+            ('>', '&gt;'),
+            ('"', '&quot;'),
+            ("'", '&#39;'),
+            ]
+    for code in codes:
+        text = text.replace(code[0], code[1])
+    return text
+
 def url(url, use_base=False):
     settings = {}
     with open('settings.json', 'r') as f:
@@ -112,7 +124,6 @@ def url(url, use_base=False):
         url = ('%s/%s' % (base, url))
 
     return url
-
 
 def get_list(folder):
     to_compile = os.listdir(folder)
@@ -220,6 +231,7 @@ def get_template(template, args={}, output=None, render=True):
     env = Environment(loader=loader)
     env.filters['footnoter'] = footnoter
     env.filters['url'] = url
+    env.filters['escaper'] = escaper
     env.filters['namespacer'] = namespacer
     env.filters['datetimeformat'] = datetimeformat
 

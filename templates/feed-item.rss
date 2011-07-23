@@ -1,7 +1,7 @@
     <item>
         <title>{% block title %}{% endblock %}</title>
         <description>
-            {% block preview %}{% endblock %}
+            {{ self.content()|escaper }}
         </description>
         <link>{{ ("/notepad.html#%s" % slug)|url(use_base=True) }}</link>
         <guid>{{ slug }}</guid>
