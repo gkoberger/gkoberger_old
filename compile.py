@@ -191,8 +191,8 @@ def compile_magazines():
 def get_block(template, block=''):
     return ''.join([i for i in template.blocks.get(block)({})])
 
-def compile_rss():
-    to_compile = get_list('notepad_src', 'magazine_src')[:15]
+def compile_rss(category=None, desc=None, title=None):
+    to_compile = get_list('notepad_src', 'magazine_src')
     notes = []
     first_date = False
     for note in to_compile:
@@ -206,13 +206,17 @@ def compile_rss():
             f = render_magazine(note['filename'], args={'template': template,
                 'date': note['date'], 'slug': note['slug'] })
 
-        notes.append(f)
+        # Should use pyquery...
+        if not category or re.search('<category>%s<\/category>' % category, f):
+            notes.append(f)
 
-    desc = 'All blog posts and articles on gkoberger.net'
+    name = category if category else 'feed'
+    if not desc:
+        desc = 'Blog posts and articles by Gregory Koberger'
+
     get_template('feed.rss', args={'notes': notes, 'date': first_date,
-                                   'title': 'All Updates',
-                                   'desc': desc},
-                 output='app/feed.rss')
+                                   'title': title, 'desc': desc},
+                 output='app/%s.rss' % name)
 
 def compile_notepads():
     to_compile = get_list('notepad_src')
@@ -314,3 +318,4 @@ if __name__ == '__main__':
     compile_page('portfolio')
 
     compile_rss()
+    compile_rss('mozilla', desc="Mozilla-related blog posts", title="Mozilla")
