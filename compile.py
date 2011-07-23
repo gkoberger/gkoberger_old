@@ -4,6 +4,7 @@ import os
 import re
 import shutil
 import sys
+import time
 import webbrowser
 
 from jinja2 import FileSystemLoader, Environment
@@ -126,21 +127,23 @@ def url(url, use_base=False):
 
     return url
 
-def get_list(folder):
-    to_compile = os.listdir(folder)
-    to_compile = [f for f in to_compile
-                  if re.match("\d{4}-\d{2}-\d{2}-(.*).html", f)]
-
-    to_compile.sort(reverse=True)
-
+def get_list(*folders):
     return_list = []
 
-    for f in to_compile:
-        d = re.search('(\d{4})-(\d{2})-(\d{2})-(.*).html', f)
-        date = datetime.datetime(int(d.group(1)), int(d.group(2)), int(d.group(3)))
-        slug = d.group(4)
-        return_list.append({'date':date, 'slug':slug, 'filename':f})
+    for folder in folders:
+        to_compile = os.listdir(folder)
+        to_compile = [f for f in to_compile
+                      if re.match("\d{4}-\d{2}-\d{2}-(.*).html", f)]
 
+        for f in to_compile:
+            d = re.search('(\d{4})-(\d{2})-(\d{2})-(.*).html', f)
+            date = datetime.datetime(int(d.group(1)), int(d.group(2)), int(d.group(3)))
+            slug = d.group(4)
+            date_sort = time.mktime(date.timetuple())
+            return_list.append({'date':date, 'slug':slug, 'filename':f,
+                'folder': folder})
+
+    return_list.sort(reverse=True, key=lambda d: time.mktime(d['date'].timetuple()))
     return return_list
 
 def compile_magazines():
@@ -189,16 +192,20 @@ def get_block(template, block=''):
     return ''.join([i for i in template.blocks.get(block)({})])
 
 def compile_rss():
-    to_compile = get_list('notepad_src')[:15]
+    to_compile = get_list('notepad_src', 'magazine_src')[:15]
     notes = []
     first_date = False
     for note in to_compile:
         if not first_date:
             first_date = note['date']
         template = get_template('feed-item.rss', render=False)
-        f = render_notepad(note['filename'], args={'template': template,
-                                                   'date': note['date'],
-                                                   'slug': note['slug'] })
+        if note['folder'] == 'notepad_src':
+            f = render_notepad(note['filename'], args={'template': template,
+                'date': note['date'], 'slug': note['slug'] })
+        else:
+            f = render_magazine(note['filename'], args={'template': template,
+                'date': note['date'], 'slug': note['slug'] })
+
         notes.append(f)
 
     desc = 'All blog posts and articles on gkoberger.net'
@@ -290,9 +297,6 @@ def move_base():
                 shutil.copytree('app-base/%s' % the_file, 'app/%s' % the_file)
         except Exception, e:
             print e
-
-
-
 
     shutil.copytree('js', 'app/js')
     shutil.copytree('css', 'app/css')
