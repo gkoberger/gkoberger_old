@@ -1,7 +1,11 @@
 <li>
-  <span>{{ date|datetimeformat }}</span>
-  <h3 class="title"><a href="{{ ("/notepad.html#%s" % slug )|url }}">{% block title %}{% endblock %}</a></h3>
-  <p>
-  {% block preview %}{% endblock %}
-  </p>
+  <a href="{{ ("/notepad.html#%s" % slug )|url }}">
+    <span>{{ date|datetimeformat }}</span>
+    <h3 class="title">
+      {% block title %}{% endblock %}
+    </h3>
+    <p>
+    {% block preview %}{% endblock %}
+    </p>
+  </a>
 </li>

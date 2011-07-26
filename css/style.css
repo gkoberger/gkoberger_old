@@ -492,6 +492,24 @@ header, #article {
     padding-bottom: 5px;
 }
 
+#section_notepad ul li a {
+    text-decoration: none;
+    color: #444;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding: 10px 20px;
+    width: 196px;
+    display: block;
+}
+
+#section_notepad ul li a:hover {
+    color: #000;
+    background-color: rgba(220, 220, 220, 0.7);
+}
+
 #section_notepad > ul {
     overflow: auto;
     margin: 0;
@@ -502,9 +520,7 @@ header, #article {
     font-family: Verdana;
     font-size: 12px;
     float: left;
-    width: 220px;
     list-style: none;
-    margin-left: 21px;
 }
 #section_articles > ul li h3 {
     margin: 10px 0 3px;
@@ -799,7 +815,6 @@ a#logo.small:hover .logo div {
 }
 
 #notebook #notes h2.title {
-    border-bottom: 1px dotted #BBBBBB;
     color: #333333;
     font-size: 40px;
     margin: 10px auto 0.3em;
@@ -1000,7 +1015,6 @@ a#logo.small:hover .logo div {
 #sections #section_notepad h2 {
     font-size: 36px;
     text-shadow: 0 1px 1px #FFFFFF, 0 3px 0 #B6BAB5;
-    margin-bottom: 10px;
     margin-top: -25px;
     text-align: center;
 }
