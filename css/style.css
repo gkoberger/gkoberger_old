@@ -708,7 +708,7 @@ a#logo.small:hover .logo div {
 }
 
 #logo.small #header_spread div.subtitle .subtitle_text {
-    font-size: 13px;
+    font-size: 0.65em;
     padding: 0pt;
     position: relative;
     top: 0pt;
