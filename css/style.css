@@ -437,6 +437,16 @@ header, #article {
     color: #222;
     text-decoration: none;
     -moz-transition: color 0.5s ease;
+    -webkit-transition: color 0.5s ease;
+    text-transform: lowercase;
+}
+
+#intro a.github:hover {
+    color: #006EAE;
+}
+
+#intro a.twitter:hover {
+    color: #2EACD6;
 }
 
 #intro a.mozilla:hover {
@@ -445,6 +455,10 @@ header, #article {
 
 #intro a.rit:hover {
     color: #BF4F0F;
+}
+
+#intro .subintro {
+    font-size: 0.8em;
 }
 
 #section_articles > ul {
