@@ -5,6 +5,8 @@ import re
 import shutil
 import sys
 import time
+import urllib
+import urllib2
 import webbrowser
 
 from jinja2 import FileSystemLoader, Environment
@@ -13,6 +15,10 @@ from jinja2 import FileSystemLoader, Environment
 # once every few weeks.  Eventually I'll go through and clean it up.
 
 # So, don't judge me for some of the horrible, horrible things I do here.
+
+# TODO:
+# - Abstract the jinja stuff; move it to another file
+# - Don't keep loading settings!
 
 def compile_home():
     args = {'page': 'home'}
@@ -71,6 +77,22 @@ def render_notepad(file, args={}):
 
     return get_template(('notepad_src', file), args=args)
 
+def generate_bitly(url):
+    settings = {}
+    with open('settings.json', 'r') as f:
+        settings = json.load(f)
+
+    if('bitly_key' not in settings):
+        return url
+
+    url_base = "http://api.bitly.com/v3/shorten"
+    bitly_url = "%s?longUrl=%s&login=%s&apiKey=%s&format=txt" % (
+                url_base, urllib.quote(url), settings['bitly_login'],
+                settings['bitly_key'])
+
+    r = urllib2.urlopen(bitly_url)
+    return r.readline().strip()
+
 def datetimeformat(value, format='%B %d, %Y'):
     return value.strftime(format)
 
@@ -109,7 +131,7 @@ def escaper(text):
         text = text.replace(code[0], code[1])
     return text
 
-def url(url, use_base=False):
+def url(url, use_base=False, bitly=False):
     settings = {}
     with open('settings.json', 'r') as f:
         settings = json.load(f)
@@ -120,10 +142,13 @@ def url(url, use_base=False):
 
     url = '/%s' % re.sub('^/', '', url)
 
-    if use_base and 'base' in settings:
+    if (use_base or bitly) and 'base' in settings:
         base = re.sub('/$', '', settings['base'])
         url = re.sub('^/', '', url)
         url = ('%s/%s' % (base, url))
+
+        if bitly:
+            url = generate_bitly(url)
 
     return url
 
@@ -246,6 +271,7 @@ def get_template(template, args={}, output=None, render=True):
     env.filters['escaper'] = escaper
     env.filters['namespacer'] = namespacer
     env.filters['datetimeformat'] = datetimeformat
+    env.filters['urlencode'] = urllib.quote
 
     settings = {}
     with open('settings.json', 'r') as f:

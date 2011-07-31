@@ -928,6 +928,20 @@ a#logo.small:hover .logo div {
     margin-left: 175px;
 }
 
+#notebook .notepad_footer {
+    text-align: center;
+    padding-top: 1em;
+}
+
+#notebook .note .notepad_footer a {
+    text-decoration: none;
+    border-bottom: 0;
+}
+
+#notebook .note .notepad_footer a strong {
+    font-weight: 600;
+}
+
 .text {
     text-align: justify;
     color: #555555;
