@@ -1,4 +1,5 @@
 {% set title = "%s [article]" % self.title() %}
+{% set canon = ("magazine/%s" % filename)|url(bitly=True) %}
 {% extends "parent.html" %}
 
 {% block body %}

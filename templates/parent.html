@@ -22,6 +22,10 @@
 
   <link href="http://feeds.feedburner.com/gkoberger-all" rel="alternate" title="Full RSS Feed" type="application/rss+xml" />
 
+  {% if canon: %}
+  <link rel="shorturl" href="{{ canon }}">
+  {% endif %}
+
   <!-- Mobile viewport optimized: j.mp/bplateviewport -->
   <meta name="viewport" content="width: 320; maximum-scale=1.0; width=device-width, initial-scale=1.0">
 

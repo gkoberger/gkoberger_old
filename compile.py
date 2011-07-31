@@ -202,6 +202,7 @@ def compile_magazines():
         args = {'date': article['date'],
                 'slug': article['slug'],
                 'page': 'magazine',
+                'filename': article['filename'],
                 'nav_next': nav_next,
                 'nav_prev': nav_prev}
 
