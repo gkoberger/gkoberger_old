@@ -762,6 +762,8 @@ a#logo.small:hover .logo div {
 
 .magazine_nav_bottom {
     margin-top: 4em;
+    width: 1000px;
+    margin: auto;
 }
 
 .magazine_nav_bottom .magazine_meta {
@@ -780,6 +782,11 @@ a#logo.small:hover .logo div {
 }
 .magazine_nav .next .arrow {
     float: left;
+}
+
+.magazine_nav .next {
+    left: 0px;
+    text-align: left;
 }
 
 .magazine_nav .prev {
