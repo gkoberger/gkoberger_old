@@ -326,8 +326,8 @@ FileETag None
 RewriteRule   ^app/portfolio/?$  app/portfolio.html
 RewriteRule   ^app/about/?$  app/about.html
 RewriteRule   ^app/notepad/?$  app/notepad.html
-RewriteRule   ^app/m/(.*)/?$  app/magazine/$1.html
-RewriteRule   ^app/n/(.*)/?$  app/notepad/$1.html
+RewriteRule   ^app/m/(?:[-0-9]{11})?(.*)/?$  app/magazine/$1.html
+RewriteRule   ^app/n/(?:[-0-9]{11})?(.*)/?$  app/notepad/$1.html
 
 
 # ----------------------------------------------------------------------

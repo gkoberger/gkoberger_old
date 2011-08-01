@@ -67,7 +67,11 @@ def render_magazine(template, args={}, output=None, render=True):
 
     args['file'] = template
 
-    out_file = 'app/magazine/%s' % output if output else None
+    out_file = None
+    if output:
+        out_file = re.sub('^/?[-0-9]{11}', '', output)
+        out_file = 'app/magazine/%s' % out_file
+
     return get_template(('magazine_src', template), args, render=render,
                         output=out_file)
 
@@ -75,7 +79,11 @@ def render_notepad(file, args={}, output=None):
     if 'template' not in args:
         args['template'] = get_template('notepad_single.html', render=False)
 
-    out_file = 'app/notepad/%s' % output if output else None
+    out_file = None
+    if output:
+        out_file = re.sub('^/?[-0-9]{11}', '', output)
+        out_file = 'app/notepad/%s' % out_file
+
     return get_template(('notepad_src', file), args=args, output=out_file)
 
 def generate_bitly(url):
@@ -136,6 +144,8 @@ def url(url, use_base=False, bitly=False):
     settings = {}
     with open('settings.json', 'r') as f:
         settings = json.load(f)
+
+    url = re.sub('[-0-9]{11}', '', url)
 
     if settings['prod']:
         url = re.sub('\.html', '', url)
