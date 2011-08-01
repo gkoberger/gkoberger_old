@@ -30,8 +30,8 @@ def compile_home():
     template = get_template('notepad_preview.html', render=False)
 
     for note in to_compile:
-        args_np={'template': template, 'date': note['date'],
-                 'slug': note['slug'], 'preview': True}
+        args_np={'template': template, 'filename': note['filename'],
+                 'date': note['date'], 'slug': note['slug'], 'preview': True}
         notes.append(render_notepad(note['filename'], args=args_np))
 
     args['notes'] = notes

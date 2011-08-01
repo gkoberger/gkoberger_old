@@ -1,5 +1,5 @@
 <li>
-  <a href="{{ ("/notepad.html#%s" % slug )|url }}">
+  <a href="{{ ("/notepad/%s" % filename )|url }}">
     <span>{{ date|datetimeformat }}</span>
     <h3 class="title">
       {% block title %}{% endblock %}
