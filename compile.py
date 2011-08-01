@@ -198,13 +198,17 @@ def compile_magazines():
                         'slug': a['slug'],
                         'type': 'prev',
                         'template': template})
+        settings = {}
+        with open('settings.json', 'r') as f:
+            settings = json.load(f)
 
         args = {'date': article['date'],
                 'slug': article['slug'],
                 'page': 'magazine',
                 'filename': article['filename'],
                 'nav_next': nav_next,
-                'nav_prev': nav_prev}
+                'nav_prev': nav_prev,
+                'is_prod': settings['prod']}
 
         # Move assets
         template_name = article['filename'].split('.')[0]

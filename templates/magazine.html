@@ -41,6 +41,24 @@
       {{ self.content()|namespacer(ns, file)|footnoter }}
     </div>
   </div>
+  <div class="magazine_nav magazine_nav_bottom">
+    {{ nav_next }}
+    <div class="magazine_meta">
+      {
+      {% set tweet = ("%s by @gkoberger %s" % (self.title(), canon))|urlencode %}
+      <a href="http://twitter.com/?status={{ tweet }}" target="_new">tweet this</a>
+      &middot;
+      <a href="http://twitter.com/gkoberger">follow <strong>@gkoberger</strong></a>
+      &middot;
+      <a href="#" class="open_comments">comments</a>
+      }
+    </div>
+    {{ nav_prev }}
+  </div>
+
+  <div id="disqus_thread" data-indentifier="m-{{filename}}"
+    data-url="{{ ("magazine/%s" % filename)|url(use_base=True) }}"
+    class="magazine_body"></div>
 </div>
 
 {{ self.content_css()|namespacer(ns, file) }}

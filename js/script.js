@@ -35,8 +35,27 @@ $(function(){
     */
 
     $('.parallax').append("<div class='parallax_front'></div>");
+
+    if($('#disqus_thread').length) {
+        initDisqus();
+    }
 });
 
+function initDisqus() {
+    var $el = $('#disqus_thread'),
+        disqus_shortname = 'gkoberger',
+        disqus_identifier = $el.attr('data-identifier'),
+        disqus_developer = 1,
+        disqus_url = $el.attr('data-url');
+
+    $('.open_comments').click(function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      return false;
+    });
+
+}
 
 function initNotepad() {
     var articles = $('.note'),
@@ -121,7 +140,7 @@ function initNotepad() {
 
     $('.nav_prev').click(function(){
         smoothScroll = true;
-        prev = $(this).closest('.note').next();
+        prev = $(this).closest('.note').prev();
         if(prev.length) {
           var hash = prev.find('.title a').attr('href').match(/(.*)#(.*)/)[2]
           $('html').animate({scrollTop: prev.offset()['top'] },'slow', function() {
