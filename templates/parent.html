@@ -19,6 +19,7 @@
   </title>
   <meta name="description" content="Portfolio of Gregory Koberger, web developer and user experience designer.">
   <meta name="author" content="Gregory Koberger">
+  {% if not is_prod: %}<meta name="is_dev" id="is_dev" content="yes">{% endif %}
 
   <link href="http://feeds.feedburner.com/gkoberger-all" rel="alternate" title="Full RSS Feed" type="application/rss+xml" />
 
@@ -84,6 +85,7 @@
   {% block body %}{% endblock %}
 
     <footer>
+      {% block footer %}{% endblock %}
       Designed and programmed by <a href="/">Gregory Koberger</a> 2005&ndash;{{ year }}. This work is licensed under a <a rel="license"
       href="http://creativecommons.org/licenses/by/1.0/">Creative Commons License</a>.
     <br>Lovingly handcrafted using the finest HTML5 available.  Available on <a href="http://github.com/gkoberger/gkoberger">github</a>.

@@ -1,18 +1,18 @@
 <div class="note" id="{{ slug }}">
   <div class="title_date gar">{{ date|datetimeformat }}</div>
   <h2 class="title">
-    <a href="notepad.html#{{ slug }}">{{ self.title() }}</a>
+    <a href="{{ ('notepad/%s' % filename)|url }}">{{ self.title() }}</a>
   </h2>
   <div class="note_container">
     <div class="text">
       {% block content %}{% endblock %}
       <div class="notepad_footer">
         {
-        {% set short_url = ('notepad.html#%s' % slug)|url(bitly=True) %}
+        {% set short_url = ('notepad/%s' % filename)|url(bitly=True) %}
         {% set tweet = ("%s by @gkoberger %s" % (self.title(), short_url))|urlencode %}
         <a href="http://twitter.com/?status={{ tweet }}" target="_new">tweet this</a>
         &middot; <a href="http://twitter.com/gkoberger">follow <strong>@gkoberger</strong></a>
-        &middot; <a href="#">comments</a>
+        &middot; <a href="{{ ('notepad/%s#comments' % filename)|url }}">comments</a>
         }
       </div>
     </div>

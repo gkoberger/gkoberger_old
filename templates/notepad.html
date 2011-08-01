@@ -1,7 +1,7 @@
 {% set title="Gregory's Notepad" %}
 {% extends "parent.html" %}
 {% block body %}
-<div id="notes">
+<div id="notes" class="all_notes">
   {% for note in notes %}
   {{ note }}
   {% endfor %}

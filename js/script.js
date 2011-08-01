@@ -19,7 +19,7 @@ $(function(){
       }
     }
 
-    if($('#notebook').length > 0) {
+    if($('#notebook .all_notes').length > 0) {
       initNotepad();
     }
 
@@ -41,19 +41,27 @@ $(function(){
     }
 });
 
+disqus_developer = $('#is_dev').length;
+
 function initDisqus() {
     var $el = $('#disqus_thread'),
         disqus_shortname = 'gkoberger',
         disqus_identifier = $el.attr('data-identifier'),
-        disqus_developer = $el.attr('data-developer') == "1",
-        disqus_url = $el.attr('data-url');
+        disqus_url = $el.attr('data-url'),
+        disqus_auto = $el.attr('data-auto');
 
-    $('.open_comments').click(function() {
+      function showDisqus() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      return false;
-    });
+        return false;
+      };
+
+      if(disqus_auto) {
+        showDisqus();
+      } else {
+        $('.open_comments').click(showDisqus);
+      }
 
 }
 

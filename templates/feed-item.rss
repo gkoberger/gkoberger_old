@@ -3,7 +3,7 @@
         <description>
             {{ self.content()|escaper }}
         </description>
-        <link>{{ ("/notepad.html#%s" % slug)|url(use_base=True) }}</link>
+        <link>{{ ("%s/%s" % (folder, filename))|url(use_base=True) }}</link>
         <guid>{{ slug }}</guid>
         <pubDate>{{ date|datetimeformat }} 00:00:01 PST</pubDate>
         <category>{% block category %}{% endblock %}</category>

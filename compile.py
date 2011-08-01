@@ -71,11 +71,12 @@ def render_magazine(template, args={}, output=None, render=True):
     return get_template(('magazine_src', template), args, render=render,
                         output=out_file)
 
-def render_notepad(file, args={}):
+def render_notepad(file, args={}, output=None):
     if 'template' not in args:
         args['template'] = get_template('notepad_single.html', render=False)
 
-    return get_template(('notepad_src', file), args=args)
+    out_file = 'app/notepad/%s' % output if output else None
+    return get_template(('notepad_src', file), args=args, output=out_file)
 
 def generate_bitly(url):
     settings = {}
@@ -139,6 +140,7 @@ def url(url, use_base=False, bitly=False):
     if settings['prod']:
         url = re.sub('\.html', '', url)
         url = re.sub('^/?magazine/', '/m/', url)
+        url = re.sub('^/?notepad/', '/n/', url)
 
     url = '/%s' % re.sub('^/', '', url)
 
@@ -231,10 +233,12 @@ def compile_rss(category=None, desc=None, title=None):
         template = get_template('feed-item.rss', render=False)
         if note['folder'] == 'notepad_src':
             f = render_notepad(note['filename'], args={'template': template,
-                'date': note['date'], 'slug': note['slug'] })
+                'filename': note['filename'], 'date': note['date'],
+                'slug': note['slug'], 'folder': 'notepad' })
         else:
             f = render_magazine(note['filename'], args={'template': template,
-                'date': note['date'], 'slug': note['slug'] })
+                'filename': note['filename'], 'date': note['date'],
+                'slug': note['slug'], 'folder': 'magazine' })
 
         # Should use pyquery...
         if not category or re.search('<category>%s<\/category>' % category, f):
@@ -251,11 +255,23 @@ def compile_rss(category=None, desc=None, title=None):
 def compile_notepads():
     to_compile = get_list('notepad_src')
 
+    settings = {}
+    with open('settings.json', 'r') as f:
+        settings = json.load(f)
+
+
     notes = []
+    template_full = get_template('notepad_full.html', render=False)
 
     for note in to_compile:
-        f = render_notepad(note['filename'], args={'date': note['date'], 'slug': note['slug'] })
+        args = {'date': note['date'], 'slug': note['slug'],
+                'is_prod': settings['prod'], 'filename': note['filename'] }
+        f = render_notepad(note['filename'], args=args)
         notes.append(f)
+
+        args['page'] = 'notebook'
+        args['template'] = template_full
+        render_notepad(note['filename'], args, note['filename'])
 
     get_template('notepad.html', args={'notes': notes, 'page': 'notebook'}, output='app/notepad.html')
 

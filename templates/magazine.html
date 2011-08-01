@@ -41,6 +41,14 @@
       {{ self.content()|namespacer(ns, file)|footnoter }}
     </div>
   </div>
+</div>
+
+{{ self.content_css()|namespacer(ns, file) }}
+
+{% block content_js %}{% endblock %}
+{% endblock %}
+
+{% block footer %}
   <div class="magazine_nav magazine_nav_bottom">
     {{ nav_next }}
     <div class="magazine_meta">
@@ -59,9 +67,6 @@
   <div id="disqus_thread" data-indentifier="m-{{filename}}"
     data-url="{{ ("magazine/%s" % filename)|url(use_base=True) }}"
     class="magazine_body" data-developer="{{ (1 if not is_prod else 0)}}"></div>
-</div>
-
-{{ self.content_css()|namespacer(ns, file) }}
-
-{% block content_js %}{% endblock %}
 {% endblock %}
+
+
