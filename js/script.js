@@ -45,7 +45,7 @@ function initDisqus() {
     var $el = $('#disqus_thread'),
         disqus_shortname = 'gkoberger',
         disqus_identifier = $el.attr('data-identifier'),
-        disqus_developer = 1,
+        disqus_developer = $el.attr('data-developer') == "1",
         disqus_url = $el.attr('data-url');
 
     $('.open_comments').click(function() {
