@@ -21,7 +21,7 @@
         <!-- <div class="sidebar_title">{{ self.title() }}</div> -->
         {{ date|datetimeformat }}<br />
         by {% block author %}<a href="http://gkoberger.net/">Gregory</a>{% endblock %}<br />
-        0 comments<br />
+        <a href="{{ ('notepad/%s#comments' % filename)|url }}">comments</a>
         <!-- t f a c -->
         <div class="sidebar_nav">
           <a href="#" class="nav_prev">&laquo; prev</a>
