@@ -136,11 +136,9 @@ function initNotepad() {
           articles.trigger('page-scroll', [window_top]);
         next = $(this).closest('.note').next();
         if(next.length) {
-          var hash = next.find('.title a').attr('href').match(/(.*)#(.*)/)[2]
           $('html').animate({scrollTop: next.offset()['top'] },'slow', function() {
               smoothScroll = false;
               articles.trigger('page-scroll', [window_top]);
-              location.hash = hash;
           });
         }
         return false;
@@ -150,11 +148,9 @@ function initNotepad() {
         smoothScroll = true;
         prev = $(this).closest('.note').prev();
         if(prev.length) {
-          var hash = prev.find('.title a').attr('href').match(/(.*)#(.*)/)[2]
           $('html').animate({scrollTop: prev.offset()['top'] },'slow', function() {
               smoothScroll = false;
               articles.trigger('page-scroll', [window_top]);
-              location.hash = hash;
           });
         }
         return false;
