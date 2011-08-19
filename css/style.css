@@ -558,6 +558,10 @@ header, #article {
     margin-left: 0;
 }
 
+#meta_links {
+    display: none;
+}
+
 .logo {
     background-color: #000000;
     border-radius: 100px;
