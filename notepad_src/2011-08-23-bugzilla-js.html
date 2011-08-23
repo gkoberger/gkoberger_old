@@ -1,0 +1,43 @@
+{% extends template %}
+
+{% block title %}BugzillaJS{% endblock %}
+{# {% block author %}<a href="http://gkoberger.net/">Gregory</a>{% endblock %} #}
+
+{% block preview %}
+Bugzilla may have inline history, but BugzillaJS is still incredibly useful.
+{% endblock %}
+
+{% block category %}mozilla{% endblock %}
+
+{% block content %}
+<p>
+This morning, BMO (Mozilla&rsquo;s installation of Bugzilla) finally added inline history &mdash; a feature that was sorely needed for the past few years.  A few
+Firefox extensions (such as Bugzilla Tweaks and my add-on, BugzillaJS) popped up to fill this void, however it&rsquo;s great that BMO is finally getting it natively.
+</p>
+<p>
+This is a huge step forward for Bugzilla, however it doesn&rsquo;t mean Bugzilla-related Firefox extensions are obsolete.  Most Mozillians spend a good part of
+their day in Bugzilla, and <a href="https://addons.mozilla.org/en-US/firefox/addon/bugzillajs/">BugzillaJS</a> adds a number of helpful features that make it a much
+more plesant experience.  Here&rsquo;s a list of features BugzillaJS has that Bugzilla still doesn&rsquo;t.  (Note: All features are optional, and can be turned off
+from the preferences.)
+</p>
+<ul>
+  <li>Image attachments or links to images are shown inline as thumbnails.</li>
+  <li>View images as a lightbox.</li>
+  <li>Turn timestamps into relative dates (&ldquo;Three hours ago&rdquo;).</li>
+  <li>Styled comments that make the text easier to read.</li>
+  <li>Github commits are shown inline if linked to in the comment.</li>
+  <li>Gravatars next to comments.</li>
+  <li>Add a scroll bar if the text in the comment is too wide.</li>
+  <li>Remove flags, status and blocking options <em>(off by default)</em>.</li>
+  <li>Remove access keys <em>(off by default)</em>.</li>
+  <li>Automatically select component and product for &ldquo;Clone Bug&rdquo; link.</li>
+  <li>Add &ldquo;new&rdquo; link to depends and blocks fields</li>
+  <li>Don&rsquo;t guess OS or Hardware <em>(off by default)</em>.</li>
+  <li>Hide the first comment if there&rsquo;s nothing in it.</li>
+  <li>Option to hide &ldquo;nobody@&rdquo; bugs from bug lists.</li>
+  <li>Remove &ldquo;Bug&rdquo; from the title, so it&rsquo;s easier to see the bug number with a lot of tabs.</li>
+</ul>
+<p><strong><a href="https://addons.mozilla.org/en-US/firefox/addon/bugzillajs/">Download BugzillaJS Now!</a></strong></p>
+<p>BugzillaJS is open source, so I&rsquo;d love to have you <a href="https://github.com/gkoberger/BugzillaJS">contribute</a>.  Currently it only works on BMO
+(bugzilla.mozilla.org), however I have plans to support any version of Bugzilla as soon as the Jetpack SDK will support it.</p>
+{% endblock %}

@@ -373,6 +373,7 @@ if __name__ == '__main__':
     compile_page('p404')
     compile_page('about')
     compile_page('portfolio')
+    compile_page('resume')
 
     compile_rss()
     compile_rss('mozilla', desc="Mozilla-related blog posts", title="Mozilla")
