@@ -1252,12 +1252,16 @@ footer a:hover {
     display: none;
 }
 
-#dsq-content a {
+#disqus_thread #dsq-content a {
     border-bottom: 0 none;
 }
 
 #disqus_thread {
     font-family: Arial, Verdana;
+}
+
+#dsq-content .dsq-media-embed h4 {
+    display: none;
 }
 
 #notebook #disqus_thread {
