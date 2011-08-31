@@ -1,0 +1,45 @@
+{% extends template %}
+
+{% block title %}One Year{% endblock %}
+{# {% block author %}<a href="http://gkoberger.net/">Gregory</a>{% endblock %} #}
+
+{% block preview %}
+Mozilla &mdash; 295 bugs, 30,000 lines of code and 365 days later.
+{% endblock %}
+
+{% block content %}
+<p>I started at Mozilla a year ago today.  It&rsquo;s hard to believe it&rsquo;s been twelve months already.  Indulge me, if you will, as I take a quick self-centered trip down
+memory lane.</p>
+
+<strong>New Technologies</strong>
+<p>When I was hired, I was a PHP developer on Windows.  Pretty much every language and tool we use here was brand new to me. I even wrote <a href="https://addons.mozilla.org/en-US/firefox/addon/bugzillajs/">a Firefox extension</a>!</p>
+<ul>
+  <li><strong>Python</strong> from PHP</li>
+  <li><strong>Django</strong> from CodeIgniter</li>
+  <li><strong>OSX</strong> from Windows</li>
+  <li><strong>Git</strong> from SVN</li>
+  <li><strong>Github</strong> from private repos</li>
+  <li><strong>Vim</strong> from Netbeans</li>
+  <li><strong>LESS</strong> from plain CSS</li>
+  <li><strong>Command-line</strong> from GUIs upon GUIs</li>
+  <li><strong>Nose (Unit Testing)</strong> from, uh, not writing tests</li>
+</ul>
+
+<p>In hindsight, I cannot believe I worked with most of these technologies for so long. PHP? Windows? SVN? I&rsquo;ll never go back.</p>
+
+<strong>By The Numbers</strong>
+<p>After all, nothing says <em>mushy</em> quite like a quantitative look at the past 365 days.</p>
+<ul>
+  <li><strong>295</strong> <a
+    href="https://bugzilla.mozilla.org/buglist.cgi?list_id=1202261&resolution=---&resolution=FIXED&resolution=INVALID&resolution=WONTFIX&resolution=DUPLICATE&resolution=WORKSFORME&resolution=INCOMPLETE&resolution=SUPPORT&resolution=EXPIRED&resolution=MOVED&emailtype1=exact&emailassigned_to1=1&query_format=advanced&bug_status=RESOLVED&bug_status=VERIFIED&bug_status=CLOSED&email1=gkoberger%40mozilla.com">bugs
+    closed</a> in <abbr title="addons.mozilla.org">AMO</abbr></li>
+  <li><strong>447</strong> <a href="https://github.com/jbalogh/zamboni/contributors">git commits</a></li>
+  <li><strong>30,298</strong> lines of code added</li>
+  <li><strong>10,443</strong> lines of code deleted</li>
+  <li><strong>16</strong> git repositories contributed to</li>
+</ul>
+
+<p>It&rsquo;s been a great year.  I&rsquo;ve had the opportunity to work with brilliant people on awesome projects.  I can&rsquo;t imagine a place I&rsquo;d rather
+be.</p>
+<p>That&rsquo;s enough reminiscing for now, though.  There&rsquo;s code to be written.  Time to get started on year two.</p>
+{% endblock %}

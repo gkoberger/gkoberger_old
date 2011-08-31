@@ -1002,7 +1002,12 @@ a#logo.small:hover .logo div {
 }
 
 .text li {
-  margin-bottom: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+#notebook ul li {
+    line-height: 1.6em;
+    margin-bottom: 0;
 }
 
 /*
