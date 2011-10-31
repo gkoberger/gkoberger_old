@@ -251,8 +251,22 @@ function initScreen() {
         $('#sketch').css('height', $(this).height());
       });
     });
+    window.location.hash = $el.attr('data-who');
     return false;
   });
+
+  $(window).bind('hashchange', hashChange);
+  function hashChange() {
+    if(window.location.hash) {
+      var hash = window.location.hash.replace(/#/, ''),
+          who = $('.screen .speakers [data-who=' + hash + ']');
+
+      if(who.length) {
+        who.first().trigger('click');
+      }
+    }
+  }
+  hashChange();
 }
 
 function initMobile() {
