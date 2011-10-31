@@ -3,6 +3,7 @@
 {% extends "parent.html" %}
 
 {% block body %}
+{{ self.content_css()|namespacer(ns, file) }}
 <div id="article">
   <div class="magazine_header">
     {% block header %}
@@ -43,7 +44,6 @@
   </div>
 </div>
 
-{{ self.content_css()|namespacer(ns, file) }}
 
 {% block content_js %}{% endblock %}
 {% endblock %}

@@ -372,6 +372,7 @@ if __name__ == '__main__':
 
     compile_page('p404')
     compile_page('about')
+    compile_page('about_new')
     compile_page('portfolio')
     compile_page('resume')
 

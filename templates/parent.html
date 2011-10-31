@@ -39,6 +39,11 @@
 
   <script type="text/javascript" src="http://use.typekit.com/{%- block typekit -%}lvj2lqg{%- endblock -%}.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  {% if not is_prod: %}
+  {# Load jQuery on top #}
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.4.4.js"%3E%3C/script%3E'))</script>
+  {% endif %}
 </head>
 
 <body id="{{ page }}">

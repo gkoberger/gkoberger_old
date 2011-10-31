@@ -1,0 +1,287 @@
+{% extends template %}
+
+{% block title %}Startup School 2011{% endblock %}
+
+{% block header %}
+<h1>
+  <span>Lessons From</span>
+  Startup School 2011
+</h1>
+{% endblock %}
+
+{% macro nav(bottom) %}
+<ul class="speakers {% if bottom: %}bottom{% endif %}">
+  <li>
+    <a href="#" class="yellow on" data-who="ma">
+      <span><strong>Marc Andreessen</strong><br>Partner, Andreessen Horowitz</span>
+      <div><img src="/assets/pma.png"></div>
+    </a>
+  </li>
+  <li>
+    <a href="#" data-who="jl" class="blue">
+      <span><strong>James Lindenbaum</strong><br>Founder, Heroku</span>
+      <div><img src="/assets/pjl.png"></div>
+    </a>
+  </li>
+  <li>
+    <a href="#" data-who="jg" class="red">
+      <span><strong>Jim Goetz</strong><br>Partner, Sequoia</span>
+      <div><img src="/assets/pjg.png"></div>
+    </a>
+  </li>
+  <li>
+    <a href="#" data-who="ak" class="green">
+      <span><strong>Ashton Kutcher</strong><br>Investor, A-Grade</span>
+      <div><img src="/assets/pak.png"></div>
+    </a>
+  </li>
+  <li>
+    <a href="#" data-who="mm" class="yellow">
+      <span><strong>Matt Mullenweg</strong><br>Founder, Automattic</span>
+      <div><img src="/assets/pmm.png"></div>
+    </a>
+  </li>
+  <li>
+    <a href="#" data-who="mp" class="blue">
+      <span><strong>Mark Pincus</strong><br>Founder, Zynga</span>
+      <div><img src="/assets/pmp.png"></div>
+    </a>
+  </li>
+  <li>
+    <a href="#" data-who="pg" class="red">
+      <span><strong>Paul Graham</strong><br>Partner, Y Combinator</span>
+      <div><img src="/assets/ppg.png"></div>
+    </a>
+  </li>
+  <li>
+    <a href="#" data-who="mz" class="orange">
+      <span><strong>Mark Zuckerberg</strong><br>Founder, Facebook</span>
+      <div><img src="/assets/pmz.png"></div>
+    </a>
+  </li>
+  <li>
+    <a href="#" class="yellow" data-who="sc">
+      <span><strong>Stephen Cohen</strong><br>Founder, Palantir</span>
+      <div><img src="/assets/psc.png"></div>
+    </a>
+  </li>
+  <li>
+    <a href="#" class="blue" data-who="ml">
+      <span><strong>Max Levchin</strong><br>Founder, Slide, Paypal</span>
+      <div><img src="/assets/pml.png"></div>
+    </a>
+  </li>
+  <li>
+    <a href="#" class="red" data-who="rc">
+      <span><strong>Ron Conway</strong><br>Partner, SV Angel</span>
+      <div><img src="/assets/prc.png"></div>
+    </a>
+  </li>
+  <li>
+    <a href="#" class="yellow" data-who="dh">
+      <span><strong>Drew Houston</strong><br>Founder, Dropbox</span>
+      <div><img src="/assets/pdh.png"></div>
+    </a>
+  </li>
+</ul>
+{% endmacro %}
+
+{% block content %}
+{{ nav() }}
+<div id="sketch">
+  <div class="s-ma"><img src="/assets/tma.png" alt="Marc Andreesen"><img src="/assets/ma.png" alt="Marc Andreessen" title="Marc Andreessen"></div>
+  <div class="s-jl"><img src="/assets/tjl.png" alt="James Lindenbaum" title="James Lindenbaum"><img src="/assets/jl.png" alt="James Lindenbaum" title="James Lindenbaum"></div>
+  <div class="s-jg"><img src="/assets/tjg.png" alt="Jim Goetz" title="Jim Goetz"><img src="/assets/jg.png" alt="Jim Goetz" title="Jim Goetz"></div>
+  <div class="s-ak"><img src="/assets/tak.png" alt="Ashton Kutcher" title="Ashton Kutcher"><img src="/assets/ak.png" alt="Ashton Kutcher" title="Ashton Kutcher"></div>
+  <div class="s-mm"><img src="/assets/tmm.png" alt="Matt Mullenweg" title="Matt Mullenweg"><img src="/assets/mm.png" alt="Matt Mullenweg" title="Matt Mullenweg"></div>
+  <div class="s-mp"><img src="/assets/tmp.png" alt="Mark Pincus" title="Mark Pincus"><img src="/assets/mp.png" alt="Mark Pincus" title="Mark Pincus"></div>
+  <div class="s-pg"><img src="/assets/tpg.png" alt="Paul Graham" title="Paul Graham"><img src="/assets/pg.png" alt="Paul Graham" title="Paul Graham"></div>
+  <div class="s-mz"><img src="/assets/tmz.png" alt="Mark Zuckerberg" title="Mark Zuckerberg"><img src="/assets/mz.png" alt="Mark Zuckerberg" title="Mark Zuckerberg"></div>
+  <div class="s-sc"><img src="/assets/tsc.png" alt="Stephen Cohen" title="Stephen Cohen"><img src="/assets/sc.png" alt="Stephen Cohen" title="Stephen Cohen"></div>
+  <div class="s-ml"><img src="/assets/tml.png" alt="Max Levchin" title="Max Levchin"><img src="/assets/ml.png" alt="Max Levchin" title="Max Levchin"></div>
+  <div class="s-rc"><img src="/assets/trc.png" alt="Ron Conway" title="Ron Conway"><img src="/assets/rc.png" alt="Ron Conway" title="Ron Conway"></div>
+  <div class="s-dh"><img src="/assets/tdh.png" alt="Drew Houston" title="Drew Houston"><img src="/assets/dh.png" alt="Drew Houston" title="Drew Houston"></div>
+</div>
+{{ nav(True) }}
+
+<p><em>Lessons from Startup School: An Illustrated Guide</em> was created by Gregory Koberger. If you liked it, you can follow him at <strong><a
+    href="http://twitter.com/gkoberger">@gkoberger</a></strong>. This guide is meant to supplement the talks, not replace them. Many things don't make sense
+out of context. Not everything is an exact quote; some quotes were paraphrased to better convey the meaning. It was done in realtime, so there are probably
+typos and mistakes.</p>
+{% endblock %}
+
+{% block content_css %}
+<style>
+.screen .speakers {
+  margin-left: 0;
+}
+.screen .speakers li {
+  display: inline-block;
+  margin-left: 14px;
+}
+.screen .speakers a {
+    display: block;
+    position: relative;
+}
+
+.screen .speakers a span {
+  background-color: #555;
+  border-radius: 3px 3px 3px 3px;
+  color: #FFFFFF;
+  font-size: 12px;
+  left: -12px;
+  line-height: 12px;
+  padding: 4px;
+  position: absolute;
+  text-align: center;
+  width: 100px;
+  top: 80px;
+  opacity: 0;
+  -moz-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+}
+
+.screen .speakers a:hover span {
+  top: 95px;
+  opacity: 1;
+}
+.screen .speakers a.c0 div {
+    -moz-transform: rotate(6deg);
+}
+.screen .speakers a.c1 div {
+    -moz-transform: rotate(2deg);
+}
+.screen .speakers a.c2 div {
+    -moz-transform: rotate(4deg);
+}
+.screen .speakers a.c3 div {
+    -moz-transform: rotate(-2deg);
+}
+.screen .speakers a.c4 div {
+    -moz-transform: rotate(-4deg);
+}
+.screen .speakers a:hover div {
+    -moz-transform: rotate(0deg);
+}
+
+.screen .speakers li div {
+  width: 72px;
+  height: 72px;
+  background-color: #eee;
+  border: 5px solid #fff;
+  box-shadow: 0 0 3px #CCCCCC;
+    -moz-transition: -moz-transform 0.1s ease;
+}
+.screen .speakers li div img {
+  display: block;
+}
+.screen #article .magazine_body {
+  margin: 2em 0;
+}
+.screen .speakers a.on div {
+  -moz-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  box-shadow: 0 0 5px #AAAAAA;
+}
+.screen .speakers a.on.yellow div { background-color: #d2d01a; }
+.screen .speakers a.on.blue div { background-color: #c1e0ea; }
+.screen .speakers a.on.red div { background-color: #f3ced7; }
+.screen .speakers a.on.orange div { background-color: #f8c889; }
+.screen .speakers a.on.green div { background-color: #cdebca; }
+
+.screen #sketch {
+  text-align: center;
+}
+
+.screen #sketch div {
+  margin-bottom: 2em;
+}
+
+.screen #sketch img {
+  display: block;
+  margin: auto;
+  margin-bottom: 1em;
+}
+
+.screen .magazine_header h1 {
+  line-height: 0.8em;
+  background-image: url("/magazine/2011-10-31-startup-school/aig.png");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  padding-bottom: 100px;
+}
+
+.screen .magazine_header h1 span {
+  color: #666666;
+  display: block;
+  font-size: 35px;
+  font-weight: normal;
+}
+
+.screen .speakers.bottom {
+  margin-top: 2em;
+}
+</style>
+{% endblock %}
+
+{% block content_js %}
+<script>
+function initBoth() {
+
+}
+
+function initScreen() {
+  $('#sketch div').not(':first').hide();
+
+  $('.screen .speakers a').each(function() {
+    $(this).addClass('c' + Math.floor(Math.random() * 5));
+  }).click(function() {
+    var $el = $(this);
+    $('.speakers a').removeClass('on');
+    $('.screen .speakers [data-who=' + $el.attr('data-who') + ']').addClass('on');
+    if($el.closest('ul').hasClass('bottom')) {
+      $('html').animate({'scrollTop': 525}, 800);
+    }
+    $('#sketch div:visible').fadeOut(function() {
+      $('#sketch .s-' + $el.attr('data-who')).fadeIn(function() {
+        $('#sketch').css('height', $(this).height());
+      });
+    });
+    return false;
+  });
+}
+
+function initMobile() {
+
+}
+</script>
+{% endblock %}
+
+{% block preview %}
+<div class="parallax">
+  <div class="y">Y</div>
+</div>
+{% endblock %}
+
+{% block preview_css %}
+  #namespace .y {
+    width: 260px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 114px;
+    height: 150px;
+  }
+
+  #namespace .parallax {
+    background-color: #DC9D61;
+    -webkit-transition: background-color 0.3s ease-in-out ;
+    -moz-transition: background-color 0.3s ease-in-out;
+  }
+
+  #namespace:hover .parallax {
+    background-color: #ca894c;
+  }
+
+{% endblock %}
+
