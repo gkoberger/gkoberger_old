@@ -145,6 +145,7 @@ typos and mistakes.</p>
   top: 95px;
   opacity: 1;
 }
+/* No -webkit prefixes bc it's really buggy */
 .screen .speakers a.c0 div {
     -moz-transform: rotate(6deg);
 }
@@ -170,7 +171,8 @@ typos and mistakes.</p>
   background-color: #eee;
   border: 5px solid #fff;
   box-shadow: 0 0 3px #CCCCCC;
-    -moz-transition: -moz-transform 0.1s ease;
+  -moz-transition: -moz-transform 0.1s ease;
+  -webkit-transition: -webkit-transform 0.1s ease;
 }
 .screen .speakers li div img {
   display: block;
@@ -240,7 +242,7 @@ function initScreen() {
     $('.speakers a').removeClass('on');
     $('.screen .speakers [data-who=' + $el.attr('data-who') + ']').addClass('on');
     if($el.closest('ul').hasClass('bottom')) {
-      $('html').animate({'scrollTop': 525}, 800);
+      $('body').animate({'scrollTop': 525}, 800);
     }
     $('#sketch div:visible').fadeOut(function() {
       $('#sketch .s-' + $el.attr('data-who')).fadeIn(function() {
