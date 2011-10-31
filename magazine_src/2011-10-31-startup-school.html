@@ -114,6 +114,30 @@ typos and mistakes.</p>
 
 {% block content_css %}
 <style>
+.mobile .speakers {
+  display: none;
+}
+.mobile #sketch {
+  text-align: center;
+}
+.mobile #sketch div {
+  background-position: center 15px;
+  background-repeat: no-repeat;
+  padding-top: 100px;
+}
+.mobile .s-ma { background-image: url('/assets/pma.png'); }
+.mobile .s-jl { background-image: url('/assets/pjl.png'); }
+.mobile .s-jg { background-image: url('/assets/pjg.png'); }
+.mobile .s-ak { background-image: url('/assets/pak.png'); }
+.mobile .s-mm { background-image: url('/assets/pmm.png'); }
+.mobile .s-mp { background-image: url('/assets/pmp.png'); }
+.mobile .s-pg { background-image: url('/assets/ppg.png'); }
+.mobile .s-mz { background-image: url('/assets/pmz.png'); }
+.mobile .s-sc { background-image: url('/assets/psc.png'); }
+.mobile .s-ml { background-image: url('/assets/pml.png'); }
+.mobile .s-rc { background-image: url('/assets/prc.png'); }
+.mobile .s-dh { background-image: url('/assets/pdh.png'); }
+
 .screen .speakers {
   margin-left: 0;
 }
@@ -150,21 +174,26 @@ typos and mistakes.</p>
 /* No -webkit prefixes bc it's really buggy */
 .screen .speakers a.c0 div {
     -moz-transform: rotate(6deg);
+    -webkit-transform: rotate(6deg);
 }
 .screen .speakers a.c1 div {
     -moz-transform: rotate(2deg);
+    -webkit-transform: rotate(2deg);
 }
 .screen .speakers a.c2 div {
     -moz-transform: rotate(4deg);
+    -webkit-transform: rotate(4deg);
 }
 .screen .speakers a.c3 div {
     -moz-transform: rotate(-2deg);
+    -webkit-transform: rotate(-2deg);
 }
 .screen .speakers a.c4 div {
     -moz-transform: rotate(-4deg);
 }
 .screen .speakers a:hover div {
     -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
 }
 
 .screen .speakers li div {
@@ -174,7 +203,6 @@ typos and mistakes.</p>
   border: 5px solid #fff;
   box-shadow: 0 0 3px #CCCCCC;
   -moz-transition: -moz-transform 0.1s ease;
-  -webkit-transition: -webkit-transform 0.1s ease;
 }
 .screen .speakers li div img {
   display: block;
