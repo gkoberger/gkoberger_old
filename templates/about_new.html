@@ -1,0 +1,309 @@
+{% extends "parent.html" %}
+
+{% block body %}
+
+<div id="vertical-container">
+  <div id="background">
+    <div class="b1"></div>
+    <div class="b2"></div>
+    <div class="b3"></div>
+  </div>
+  <div class="panel p1" id="p1">
+    <div class="text">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis nibh sed metus varius viverra mattis lectus pharetra. In aliquet pulvinar ipsum
+      in fermentum. Praesent sit amet neque dui. Proin at urna eget dolor volutpat interdum. Praesent iaculis vulputate magna sit amet pellentesque. Integer
+      aliquam suscipit mi at convallis. Nam convallis, arcu nec cursus laoreet, turpis magna laoreet mauris, et accumsan felis dolor in nulla. Vivamus fermentum
+      neque sed magna dictum eget tincidunt lacus pretium. Nunc et luctus turpis. Aenean scelerisque dolor vel eros pretium id suscipit est volutpat. </p>
+      <a href="#" class="next">next</a>
+    </div>
+  </div>
+  <div class="divider d1">
+    <div>&nbsp;</div>
+  </div>
+  <div class="panel p2" id="p2">
+    <div class="text">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis nibh sed metus varius viverra mattis lectus pharetra. In aliquet pulvinar ipsum
+      in fermentum. Praesent sit amet neque dui. Proin at urna eget dolor volutpat interdum. Praesent iaculis vulputate magna sit amet pellentesque. Integer
+      aliquam suscipit mi at convallis. Nam convallis, arcu nec cursus laoreet, turpis magna laoreet mauris, et accumsan felis dolor in nulla. Vivamus fermentum
+      neque sed magna dictum eget tincidunt lacus pretium. Nunc et luctus turpis. Aenean scelerisque dolor vel eros pretium id suscipit est volutpat. </p>
+      <a href="#" class="prev">prev</a>
+      <a href="#" class="next">next</a>
+    </div>
+    <div class="panel-inside">
+      <div class="house"></div>
+      <div class="pond"></div>
+      <div class="tree"></div>
+    </div>
+  </div>
+  <div class="divider d2">
+    <div>&nbsp;</div>
+  </div>
+  <div class="panel p3" id="p3">
+    <div class="text">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis nibh sed metus varius viverra mattis lectus pharetra. In aliquet pulvinar ipsum
+      in fermentum. Praesent sit amet neque dui. Proin at urna eget dolor volutpat interdum. Praesent iaculis vulputate magna sit amet pellentesque. Integer
+      aliquam suscipit mi at convallis. Nam convallis, arcu nec cursus laoreet, turpis magna laoreet mauris, et accumsan felis dolor in nulla. Vivamus fermentum
+      neque sed magna dictum eget tincidunt lacus pretium. Nunc et luctus turpis. Aenean scelerisque dolor vel eros pretium id suscipit est volutpat. </p>
+      <a href="#" class="prev">prev</a>
+      <a href="#" class="next">next</a>
+    </div>
+    <div class="panel-inside">
+      <div class="senitel"></div>
+      <div class="gleason"></div>
+    </div>
+  </div>
+  <div class="divider d3">
+    <div>&nbsp;</div>
+  </div>
+  <div class="panel p4" id="p4">
+    <div class="text">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis nibh sed metus varius viverra mattis lectus pharetra. In aliquet pulvinar ipsum
+      in fermentum. Praesent sit amet neque dui. Proin at urna eget dolor volutpat interdum. Praesent iaculis vulputate magna sit amet pellentesque. Integer
+      aliquam suscipit mi at convallis. Nam convallis, arcu nec cursus laoreet, turpis magna laoreet mauris, et accumsan felis dolor in nulla. Vivamus fermentum
+      neque sed magna dictum eget tincidunt lacus pretium. Nunc et luctus turpis. Aenean scelerisque dolor vel eros pretium id suscipit est volutpat. </p>
+      <a href="#" class="prev">prev</a>
+    </div>
+    <div class="panel-inside">
+      <div class="ggb"></div>
+      <div class="mountain"></div>
+    </div>
+  </div>
+</div>
+
+<style>
+  #header {
+    position: fixed;
+    width: 100%;
+  }
+  body {
+    width: 3000px;
+    overflow: hidden;
+  }
+  #vertical-container {
+    background-image: url("/images/about/paper-bg.png");
+    background-position: 86px 0;
+    margin-top: 6em;
+    padding-top: 120px;
+    position: relative;
+    z-index: 1001;
+  }
+  .panel {
+    width: 1500px;
+    float: left;
+    height: 579px;
+    position: relative;
+  }
+  .panel-inside {
+    width: 1200px;
+    margin: auto;
+    position: relative;
+  }
+  .p1 {
+    background-image: url("/images/about/lines.gif");
+  }
+  .p2 {
+    background-position: -8px 0;
+  }
+  .p3 {
+    background-position: -8px 0;
+  }
+  .divider {
+    float: left;
+    height: 400px;
+  }
+  .d1 {
+    background-image: url("/images/about/lines.gif");
+    width: 298px;
+  }
+  .d1 div {
+    background-image: url("/images/about/divider-first.png");
+    background-position: right top;
+    height: 400px;
+    width: 298px;
+    width: 298px;
+  }
+  .d2 {
+    width: 600px;
+  }
+  .d3 {
+    width: 1000px;
+  }
+  .p2 .house {
+    background-image: url("/images/about/house.png");
+    height: 175px;
+    left: 0;
+    position: absolute;
+    top: 256px;
+    width: 257px;
+    z-index: 1002;
+  }
+  .p2 .pond {
+    background-image: url("/images/about/pond.png");
+    height: 98px;
+    left: 400px;
+    position: absolute;
+    top: 380px;
+    width: 390px;
+    z-index: 1002;
+  }
+  .p2 .tree {
+    background-image: url("/images/about/tree.png");
+    height: 190px;
+    position: absolute;
+    right: 75px;
+    top: 255px;
+    width: 132px;
+    z-index: 1002;
+  }
+  .p3 .senitel {
+    background-image: url("/images/about/senitel.png");
+    height: 460px;
+    left: 31px;
+    position: absolute;
+    top: 40px;
+    width: 230px;
+    z-index: 1002;
+  }
+  .p3 .gleason {
+    background-image: url("/images/about/gleason.png");
+    height: 243px;
+    position: absolute;
+    right: -55px;
+    top: 210px;
+    width: 285px;
+    z-index: 1002;
+  }
+  .p4 .ggb {
+    background-image: url("/images/about/ggb.png");
+    height: 529px;
+    left: -518px;
+    pointer-events: none;
+    position: absolute;
+    top: -60px;
+    width: 755px;
+    z-index: 1002;
+  }
+  .p4 .mountain {
+    background-image: url("/images/about/foreground-mountain.png");
+    height: 497px;
+    left: -632px;
+    pointer-events: none;
+    position: absolute;
+    top: 83px;
+    width: 784px;
+    z-index: 1002;
+  }
+  .text {
+    width: 700px;
+    position: absolute;
+    left: 50%;
+    margin-left: -350px;
+    margin-top: -35px;
+    z-index: 1000;
+  }
+  /*
+  .text {
+    width: 700px;
+    position: fixed;
+    left: 50%;
+    margin-left: -350px;
+    margin-top: -35px;
+    z-index: 1000;
+  }
+  */
+
+  #about_new footer {
+    display: none;
+  }
+
+  #background {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 20000px;
+    padding-top: 100px;
+    background-image: url("/images/about/bg-sky.png");
+    background-repeat: repeat-x;
+  }
+
+  #background div {
+    float: left;
+  }
+
+  .b1 {
+    width: 1500px;
+    height: 500px;
+  }
+  .b2 {
+    width: 8400px;
+    height: 500px;
+    background-image: url("/images/about/treeline.png");
+  }
+
+  .b3 {
+    width: 2000px;
+    height: 500px;
+    background-image: url("/images/about/bay.png");
+  }
+
+</style>
+<script>
+  $('.panel').width($(window).width());
+  var body_width = $(window).width() * $('.panel').length;
+  $('.divider').each(function(i, el) {
+    body_width += $(el).width();
+  });
+  $('#vertical-container, body').width(body_width);
+
+  //-- Really bad implementation:
+  $('.next').click(function() {
+    var $next = $(this).closest('.panel').next().next();
+    $('html').animate({'scrollLeft': $next.offset()['left']}, 2300);
+    return false;
+  });
+  $('.prev').click(function() {
+    var $prev = $(this).closest('.panel').prev().prev();
+    $('html').animate({'scrollLeft': $prev.offset()['left']}, 2300);
+    return false;
+  });
+  $(window).keypress(function(e) {
+    console.log(e.keyCode, 39, e.keyCode == 39);
+    if(e.keyCode == 39) {
+      var offset_left = $(window).scrollLeft(),
+          $next = false;
+
+      $('.panel').each(function() {
+        if(offset_left + 200 < $(this).offset()['left']) {
+          $next = $(this);
+          return false;
+        }
+      });
+
+      if($next) {
+        $('html').animate({'scrollLeft': $next.offset()['left']}, 2300);
+        return false;
+      }
+    } else if(e.keyCode == 37) {
+      var offset_left = $(window).scrollLeft(),
+      $prev = false;
+
+      $('.panel').each(function() {
+        if(offset_left - 200 > $(this).offset()['left']) {
+          $prev = $(this);
+        }
+      });
+
+      if($prev) {
+        $('html').animate({'scrollLeft': $prev.offset()['left']}, 2300);
+        return false;
+      }
+    }
+  });
+
+  $(window).scroll(function() {
+    $('#background').css('left', -0.3 * $(window).scrollLeft())
+  });
+</script>
+
+{% endblock %}
+
