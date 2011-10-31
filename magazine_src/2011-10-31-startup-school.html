@@ -242,7 +242,7 @@ function initScreen() {
     $('.speakers a').removeClass('on');
     $('.screen .speakers [data-who=' + $el.attr('data-who') + ']').addClass('on');
     if($el.closest('ul').hasClass('bottom')) {
-      $('body').animate({'scrollTop': 525}, 800);
+      $('html, body').animate({'scrollTop': 525}, 800);
     }
     $('#sketch div:visible').fadeOut(function() {
       $('#sketch .s-' + $el.attr('data-who')).fadeIn(function() {
