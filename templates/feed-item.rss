@@ -5,6 +5,6 @@
         </description>
         <link>{{ ("%s/%s" % (folder, filename))|url(use_base=True) }}</link>
         <guid>{{ slug }}</guid>
-        <pubDate>{{ date|datetimeformat }} 00:00:01 PST</pubDate>
+        <pubDate>{% block timestamp %}{{ date|datetimeformat }} 00:00:01 PST{% endblock %}</pubDate>
         <category>{% block category %}{% endblock %}</category>
     </item>
