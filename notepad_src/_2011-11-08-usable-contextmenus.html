@@ -1,0 +1,33 @@
+{% extends template %}
+
+{% block title %}Usable Context Menus{% endblock %}
+{# {% block author %}<a href="http://gkoberger.net/">Gregory</a>{% endblock %} #}
+
+{% block preview %}
+Firefox 8 comes with support for context menus, however it's hard to get working.
+{% endblock %}
+
+{% block content %}
+<p>Today, Mozilla released a version of Firefox that includes the ability for a website
+to add options to the context menu (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=617528">bug 617528</a>). It has awesome potential, however I had
+trouble getting it to do what I wanted.</p>
+
+<p>I found <a href="http://people.mozilla.com/~prouget/bugs/context-menu-test/test.html">a demo by Paul Rouget</a>, however it assumes that there&rsquo;s only
+one image on the page. The way context menu has been implemented means there&rsquo;s no good way to figure out what element has been right clicked. The
+<em>this</em> binded to the callback is for the <em>menuitem</em>, not the element that was right clicked. This works fine if you don&rsquo;t plan on making
+more than one element right-clickable. Imagine you have a list of, say, emails. You want the user to be able to right click and delete/archive/star each email
+separately. With the current implementation, each email would need it&rsquo;s own &lt;menu&gt; &mdash; and that&rsquo;s a lot of excess code.</p>
+
+<p>So, I threw together a quick jQuery plugin prototype [<a href="http://gkoberger.github.com/context-menu/">demo</a> &bull; <a
+  href="https://github.com/gkoberger/context-menu">github</a>]. It lets you add menu items using a familiar syntax, and most importantly binds the <em>this</em>
+in the callback to the element that was right clicked (as opposed to the <em>menuitem</em> that is selected).</p>
+
+<p>It&rsquo;s very buggy and missing important features (such as sub menus, separators, control over ordering and control over events and bubbling). Consider it version 0.1, if you will. However, it makes it very easy to add menu items.</p>
+
+<p>One thing I didn&rsquo;t want to do is make a polyfill. This will only work in Firefox 8. I didn&rsquo;t want to override the menu bar in browsers that don&rsquo;t
+support it. If you&rsquo;re looking for that, a polyfill <a href="http://addyosmani.github.com/jQuery-contextMenu/demo.html">already exists</a>.</p>
+
+<p><a href="http://gkoberger.github.com/context-menu/"><strong>Check it out &raquo;</strong></a></p>
+
+{% endblock %}
+{% block category %}mozilla{% endblock %}
