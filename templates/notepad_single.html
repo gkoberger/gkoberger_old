@@ -5,7 +5,7 @@
   </h2>
   <div class="note_container">
     <div class="text">
-      {% block content %}{% endblock %}
+      {{ self.content()|footnoter }}
       <div class="notepad_footer">
         {
         {% set short_url = ('notepad/%s' % filename)|url(bitly=True) %}

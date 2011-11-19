@@ -10,7 +10,7 @@
     </h2>
     <div class="note_container">
       <div class="text">
-        {% block content %}{% endblock %}
+        {{ self.content()|footnoter }}
         <div class="notepad_footer">
           {
           {% set tweet = ("%s by @gkoberger %s" % (self.title(), canon))|urlencode %}
