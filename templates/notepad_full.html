@@ -1,6 +1,7 @@
 {% set canon = ('notepad/%s' % filename)|url(bitly=True) %}
 {% extends "parent.html" %}
 
+{% block twitter %}{% endblock %}
 {% block body %}
 <div id="notes">
   <div class="note" id="{{ slug }}">
@@ -11,14 +12,18 @@
     <div class="note_container">
       <div class="text">
         {{ self.content()|footnoter }}
-        <div class="notepad_footer">
-          {
-          {% set tweet = ("%s by @gkoberger %s" % (self.title(), canon))|urlencode %}
-          <a href="http://twitter.com/?status={{ tweet }}" target="_new">tweet this</a>
-          &middot; <a href="http://twitter.com/gkoberger">follow <strong>@gkoberger</strong></a>
-          &middot; <a href="{{ 'notepad.html'|url }}">view all</a>
-          }
+
+        <div class="aboutme">
+          <img src="/images/me.jpg" title="Gregory Koberger">
+          <div>
+          <strong>About Gregory Koberger</strong>
+          <p>I'm a developer at Mozilla. I talk a lot about web development, technology and user experience &mdash; sometimes on my blog but mostly <a href="https://twitter.com/gkoberger">on Twitter</a>.</p>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-text="{{ self.twitter() or self.title() }}" data-count="none" data-via="gkoberger">Tweet</a>
+        <a href="https://twitter.com/gkoberger" class="twitter-follow-button" data-text-color="#FFFFFF" data-link-color="#00AEFF" data-show-count="false">Follow
+        @gkoberger</a>
+          </div>
         </div>
+
         <div id="meta_links">
           <a href="https://plus.google.com/110378468485648451912/" rel="author">google plus</a>
         </div>

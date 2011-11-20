@@ -1131,11 +1131,16 @@ section {
 }
 
 .footnotes {
-    border-top: 1px solid #666666;
+    border-top: 1px dotted #999999;
     color: #333333;
     font-size: 14px;
     list-style-position: inside;
     margin: 1em 0 0;
+    opacity: 0.6;
+}
+
+.footnotes:hover {
+    opacity: 1;
 }
 
 footer {
@@ -1285,6 +1290,28 @@ display: block; font-size: 38px; float: left; text-align: left; padding-right: 1
   color: #555;
 }
 
+/* About me! */
+.aboutme {
+    margin-top: 3em;
+    overflow: hidden;
+}
+.aboutme > div {
+    float: left;
+    font-size: 0.9em;
+    line-height: 1.4em;
+    width: 368px;
+}
+.aboutme img {
+    background-color: #FFFFFF;
+    box-shadow: 0 0 2px #AAAAAA;
+    float: left;
+    margin: 2px 20px 20px 2px;
+    padding: 5px;
+    width: 100px;
+}
+.twitter-follow-button {
+    width: 75px !important;
+}
 
 /*
  * media queries for responsive design
