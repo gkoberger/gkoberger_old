@@ -20,6 +20,9 @@ from jinja2 import FileSystemLoader, Environment
 # - Abstract the jinja stuff; move it to another file
 # - Don't keep loading settings!
 
+FOLDER_TEMP = 'app-temp'
+FOLDER_REAL = 'app'
+
 def compile_home():
     args = {'page': 'home'}
 
@@ -52,11 +55,11 @@ def compile_home():
 
     args['articles'] = articles
 
-    get_template('home.html', args, 'app/index.html')
+    get_template('home.html', args, '%s/index.html' % FOLDER_TEMP)
 
 def compile_page(file):
     args = {'page': file}
-    get_template('%s.html' % file, args, 'app/%s.html' % file)
+    get_template('%s.html' % file, args, '%s/%s.html' % (FOLDER_TEMP, file))
 
 def render_magazine(template, args={}, output=None, render=True):
     if not 'template' in args:
@@ -70,7 +73,7 @@ def render_magazine(template, args={}, output=None, render=True):
     out_file = None
     if output:
         out_file = re.sub('^/?[-0-9]{11}', '', output)
-        out_file = 'app/magazine/%s' % out_file
+        out_file = '%s/magazine/%s' % (FOLDER_TEMP, out_file)
 
     return get_template(('magazine_src', template), args, render=render,
                         output=out_file)
@@ -82,7 +85,7 @@ def render_notepad(file, args={}, output=None):
     out_file = None
     if output:
         out_file = re.sub('^/?[-0-9]{11}', '', output)
-        out_file = 'app/notepad/%s' % out_file
+        out_file = '%s/notepad/%s' % (FOLDER_TEMP, out_file)
 
     return get_template(('notepad_src', file), args=args, output=out_file)
 
@@ -226,7 +229,7 @@ def compile_magazines():
         template_name = article['filename'].split('.')[0]
         if os.path.exists('magazine_src/%s' % template_name):
             shutil.copytree('magazine_src/%s' % template_name,
-                            'app/magazine/%s' % template_name)
+                            '%s/magazine/%s' % (FOLDER_TEMP, template_name))
 
         render_magazine(article['filename'], args, article['filename'])
 
@@ -260,7 +263,7 @@ def compile_rss(category=None, desc=None, title=None):
 
     get_template('feed.rss', args={'notes': notes, 'date': first_date,
                                    'title': title, 'desc': desc},
-                 output='app/%s.rss' % name)
+                 output='%s/%s.rss' % (FOLDER_TEMP, name))
 
 def compile_notepads():
     to_compile = get_list('notepad_src')
@@ -283,7 +286,7 @@ def compile_notepads():
         args['template'] = template_full
         render_notepad(note['filename'], args, note['filename'])
 
-    get_template('notepad.html', args={'notes': notes, 'page': 'notebook'}, output='app/notepad.html')
+    get_template('notepad.html', args={'notes': notes, 'page': 'notebook'}, output='%s/notepad.html' % FOLDER_TEMP)
 
 def get_template(template, args={}, output=None, render=True):
     loader = False
@@ -336,10 +339,10 @@ def get_template(template, args={}, output=None, render=True):
 
     #return template.render(args)
 
-def move_base():
-    folder = 'app'
-    for the_file in os.listdir(folder):
-        file_path = os.path.join(folder, the_file)
+def swap_folder(src, dst):
+    # First, clean out the destination folder
+    for the_file in os.listdir(dst):
+        file_path = os.path.join(dst, the_file)
         try:
             if os.path.isfile(file_path):
                 os.unlink(file_path)
@@ -348,22 +351,29 @@ def move_base():
         except Exception, e:
             print e
 
-    folder = 'app-base'
-    for the_file in os.listdir(folder):
-        file_path = os.path.join(folder, the_file)
+    # Now, copy everything over
+    for the_file in os.listdir(src):
+        src_path = os.path.join(src, the_file)
+        dst_path = os.path.join(dst, the_file)
         try:
-            if os.path.isfile(file_path):
-                shutil.copy('app-base/%s' % the_file, 'app/%s' % the_file)
+            if os.path.isfile(src_path):
+                shutil.copy(src_path, dst_path)
             else:
-                shutil.copytree('app-base/%s' % the_file, 'app/%s' % the_file)
+                shutil.copytree(src_path, dst_path)
         except Exception, e:
             print e
 
-    shutil.copytree('js', 'app/js')
-    shutil.copytree('css', 'app/css')
-    shutil.copytree('images', 'app/images')
+def move_base():
+    swap_folder('app-base', FOLDER_TEMP)
+
+    shutil.copytree('js', '%s/js' % FOLDER_TEMP)
+    shutil.copytree('css', '%s/css' % FOLDER_TEMP)
+    shutil.copytree('images', '%s/images' % FOLDER_TEMP)
+
 
 if __name__ == '__main__':
+    os.mkdir(FOLDER_TEMP)
+
     move_base()
 
     compile_notepads()
@@ -378,3 +388,8 @@ if __name__ == '__main__':
 
     compile_rss()
     compile_rss('mozilla', desc="Mozilla-related blog posts", title="Mozilla")
+
+    # Move from temp folder and delete it
+    swap_folder(FOLDER_TEMP, FOLDER_REAL)
+    shutil.rmtree(FOLDER_TEMP, True)
+
