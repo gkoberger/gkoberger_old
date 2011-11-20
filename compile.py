@@ -372,6 +372,7 @@ def move_base():
 
 
 if __name__ == '__main__':
+    shutil.rmtree(FOLDER_TEMP, True)
     os.mkdir(FOLDER_TEMP)
 
     move_base()
