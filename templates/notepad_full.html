@@ -1,6 +1,7 @@
 {% set canon = ('notepad/%s' % filename)|url(bitly=True) %}
 {% extends "parent.html" %}
 
+{% set title = "%s [notepad]" % self.title() %}
 {% block twitter %}{% endblock %}
 {% block body %}
 <div id="notes">
