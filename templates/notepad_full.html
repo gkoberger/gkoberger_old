@@ -13,20 +13,29 @@
       <div class="text">
         {{ self.content()|footnoter }}
 
+        <h3>About Gregory Koberger</h3>
         <div class="aboutme">
           <img src="/images/me.jpg" title="Gregory Koberger">
           <div>
-          <strong>About Gregory Koberger</strong>
-          <p>I'm a developer at Mozilla. I talk a lot about web development, technology and user experience &mdash; sometimes on my blog but mostly <a href="https://twitter.com/gkoberger">on Twitter</a>.</p>
+          I'm a developer at Mozilla. I talk a lot about web development, technology and user experience &mdash; sometimes on my blog but mostly <a href="https://twitter.com/gkoberger">on Twitter</a>.
+          <br><br>
         <a href="https://twitter.com/share" class="twitter-share-button" data-text="{{ self.twitter() or self.title() }}" data-count="none" data-via="gkoberger">Tweet</a>
         <a href="https://twitter.com/gkoberger" class="twitter-follow-button" data-text-color="#FFFFFF" data-link-color="#00AEFF" data-show-count="false">Follow
         @gkoberger</a>
           </div>
         </div>
 
+        <h3>Keep Reading</h3>
+        <div id="section_notepad">
+          <ul>
+            {{ nav_next if nav_next else "<li>&nbsp;</li>" }}
+            {{ nav_prev if nav_prev else "<li>&nbsp;</li>" }}
+          </ul>
+        </div>
         <div id="meta_links">
           <a href="https://plus.google.com/110378468485648451912/" rel="author">google plus</a>
         </div>
+        <h3>Discussion</h3>
         <div id="comments">
           <div id="disqus_thread" data-auto="true" data-identifier="n-{{ slug }}"></div>
         </div>

@@ -23,6 +23,8 @@ from jinja2 import FileSystemLoader, Environment
 FOLDER_TEMP = 'app-temp'
 FOLDER_REAL = 'app'
 
+settings_new = {}
+
 def compile_home():
     args = {'page': 'home'}
 
@@ -213,6 +215,7 @@ def compile_magazines():
                         'slug': a['slug'],
                         'type': 'prev',
                         'template': template})
+
         settings = {}
         with open('settings.json', 'r') as f:
             settings = json.load(f)
@@ -272,13 +275,38 @@ def compile_notepads():
     with open('settings.json', 'r') as f:
         settings = json.load(f)
 
-
     notes = []
     template_full = get_template('notepad_full.html', render=False)
 
-    for note in to_compile:
+    for (i, note) in enumerate(to_compile):
+        nav_prev = nav_next = ""
+
+        # gosh this is crazy inefficient.
+        if i > 0:
+            template = get_template('notepad_nav.html', render=False)
+            a = to_compile[i - 1]
+            nav_next = render_notepad(a['filename'], args={
+                        'filename': a['filename'],
+                        'date':a['date'],
+                        'file': a['filename'],
+                        'slug': a['slug'],
+                        'type': 'next',
+                        'template': template})
+        if i < len(to_compile) - 1:
+            template = get_template('notepad_nav.html', render=False)
+            a = to_compile[i + 1]
+            nav_prev = render_notepad(a['filename'], args={
+                        'filename': a['filename'],
+                        'date': a['date'],
+                        'file': a['filename'],
+                        'slug': a['slug'],
+                        'type': 'prev',
+                        'template': template})
+
         args = {'date': note['date'], 'slug': note['slug'],
-                'is_prod': settings['prod'], 'filename': note['filename'] }
+                'is_prod': settings['prod'], 'filename': note['filename'],
+                'nav_prev': nav_prev, 'nav_next': nav_next}
+
         f = render_notepad(note['filename'], args=args)
         notes.append(f)
 

@@ -1135,7 +1135,7 @@ section {
     color: #333333;
     font-size: 14px;
     list-style-position: inside;
-    margin: 1em 0 0;
+    margin: 2em 0 0;
     opacity: 0.6;
 }
 
@@ -1290,9 +1290,57 @@ display: block; font-size: 38px; float: left; text-align: left; padding-right: 1
   color: #555;
 }
 
+/* Notepad Keep Reading */
+#notebook .note_container #section_notepad li {
+    width: 242px;
+}
+#notebook .note_container #section_notepad .notepad-nav-left {
+    text-align: right;
+}
+#notebook .note_container #section_notepad .title {
+    text-align: right;
+    border: 0 none;
+    margin: 0;
+    padding: 0;
+}
+#notebook .note_container #section_notepad .notepad-nav-prev .title {
+    text-align: left;
+}
+#notebook .note_container #section_notepad a {
+    background-color: #E3E3E3;
+    border-radius: 0 7px 7px 0;
+    text-align: left;
+    border-bottom: 0 none;
+    width: 201px;
+}
+#notebook .note_container #section_notepad .notepad-nav-next a {
+    border-right: 1px dotted #AAAAAA;
+    border-radius: 7px 0 0 7px;
+    text-align: right;
+}
+#notebook .note_container #section_notepad a:hover {
+    background-color: #ddd;
+}
+#notebook .note_container #section_notepad p {
+    color: #333;
+}
+#notebook .note_container #section_notepad {
+    border-top: 0 none;
+    margin-top: 0;
+    width: 100%;
+}
+#notebook .note_container #section_notepad span {
+    color: #333;
+}
+#notebook .note_container #disqus_thread {
+    margin-top: 0;
+}
+#notebook .note_container h3 {
+    margin-top: 3em;
+}
+
 /* About me! */
 .aboutme {
-    margin-top: 3em;
     overflow: hidden;
 }
 .aboutme > div {
