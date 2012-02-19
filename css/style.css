@@ -1361,6 +1361,129 @@ display: block; font-size: 38px; float: left; text-align: left; padding-right: 1
     width: 75px !important;
 }
 
+/* Portfolio */
+
+#work {
+    width: 1070px;
+    margin: 6em auto 0;
+    overflow: hidden;
+}
+
+#work #work-info {
+    box-shadow: 14px 0 17px -21px #888888;
+    float: left;
+    padding-right: 40px;
+    width: 350px;
+}
+
+#work .work-block {
+    border-bottom: 1px dotted #ccc;
+    margin-bottom: 1.5em;
+    padding-bottom: 1.5em;
+}
+
+#work .work-block h3 {
+    margin-bottom: 5px;
+}
+
+#work .work-block p {
+    color: #777777;
+    line-height: 1.6em;
+    margin-bottom: 1em;
+}
+
+#work #work-media {
+    float: left;
+    padding: 30px;
+    width: 620px;
+}
+
+#work #work-media a {
+    display: block;
+    text-decoration: none;
+}
+
+#work #work-media .border {
+    background-color: #FFF;
+    border-radius: 3px;
+    box-shadow: 0 0 10px #BBBBBB;
+    margin: 5px;
+    padding: 5px;
+}
+
+#work #work-media a figure div {
+    padding: 4px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -moz-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+}
+
+#work #work-media a:hover figure div {
+    padding: 0;
+}
+
+#work #work-media a img {
+    border-radius: 3px;
+    box-shadow: 0 0 10px #BBBBBB;
+    width: 100%;
+    display: block;
+    -moz-transition: box-shadow 0.3s ease;
+    -webkit-transition: box-shadow 0.3s ease;
+}
+
+#work #work-media a:hover img {
+    box-shadow: 0 0 15px #AAA;
+}
+
+#work #work-media figcaption {
+    display: block;
+    height: 20px;
+    color: #888888;
+    font-family: Baskerville,"Times New Roman";
+    font-size: 1.1em;
+    font-style: italic;
+    padding: 3px 8px 15px;
+    text-shadow: 1px 1px #FFFFFF;
+    -moz-transition: color 0.3s ease-in;
+    -webkit-transition: color 0.3s ease-in;
+}
+
+#work #work-media a:hover figcaption {
+    color: #666;
+}
+
+#work h4.title {
+    color: #555555;
+    font-size: 2em;
+    font-weight: normal;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px #FFFFFF;
+}
+
+#work span.date {
+    color: #AAAAAA;
+    display: block;
+    margin-bottom: 7px;
+}
+
+#work .work-block-side h4 {
+    float: left;
+    width: 110px;
+}
+
+#work .work-block-side ul {
+    line-height: 1.2em;
+    list-style: none outside none;
+    margin-left: 140px;
+    padding-top: 5px;
+}
+
+#work .work-block-side ul li {
+    padding-top: 5px;
+}
+
 /*
  * media queries for responsive design
  * these follow after primary styles so they will successfully override.

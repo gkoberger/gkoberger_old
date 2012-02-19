@@ -91,6 +91,17 @@ def render_notepad(file, args={}, output=None):
 
     return get_template(('notepad_src', file), args=args, output=out_file)
 
+def render_portfolio(file, args={}, output=None):
+    if 'template' not in args:
+        args['template'] = get_template('notepad_full.html', render=False)
+
+    out_file = None
+    if output:
+        out_file = re.sub('^/?[-0-9]{11}', '', output)
+        out_file = '%s/portfolio/%s' % (FOLDER_TEMP, out_file)
+
+    return get_template(('portfolio_src', file), args=args, output=out_file)
+
 def generate_bitly(url):
     settings = {}
     with open('settings.json', 'r') as f:
@@ -168,6 +179,24 @@ def url(url, use_base=False, bitly=False):
             url = generate_bitly(url)
 
     return url
+
+# By weight, not date. TODO: Combine with get_list. Too lazy now :)
+def get_list_weight(*folders):
+    return_list = []
+
+    for folder in folders:
+        to_compile = os.listdir(folder)
+        to_compile = [f for f in to_compile
+                      if re.match("\d+-(.*).html", f)]
+
+        for f in to_compile:
+            d = re.search('(\d+)-(.*).html', f)
+            slug = d.group(2)
+            return_list.append({'weight': int(d.group(1)), 'slug':slug, 'filename':f,
+                                'folder': folder})
+
+    return_list.sort(key=lambda d: d['weight'])
+    return return_list
 
 def get_list(*folders):
     return_list = []
@@ -316,6 +345,31 @@ def compile_notepads():
 
     get_template('notepad.html', args={'notes': notes, 'page': 'notebook'}, output='%s/notepad.html' % FOLDER_TEMP)
 
+def compile_portfolio():
+    to_compile = get_list_weight('portfolio_src')
+
+    settings = {}
+    with open('settings.json', 'r') as f:
+        settings = json.load(f)
+
+    portfolios = []
+    template_full = get_template('portfolio_full.html', render=False)
+
+    for (i, portfolio) in enumerate(to_compile):
+        nav_prev = nav_next = ""
+
+        args = {'slug': portfolio['slug'],
+                'is_prod': settings['prod'], 'filename': portfolio['filename']}
+
+        #f = render_portfolio(portfolio['filename'], args=args)
+        #portfolios.append(f)
+
+        args['page'] = 'portfolio'
+        args['template'] = template_full
+        render_portfolio(portfolio['filename'], args, portfolio['filename'])
+
+    #get_template('portfolio.html', args={'notes': notes, 'page': 'notebook'}, output='%s/notepad.html' % FOLDER_TEMP)
+
 def get_template(template, args={}, output=None, render=True):
     loader = False
     template_file = False
@@ -407,6 +461,7 @@ if __name__ == '__main__':
 
     compile_notepads()
     compile_magazines()
+    compile_portfolio()
     compile_home()
 
     compile_page('p404')
