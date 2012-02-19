@@ -1,0 +1,21 @@
+{# set canon = ('notepad/%s' % filename)|url(bitly=True) #}
+{% extends "parent.html" %}
+
+{% set title = "%s [notepad]" % self.title() %}
+{% block body %}
+<div id="work">
+  <section id="work-info">
+    <div class="work-block">
+      <h3 class="title">{{ self.title() }}</h3>
+      <span class="date">{% block date %}{% endblock %}</span>
+      {% block description %}{% endblock %}
+      <button>Check it out</button>
+    </div>
+    {% block more %}{% endblock %}
+  </section>
+  <section id="work-media">
+  {# Media: height + 46px #}
+  {% block media %}{% endblock %}
+  </section>
+</div>
+{% endblock %}
