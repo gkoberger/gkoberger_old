@@ -886,6 +886,10 @@ a#logo.small:hover .logo div {
     overflow: auto;
 }
 
+#notebook .center {
+    text-align: center;
+}
+
 #notebook .note .note_container {
     margin: auto;
     width: 850px;

@@ -1,0 +1,50 @@
+{% extends template %}
+
+{% block title %}Firefoxes{% endblock %}
+{# {% block author %}<a href="http://gkoberger.net/">Gregory</a>{% endblock %} #}
+
+{% block preview %}
+How to properly install and manage multiple versions of Firefox at once.
+{% endblock %}
+
+{% block content %}
+<p>Quite often, I find myself wanting to run multiple versions of Firefox: to test out a new feature in Nightly, make sure my add-ons work in Aurora or maybe track down a bug in an earlier version. Using the <a href="http://kb.mozillazine.org/Profile_manager">Profile Manager</a>, it's possible to have numerous versions of Firefox running side by side.</p>
+<p>I started writing a tutorial, but it quickly got too complicated. So, I decided to write a script that would download, install and set up profiles for any version of Firefox. About halfway through, I stumbled upon a script called "<a href="https://github.com/omgmog/install-all-firefox">install-all-firefox</a>" by Max Glenister. It did a lot of what I wanted, so I forked it and worked from there.</p>
+
+<div class="center">
+  <img src="http://gkoberger.net/images/notepad/firefoxes.png" alt="OSX Dock">
+</div>
+
+<h3>How To Use It</h3>
+<em>Note: Currently this is OSX only</em>
+
+<code class="brush: bash">
+curl -L -O https://github.com/omgmog/install-all-firefox/raw/master/install-all-firefox.sh
+chmod +x install-all-firefox.sh
+./install-all-firefox.sh [version] [locale]
+</code>
+
+<p>Version and locale are option. If you don't use a locale, it will try to figure out your locale. If you don't have a version, it will install all available
+versions of Firefox.</p>
+
+<p>If you want to see what's available (and what you have installed):</p>
+<code class="brush: bash">./install-all-firefox.sh status</code>
+
+<h3>What It Does</h3>
+<ol>
+  <li>Figures out your locale (or allows you to specify it).</li>
+  <li>Finds the file on the FTP server, and then downloads and installs it.</li>
+  <li>Sets up a new profile and modifies the launcher to open the Firefox version with that profile.</li>
+  <li>For versions using the same icon (Firefox 4 and Firefox Beta use the same icon, for example), it adds the version to the icon and name.</li>
+  <li>Changes the settings so future versions (Nightly, Aurora, etc) check for updates regularly while numbered versions (4.0, 5.0, etc) stay where they are.</li>
+</ol>
+
+{% endblock %}
+
+{# If blank, title will be used #}
+{% block twitter %}How to properly install and manage multiple versions of Firefox{% endblock %}
+
+{# Format: November 19, 2011 15:15:01 PST #}
+{% block timestamp %}March 7, 2012 14:38:01 PST{% endblock %}
+
+{% block category %}mozilla{% endblock %}
