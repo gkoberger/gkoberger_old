@@ -19,16 +19,16 @@ How to properly install and manage multiple versions of Firefox at once.
 <em>Note: Currently this is OSX only</em>
 
 <code class="brush: bash">
-curl -L -O https://github.com/omgmog/install-all-firefox/raw/master/bootstrap.sh
-chmod +x bootstrap.sh
-./bootstrap.sh [version] [locale]
+curl -L -O https://github.com/omgmog/install-all-firefox/raw/master/firefoxes.sh
+chmod +x firefoxes.sh
+./firefoxes.sh [version] [locale] [no_prompt]
 </code>
 
 <p>Version and locale are option. If you don't use a locale, it will try to figure out your locale. If you don't have a version, it will install all available
 versions of Firefox.</p>
 
 <p>If you want to see what's available (and what you have installed):</p>
-<code class="brush: bash">./bootstrap.sh status</code>
+<code class="brush: bash">./firefoxes.sh</code>
 
 <h3>What It Does</h3>
 <ol>
