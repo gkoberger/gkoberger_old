@@ -968,13 +968,18 @@ a#logo.small:hover .logo div {
     font-weight: 600;
 }
 
+#notebook .dsq-comment-text,
+#notebook .dsq-comment-footer {
+    font-size: 0.8em;
+}
+
 .text {
     text-align: justify;
     color: #555555;
     font: 17px/29px baskerville,Georgia,"Times New Roman",Times,serif;
 }
 
-.text p:first-child:first-letter {
+.text > p:first-child:first-letter {
    font-size: 3.5em;
     line-height: 0.7;
     margin-top: 0.15em;
@@ -986,7 +991,7 @@ a#logo.small:hover .logo div {
     text-transform: uppercase;
 }
 
-.text p:first-child:first-line {
+.text > p:first-child:first-line {
      text-transform: uppercase;
 }
 
