@@ -1,0 +1,78 @@
+{% extends template %}
+{% block title %}BugzillaJS{% endblock %}
+{% block date %}November 2010 - Present{% endblock %}
+{% block color %}#c36a63{% endblock %}
+{% block url %}https://addons.mozilla.org/en-US/firefox/addon/bugzillajs/{% endblock %}
+
+{% block description %}
+<p>Bugzilla is a massive system used by everyone from Mozilla to NASA. It does absolutely everything. There's only one problem &mdash; it sucks.</p>
+<p>After working at Mozilla for a few months, I began development of an add-on that would add features to Bugzilla and make it nicer to use. Features include keyboard
+shortcuts, inline images and github commits, gravatars, relative timestamps, links for easier navigation and a competely new UI for comments.</p>
+<p>The add-on is used by over half of Mozilla, along with hundreds of other Bugzilla users.</p>
+{% endblock %}
+
+{% block media %}
+<div>
+  <div class="col">
+    <a href="#">
+    <figure>
+      <img src="../assets/comments.png" class="border">
+      <figcaption>BugzillaJS Style Comments</figcaption>
+    </figure>
+    </a>
+
+    <a href="#">
+    <figure>
+      <img src="../assets/before-after.png" class="border">
+      <figcaption>Before/After: Comment Author</figcaption>
+    </figure>
+    </a>
+
+    <a href="#">
+    <figure>
+      <img src="../assets/lightbox.png" class="border">
+      <figcaption>Images are shown in lightboxes</figcaption>
+    </figure>
+    </a>
+  </div>
+
+  <div class="col">
+    <a href="#">
+    <figure>
+      <img src="../assets/keyboard.png" class="border">
+      <figcaption>Keyboard Shortcuts</figcaption>
+    </figure>
+    </a>
+    <a href="#">
+    <figure>
+      <img src="../assets/before-after2.png" class="border">
+      <figcaption>Before/After: Comment Thread</figcaption>
+    </figure>
+    </a>
+    <a href="#">
+    <figure>
+      <img src="../assets/fileit.png" class="border">
+      <figcaption>Quickly file a bug from any page</figcaption>
+    </figure>
+    </a>
+  </div>
+</div>
+{% endblock %}
+
+{% block more %}
+<div class="work-block work-block-side i-did">
+  <h4 class="title">What I Did</h4>
+  <ul>
+    <li>Idea</li>
+    <li>Development</li>
+    <li>Design</li>
+  </ul>
+</div>
+<div class="work-block work-block-side">
+  <h4 class="title">More Links</h4>
+  <ul>
+    <li><a href="https://addons.mozilla.org/en-US/firefox/addon/bugzillajs/">Install from AMO</a></li>
+    <li><a href="https://github.com/gkoberger/bugzillajs">Code on GitHub</a></li>
+  </ul>
+</div>
+{% endblock %}

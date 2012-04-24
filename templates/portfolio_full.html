@@ -1,21 +1,35 @@
 {# set canon = ('notepad/%s' % filename)|url(bitly=True) #}
 {% extends "parent.html" %}
 
-{% set title = "%s [notepad]" % self.title() %}
+{% set title = "%s [portfolio]" % self.title() %}
 {% block body %}
 <div id="work">
+  <section id="work-head">
+  <img src="{{ "/assets/logo.png"|namespacer(slug, filename, "portfolio") }}" alt="{{ self.title() }}">
+  </section>
   <section id="work-info">
     <div class="work-block">
       <h3 class="title">{{ self.title() }}</h3>
       <span class="date">{% block date %}{% endblock %}</span>
       {% block description %}{% endblock %}
-      <button>Check it out</button>
+      <a target="_blank" class="go" href="{{ self.url() }}">Check it out &raquo;</a>
     </div>
     {% block more %}{% endblock %}
   </section>
   <section id="work-media">
   {# Media: height + 46px #}
-  {% block media %}{% endblock %}
+  {{ self.media()|namespacer(slug, filename, "portfolio") }}
   </section>
 </div>
+<style>
+  /* I hate inline styles and !important, too! I'll fix this soon... */
+  body,
+  #work a.go,
+  .logo div {
+    background-color: {{ self.color() }} !important;
+  }
+  #work a {
+    color: {{ self.color() }} !important;
+  }
+</style>
 {% endblock %}

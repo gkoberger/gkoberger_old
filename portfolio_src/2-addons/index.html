@@ -1,0 +1,70 @@
+{% extends template %}
+{% block title %}Mozilla Add-ons Website{% endblock %}
+{% block date %}August 2010 - Present{% endblock %}
+{% block color %}#64A457{% endblock %}
+{% block url %}http://addons.mozilla.org{% endblock %}
+
+{% block description %}
+<p>In August 2010, I joined Mozilla's Add-ons team as a web developer. Firefox is by far the most customizable browser,
+largely due to its massive add-on collection. AMO (addons.mozilla.org) is responsible for hosting extensions, themes, dictionaries, search engines and plugins
+for Mozilla Firefox, Mozilla Thunderbird and SeaMonkey. The site is completely open source.</p>
+
+<p>When I began, the team was in the process of a full rewrite of the site (from CakePHP to Django). The add-ons site now serves about a billion requests a day, making it the second largest Django project on the Internet.</p>
+
+<p>In 2012, I switched roles to Add-ons Product Manager.</p>
+{% endblock %}
+
+{% block media %}
+<a href="#">
+  <figure>
+      <img class="border" src="/assets/website.png">
+      <figcaption>Mozilla's Add-on Site</figcaption>
+  </figure>
+</a>
+
+<div>
+  <div class="col">
+    <a href="#">
+    <figure>
+      <img src="../assets/website-2.png" class="border">
+      <figcaption>Add-ons Detail Page</figcaption>
+    </figure>
+    </a>
+  </div>
+
+  <div class="col">
+    <a href="#">
+    <figure>
+      <img src="../assets/perfume.png" class="noshadow">
+    </figure>
+    </a>
+  </div>
+</div>
+{% endblock %}
+
+{% block more %}
+<div class="work-block work-block-side i-did">
+  <h4 class="title">What I Did</h4>
+  <ul>
+    <li>Front-End Development</li>
+    <li>Back-End Development</li>
+    <li>Design and Usability</li>
+    <li>Product Management</li>
+  </ul>
+</div>
+<div class="work-block work-block-side">
+  <h4 class="title">More Links</h4>
+  <ul>
+    <li><a href="https://github.com/mozilla/zamboni">Code on GitHub</a></li>
+    <li><a href="http://en.wikipedia.org/wiki/Mozilla_Add-ons">Wikipedia Page</a></li>
+  </ul>
+</div>
+<div class="work-block work-block-side">
+  <h4 class="title">Crafted With</h4>
+  <ul>
+    <li><a href="http://djangoproject.com">Django</a></li>
+    <li><a href="http://jQuery.com">jQuery</a></li>
+    <li><a href="http://jinja.pocoo.org/docs/">jinja2</a></li>
+  </ul>
+</div>
+{% endblock %}

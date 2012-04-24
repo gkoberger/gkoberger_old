@@ -1,0 +1,64 @@
+{% extends template %}
+{% block title %}Firefox Quine{% endblock %}
+{% block date %}November 2011{% endblock %}
+{% block color %}#38a4dc{% endblock %}
+{% block url %}http://addons.mozilla.org{% endblock %}
+
+{% block description %}
+<p></p>
+{% endblock %}
+
+{% block media %}
+<a href="#">
+  <figure>
+      <img class="border" src="/assets/website.png">
+      <figcaption>Mozilla's Add-on Site</figcaption>
+  </figure>
+</a>
+
+<div>
+  <div class="col">
+    <a href="#">
+    <figure>
+      <img src="../assets/website-2.png" class="border">
+      <figcaption>Add-ons Detail Page</figcaption>
+    </figure>
+    </a>
+  </div>
+
+  <div class="col">
+    <a href="#">
+    <figure>
+      <img src="../assets/perfume.png" class="noshadow">
+    </figure>
+    </a>
+  </div>
+</div>
+{% endblock %}
+
+{% block more %}
+<div class="work-block work-block-side i-did">
+  <h4 class="title">What I Did</h4>
+  <ul>
+    <li>Front-End Development</li>
+    <li>Back-End Development</li>
+    <li>Design and Usability</li>
+    <li>Product Management</li>
+  </ul>
+</div>
+<div class="work-block work-block-side">
+  <h4 class="title">More Links</h4>
+  <ul>
+    <li><a href="https://github.com/mozilla/zamboni">Code on GitHub</a></li>
+    <li><a href="http://en.wikipedia.org/wiki/Mozilla_Add-ons">Wikipedia Page</a></li>
+  </ul>
+</div>
+<div class="work-block work-block-side">
+  <h4 class="title">Crafted With</h4>
+  <ul>
+    <li><a href="http://djangoproject.com">Django</a></li>
+    <li><a href="http://jQuery.com">jQuery</a></li>
+    <li><a href="http://jinja.pocoo.org/docs/">jinja2</a></li>
+  </ul>
+</div>
+{% endblock %}

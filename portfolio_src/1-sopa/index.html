@@ -1,0 +1,68 @@
+{% extends template %}
+{% block title %}Stop SOPA{% endblock %}
+{% block date %}November 2011{% endblock %}
+{% block color %}#444{% endblock %}
+{% block url %}http://mozilla.org/sopa{% endblock %}
+
+{% block description %}
+<p>The night before the first Congressional SOPA hearing, Mozilla Webdev decided to do something to show our opposition to the act. We decided to add a snippet
+to Firefox's about:home, which would be seen by 400 million people over the next 24 hours. The only problem was we had nowhere to point people to for more
+information. SOPA was still pretty new, and we didn't know any sites that could handle the millions of hits we were about to pump their way.</p>
+<p>So, I suggested Mozilla make our own SOPA page that explained why we were against it. I wrote and designed the site in Photoshop, while <a
+  href="http://potch.me">Potch</a> sat next to me and wrote the HTML in realtime. Given the time constraints, we could only
+push one file &mdash; so the CSS was inline and the images were all data urls. A few hours later, we had it &mdash; a website explaining Mozilla's position on
+Internet blacklist legislation.</p>
+<p>The site went over so well, Mozilla decided to replace its homepage with it for the Internet-wide SOPA blackout that took place on January 18th, 2012.</p>
+{% endblock %}
+
+{% block media %}
+<a href="#">
+  <figure>
+      <img class="border" src="/assets/website.png">
+      <figcaption>Help Mozilla protect the Internet</figcaption>
+  </figure>
+</a>
+
+<div>
+  <div class="col">
+    <a href="#">
+    <figure>
+      <img src="../assets/nytimes.png" class="border">
+      <figcaption>The NY Times Homepage (Jan 18th, 2012)</figcaption>
+    </figure>
+    </a>
+  </div>
+
+  <div class="col">
+    <a href="#">
+    <figure>
+      <img src="../assets/nbc.png" class="border">
+      <figcaption>Mozilla CEO Gary Kovacs on NBC</figcaption>
+    </figure>
+    </a>
+  </div>
+</div>
+{% endblock %}
+
+{% block more %}
+<div class="work-block work-block-side i-did">
+  <h4 class="title">What I Did</h4>
+  <ul>
+    <li>Design</li>
+    <li>Copywriting</li>
+  </ul>
+</div>
+<div class="work-block work-block-side i-did">
+  <h4 class="title">More Links</h4>
+  <ul>
+    <li><a href="https://github.com/potch/stopsopa">Code on GitHub</a></li>
+  </ul>
+</div>
+<div class="work-block work-block-side">
+  <h4 class="title">Co-Conspirators</h4>
+  <ul>
+    <li><a href="http://potch.me" target="_new">Matthew Claypotch</a></li>
+    <li><a href="http://webdev.mozilla.org" target="_new">Mozilla WebDev</a></li>
+  </ul>
+</div>
+{% endblock %}

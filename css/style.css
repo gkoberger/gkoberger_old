@@ -1378,11 +1378,22 @@ display: block; font-size: 38px; float: left; text-align: left; padding-right: 1
     overflow: hidden;
 }
 
+#work #work-head {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+#work h3.title {
+    display: none;
+}
+
 #work #work-info {
     box-shadow: 14px 0 17px -21px #888888;
-    float: left;
-    padding-right: 40px;
-    width: 350px;
+    padding: 30px 40px 0 20px;
+    width: 300px;
+
+    display: table-cell;
+    vertical-align: top;
 }
 
 #work .work-block {
@@ -1395,6 +1406,33 @@ display: block; font-size: 38px; float: left; text-align: left; padding-right: 1
     margin-bottom: 5px;
 }
 
+#work .work-block a {
+    text-decoration: none;
+}
+#work .work-block a:hover {
+    text-decoration: underline;
+}
+
+#work a.go {
+    display: block;
+    background-color: #ddd;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    color: #fff !important;
+    text-decoration: none;
+    border-radius: 5px;
+}
+#work a.go:hover {
+    opacity: 0.9;
+    text-decoration: none;
+}
+#work a.go:active {
+    position: relative;
+    top: 2px;
+}
+
 #work .work-block p {
     color: #777777;
     line-height: 1.6em;
@@ -1402,9 +1440,20 @@ display: block; font-size: 38px; float: left; text-align: left; padding-right: 1
 }
 
 #work #work-media {
-    float: left;
-    padding: 30px;
-    width: 620px;
+    padding: 30px 20px 30px 40px;
+    width: 690px;
+
+    display: table-cell;
+    vertical-align: top;
+}
+#work #work-media .col {
+    display: table-cell;
+    width: 50%;
+    vertical-align: top;
+    padding-left: 20px;
+}
+#work #work-media .col:first-child {
+    padding-left: 0px;
 }
 
 #work #work-media a {
@@ -1416,34 +1465,43 @@ display: block; font-size: 38px; float: left; text-align: left; padding-right: 1
     background-color: #FFF;
     border-radius: 3px;
     box-shadow: 0 0 10px #BBBBBB;
-    margin: 5px;
     padding: 5px;
 }
 
-#work #work-media a figure div {
-    padding: 4px;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    -moz-transition: all 0.3s ease;
-    -webkit-transition: all 0.3s ease;
-}
-
-#work #work-media a:hover figure div {
-    padding: 0;
-}
-
 #work #work-media a img {
-    border-radius: 3px;
     box-shadow: 0 0 10px #BBBBBB;
     width: 100%;
     display: block;
-    -moz-transition: box-shadow 0.3s ease;
-    -webkit-transition: box-shadow 0.3s ease;
+
+    /*
+    -moz-transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    */
+
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#work #work-media a img.noshadow,
+#work #work-media a:hover img.noshadow {
+    -moz-box-shadow: 0 0;
+    -webkit-box-shadow: 0 0;
+    box-shadow: 0 0;
 }
 
 #work #work-media a:hover img {
+    -moz-box-shadow: 0 0 15px #AAA;
+    -webkit-box-shadow: 0 0 15px #AAA;
     box-shadow: 0 0 15px #AAA;
+
+    /*
+    -moz-transform: scale(1.01);
+    -webkit-transform: scale(1.01);
+    transform: scale(1.01);
+    */
 }
 
 #work #work-media figcaption {

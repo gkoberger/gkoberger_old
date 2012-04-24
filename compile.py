@@ -92,15 +92,21 @@ def render_notepad(file, args={}, output=None):
     return get_template(('notepad_src', file), args=args, output=out_file)
 
 def render_portfolio(file, args={}, output=None):
-    if 'template' not in args:
-        args['template'] = get_template('notepad_full.html', render=False)
+    #if 'template' not in args:
+    #    args['template'] = get_template('notepad_full.html', render=False)
 
     out_file = None
     if output:
         out_file = re.sub('^/?[-0-9]{11}', '', output)
-        out_file = '%s/portfolio/%s' % (FOLDER_TEMP, out_file)
+        out_file = '%s/portfolio/%s.html' % (FOLDER_TEMP, out_file)
 
-    return get_template(('portfolio_src', file), args=args, output=out_file)
+    # Move assets
+    template_name = output
+    if os.path.exists('portfolio_src/%s' % template_name):
+        shutil.copytree('portfolio_src/%s' % template_name,
+                        '%s/portfolio/%s' % (FOLDER_TEMP, template_name))
+
+    return get_template(('portfolio_src/%s' % file[0], file[1]), args=args, output=out_file)
 
 def generate_bitly(url):
     settings = {}
@@ -139,9 +145,9 @@ def footnoter(value):
         value = value + ("<ol class='footnotes'>%s</ol>" % '\n'.join(fns))
     return value
 
-def namespacer(value, namespace, f):
+def namespacer(value, namespace, f, section="magazine"):
     value = re.sub('#namespace', '#%s' % namespace, value)
-    value = re.sub('assets/', 'magazine/%s/' % f.split('.')[0], value)
+    value = re.sub('assets/', '%s/%s/' % (section, f.split('.')[0]), value)
     return value
 
 def escaper(text):
@@ -187,10 +193,10 @@ def get_list_weight(*folders):
     for folder in folders:
         to_compile = os.listdir(folder)
         to_compile = [f for f in to_compile
-                      if re.match("\d+-(.*).html", f)]
+                      if re.match("\d+-(.*)(.html)?", f)]
 
         for f in to_compile:
-            d = re.search('(\d+)-(.*).html', f)
+            d = re.search('(\d+)-(.*)(.html)?', f)
             slug = d.group(2)
             return_list.append({'weight': int(d.group(1)), 'slug':slug, 'filename':f,
                                 'folder': folder})
@@ -366,13 +372,16 @@ def compile_portfolio():
 
         args['page'] = 'portfolio'
         args['template'] = template_full
-        render_portfolio(portfolio['filename'], args, portfolio['filename'])
+        render_portfolio((portfolio['filename'], "index.html"), args, portfolio['filename'])
 
     #get_template('portfolio.html', args={'notes': notes, 'page': 'notebook'}, output='%s/notepad.html' % FOLDER_TEMP)
 
-def get_template(template, args={}, output=None, render=True):
+def get_template(template, args={}, output=None, render=True, stop=False):
     loader = False
     template_file = False
+
+    if stop:
+        import pdb; pdb.set_trace()
 
     if isinstance(template, tuple):
         loader = FileSystemLoader('%s/' % template[0])
