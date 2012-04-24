@@ -1,0 +1,49 @@
+{% extends template %}
+
+{% block title %}BugzillaJS Updates{% endblock %}
+{# {% block author %}<a href="http://gkoberger.net/">Gregory</a>{% endblock %} #}
+
+{% block preview %}
+New BugzillaJS features: keyboard navigation and quick bug filing.
+{% endblock %}
+
+{% block category %}mozilla{% endblock %}
+
+{% block content %}
+<p><a href="https://addons.mozilla.org/en-US/firefox/addon/bugzillajs/">BugzillaJS 3.0</a> is out! It comes with a bunch of new features aimed at helping Bugzilla power users get around Bugzilla as quick as possible.</p>
+
+<div style="text-align:center;"><strong><a href="https://addons.mozilla.org/en-US/firefox/addon/bugzillajs/">Download BugzillaJS 3.0</a></strong></div>
+
+<h3>Keyboard Navigation</h3>
+<p>Keyboard shortcuts save you time by allowing you to navigate Bugzilla without having to take your hands off the keyboard to use the moouse. Anyone who uses
+the keyboard shortcuts in GMail or GitHub knows how nice this is.</p>
+<p>To enable keyboard shortcuts and view the various commands, just hit the "?" key on any
+Bugzilla page. When in a list of bugs, you'll now see an arrow to the left of the bug number. You can move it up and down using <em>j</em> and <em>k</em>, and
+go to the selected row by hitting <em>&lt;enter&gt;</em>. Once in a bug, skip to the next or previous bug with <em>J</em> or <em>K</em>, respectively.</p>
+
+<p>There are a bunch of shortcuts, so make sure you hit <em>?</em> to see what's possible. If you have an idea for a new shortcut, <a
+  href="https://github.com/gkoberger/BugzillaJS/issues/new">let me know</a>.</p>
+
+<h3>File It</h3>
+<p>A few weeks ago, my coworker <a href="http://harthur.wordpress.com/">Heather Arthur</a> created a simple shortcut called <a
+  href="http://harthur.github.com/fileit/">File It</a>. It makes filing a bug in the proper product and component much simplier. I shamelessly ported it over to
+BugzillaJS. When you go to the "New Bug" page, there's now a box at the top of the page that you can start typing into. Or you can simply hit <em>n</em> on any
+Bugzilla page, and a File It box will pop up (requires Keyboard Shortcuts; hit "?" to enable them).</p>
+
+<h3>New Feature Notification</h3>
+<p>In order for people to take advantage of the new features, I added a notification when important new features were added to BugzillaJS. A little bubble with
+a number in it shows up when there are new features. If you open up the preferences, new features will be marked. You can dismiss the notification by saving the
+preferences.</p>
+
+<h3>Redone Preferences</h3>
+<p>Preferences have been organized by category, rather than the jumbled mess they were before. It should make it easier to find what feature you're looking for.</p>
+
+<h3>Works on any Bugzilla</h3>
+<p>This feature actually came out in the previous version, however I didn't mention it here. BugzillaJS now works for any Bugzilla installation &mdash; not just
+Mozilla's. You can add
+additional Bugzilla URLs in the add-on settings. To get to it, go to <em>Ctrl+Shift+A > Extensions > BugzillaJS > Preferences</em>.</p>
+<div style="text-align:center;"><strong><a href="https://addons.mozilla.org/en-US/firefox/addon/bugzillajs/">Download BugzillaJS 3.0</a>
+</strong></div>
+{% endblock %}
+
+{% block timestamp %}April 24, 2012 14:30:01 PST{% endblock %}
