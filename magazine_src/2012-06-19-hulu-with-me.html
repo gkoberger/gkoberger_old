@@ -1,0 +1,419 @@
+{% extends template %}
+
+{% block title %}huluwithme{% endblock %}
+
+{% block header %}
+<h1><span class="hulu">hulu</span>withme</h1>
+<div class="text intro">Don't let distance keep you from watching your favorite shows with your favorite people. Huluwithme keeps your video in sync across multiple computers, so you can chat and watch together.</div>
+<img src="http://huluwith.me/img/kids.png" id="kids">
+{% endblock %}
+{% set short_title = "huluwithme" %}
+
+{#
+<div id="chat">
+  <div id="chat_header">
+    <div class="button red"></div>
+    <div class="button yellow"></div>
+    <div class="button green"></div>
+  </div>
+  <ul id="chat_body">
+    <li><strong class="you">gkoberger</strong> ready?</li>
+    <li><strong class="me">dmj3824</strong> yup</li>
+    <li><strong class="you">gkoberger</strong> okay hit play in 5</li>
+    <li><strong class="you">gkoberger</strong> 4</li>
+    <li><strong class="you">gkoberger</strong> 3</li>
+    <li><strong class="you">gkoberger</strong> 2</li>
+    <li><strong class="you">gkoberger</strong> 1</li>
+    <li><strong class="you">gkoberger</strong> go</li>
+    <li><strong class="me">dmj3824</strong> are you at the part with the ocean?</li>
+    <li><strong class="you">gkoberger</strong> no i'm past that</li>
+    <li><strong class="me">dmj3824</strong> hmm okay let's play from 2:30</li>
+    <li><strong class="you">gkoberger</strong> okay in 5</li>
+    <li><strong class="you">gkoberger</strong> 4</li>
+    <li><strong class="you">gkoberger</strong> 3</li>
+    <li><strong class="you">gkoberger</strong> 2</li>
+    <li><strong class="you">gkoberger</strong> 1</li>
+    <li><strong class="you">gkoberger</strong> anddd go</li>
+    <li><strong class="me">dmj3824</strong> wait pause, the phone just rang</li>
+  </ul>
+</div>
+#}
+{% block content %}
+<p>
+  &ldquo;Okay, hit play in 5&hellip; 4&hellip; 3&hellip; 2&hellip; 1&hellip;&rdquo; I had just moved from New York to California, and didn't want a measley few
+  thousand miles to get in the way of my weekly tradition of watching <em>Chuck</em> with one of my friends. So, we decided to wait until it hit Hulu and watch at the same time.</p>
+
+<p>It wasn't easy. We had to try to press play at the same time, and be careful not to pause or go back without telling each other. Commercials were different lengths, and we were constantly getting out of sync. It quickly became more trouble than it was worth.</p>
+
+<p>So, I made <a href="http://huluwith.me" target="_blank"><strong>Hulu</strong>withme</a>.</p>
+
+<h3>Sharing Experiences</h3>
+<p>Online, &ldquo;social media&rdquo; requires very little realtime interaction. You see Instagram pictures and Foursquare checkins and Facebook comments after
+  they happened. Even when you are doing something
+  realtime (chat, Skype, etc), it focuses on communication rather than sharing an experience. Outside of video games, there aren't many activities you can do together online.</p>
+<p>I set out to fix a problem I had, and in the process realized there's
+  something special about being able to easily share an experience with someone on the other side of the country.</p>
+<p>I don't have any plans to make this happen, however I think Huluwithme could be an interesting take on dating site. Rather than awkwardly messaging someone
+  online, you could randomly be paired with someone else who likes a show you do. You'd be able to share an experience you both enjoy and chat while you do it,
+  all before meeting in person.</p>
+
+<h3>Technically speaking</h3>
+<p>Non nerds beware. <strong>Hulu</strong>withme is a restartless Firefox and Chrome extension. It uses Node.js and Socket.io to keep the videos in sync across multiple computers.</p>
+<p>I got lucky that I was able to get just enough information from Hulu to make this work. Whenever you pause, play, seek or start a commercial, Hulu phones
+  home &mdash; presumably for metrics and to keep track of where you are if you refresh. So, I watch the network traffic to figure out what's going on in the
+  browser.</p>
+<p>When you do any sort of action, it's sent to the person you're watching with via Socket.io. Everything is stored on the clients; the server has no knowledge
+of what's going on. It merely passes messages back and forth.</p>
+
+<h3>What's Next?</h3>
+<p>I own netflixwith.me and would love to make it happen, however the Netflix player doesn't make it possible to control the player using JavaScript. So if you
+  work at Netflix, I'd love <a href="mailto:gkoberger@gmail.com">to talk</a>!</p>
+<p><strong>Hulu</strong>withme is still in early beta, so there will probably be a few bugs. If you run into any trouble at all (even if it's just something
+  that was confusing), please <a href="mailto:gkoberger@gmail.com">let me know</a>. I want to make it as dead simple as possible.</p>
+
+<h3>Convinced?</h3>
+<a class="button" href="http://huluwith.me" target="_blank">Go to Huluwith.me</a>
+{% endblock %}
+
+{% block content_css %}
+<style>
+::-moz-selection{ background: #7DAC22; }
+::selection { background: #7DAC22; }
+
+body {
+  background-color: #7DAC22;
+}
+
+h3 {
+  font-size: 2em;
+  margin: 1em 0;
+  text-align: center;
+}
+
+#container {
+  box-shadow: 0 0;
+  background-image: url("http://huluwith.me/img/kids-bg.png");
+  background-repeat: repeat-x;
+  border-top: 1px solid rgb(4, 36, 47);
+  background-color: rgb(4, 36, 47);
+  position: relative;
+  background-position: 0 47px;
+}
+
+#article {
+  width: auto;
+}
+.magazine_header {
+  position: relative;
+  border-bottom: 5px solid green;
+  height: 415px;
+}
+
+footer,
+.magazine_body_container {
+  background-color: #01161E;
+}
+.magazine_nav {
+  background-color: #01161E;
+  border-radius: 0 0 0 0;
+  width: 1200px;
+  margin: auto;
+}
+
+.magazine_nav .prev, .magazine_nav .next,
+.magazine_nav .magazine_meta {
+  color: #fff;
+}
+
+.magazine_header h1 {
+    color: #FFFFFF;
+    font-family: Helvetica,Arial !important;
+    font-size: 100px;
+    font-weight: normal;
+    padding: 0;
+    position: absolute;
+    text-shadow: 0 0;
+    top: 61px;
+    width: 1200px;
+    z-index: 1;
+    width: 100%;
+}
+
+
+#logo .logo div {
+  background-color: #7DAC22;
+}
+a#logo.small:hover .logo div {
+  background-color: #6b9817;
+}
+
+.meta_author a,
+p a, p a:visited,
+footer a, footer a:visited {
+  color: #7DAC22;
+  text-decoration: none;
+}
+
+p a:hover,
+p a:hover:visited,
+footer a:hover,
+footer a:hover:visited,
+.meta_author a:hover,
+nav.main a.current:hover,
+nav.main a:hover {
+  color: #6b9817;
+  border-bottom: 0 none !important;
+}
+
+nav.main a,
+nav.main a.current {
+  color: #fff;
+}
+
+.text {
+  color: #EEEEEE;
+  font-size: 16px;
+  margin: auto;
+  padding: 2em 0;
+  width: 750px;
+}
+
+.text p:first-child:first-letter {
+  color: #7DAC22;
+  font-family: Georgia, Garamond, Times New Roman, Serif;
+}
+
+
+#logo.small #header_spread h1 {
+  color: #FFFFFF;
+  text-shadow: 0 0 !important;
+}
+
+a#logo.small #header_spread div.subtitle .subtitle_text {
+  text-shadow: 0 0;
+}
+a#logo.small:hover #header_spread h1 {
+  color: #6b9817;
+}
+
+#logo.small #header_spread div.subtitle .subtitle_text .amperstand {
+  color: #fff;
+}
+
+h1 .hulu {
+  font-weight: 700;
+  color: #7DAC22;
+  font-size: 90px;
+}
+
+#kids {
+  -webkit-animation: flicker 5s infinite;
+  -moz-animation: flicker 5s infinite;
+  -ms-animation: flicker 5s infinite;
+  animation: flicker 5s infinite;
+  background-color: #143947;
+  height: 383px;
+  left: 50%;
+  margin-left: -510px;
+  position: absolute;
+  top: 32px;
+}
+
+
+@-moz-keyframes flicker {
+  0% { background-color: #143947; }
+  10% { background-color: #356e82; }
+  20% { background-color: #184757; }
+  30% { background-color: #225567; }
+  40% { background-color: #133946; }
+  50% { background-color: #225567; }
+  60% { background-color: #356e82; }
+  65% { background-color: #184757; }
+  70% { background-color: #356e82; }
+  80% { background-color: #184757; }
+  90% { background-color: #225567; }
+  100% { background-color: #143947; }
+}
+@-webkit-keyframes flicker {
+  0% { background-color: #143947; }
+  10% { background-color: #356e82; }
+  20% { background-color: #184757; }
+  30% { background-color: #225567; }
+  40% { background-color: #133946; }
+  50% { background-color: #225567; }
+  60% { background-color: #356e82; }
+  65% { background-color: #184757; }
+  70% { background-color: #356e82; }
+  80% { background-color: #184757; }
+  90% { background-color: #225567; }
+  100% { background-color: #143947; }
+}
+
+.intro {
+  font-size: 1.4em;
+  left: 50%;
+  margin-left: -250px;
+  position: absolute;
+  text-align: center;
+  text-shadow: 1px 1px 0 #000000;
+  top: 175px;
+  width: 500px;
+  z-index: 1;
+}
+
+a.button {
+    background-color: #7DAC22;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 -5px 0 rgba(0, 0, 0, 0.2) inset;
+    color: #FFFFFF !important;
+    display: block;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 30px auto auto;
+    padding: 14px 14px 17px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+    width: 350px;
+}
+a.button:hover {
+  color: #fff !important;
+  opacity: 0.9;
+}
+
+
+a {
+
+}
+
+.site a {
+
+}
+
+.mobile a {
+
+}
+
+
+#chat_header {
+    background-color: #E6E6E6;
+    background-image: -moz-linear-gradient(center top , #E6E6E6 0%, #CACACA 100%);
+    border-color: #000000 #000000 #666666;
+    border-radius: 5px 5px 0 0;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 0 #EEEEEE inset;
+    font-family: Helvetica, Verdana;
+    font-weight: bold;
+    line-height: 1em;
+    padding: 5px 9px;
+    text-shadow: 1px 1px 0 #555555, 0 0 2px #777777;
+}
+#chat_body {
+    overflow: auto;
+    background-color: #EEEEEE;
+    border-color: #000000;
+    border-radius: 0 0 5px 5px;
+    border-style: none solid solid;
+    border-width: 0 1px 1px;
+    color: #333333;
+    font-family: helvetica,verdana;
+    font-size: 0.8em;
+    height: 180px;
+    line-height: 1em;
+    list-style: none outside none;
+    margin: 0;
+    padding: 10px;
+}
+
+#chat {
+  border-radius: 5px 5px 5px 5px;
+  margin: auto auto 2em;
+  width: 500px;
+}
+
+#chat li {
+  display: none;
+}
+
+#chat .button {
+   background-color: #6EB03A;
+    border-radius: 15px 15px 15px 15px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5) inset, 0 -3px 1px rgba(255, 255, 255, 0.5) inset, 0 -1px 1px rgba(0, 0, 0, 0.9) inset;
+    display: inline-block;
+    height: 12px;
+    width: 12px;
+}
+
+.me {
+color: #9d1c1c;
+}
+.you {
+color: #3a74b0;
+}
+
+</style>
+{% endblock %}
+
+{% block content_js %}
+<script>
+function initBoth() {
+
+}
+
+function initScreen() {
+  var scrolled = false;
+  var startScroll = function() {
+    if(!scrolled) {
+      $('#chat_body li').hide();
+      var lis = $('#chat_body li');
+      (function next() {
+        var next_li = lis.filter(':hidden').eq(0).show();
+        $('#chat_body').scrollTop(10000);
+        if(next_li.length) {
+          setTimeout(next, 300 + (Math.random() * 1000));
+        }
+        })();
+
+    }
+    scrolled = true;
+  }
+
+  $(document).scroll(startScroll);
+  if($(document).scrollTop() > 0) {
+    startScroll();
+  }
+
+}
+
+function initMobile() {
+
+}
+</script>
+{% endblock %}
+
+{% block preview %}
+<div class="parallax">
+  <div class="hwm"></div>
+</div>
+{% endblock %}
+
+{% block preview_css %}
+#namespace .hwm {
+    background-color: red;
+    background-image: url("/assets/hulu.png");
+    height: 150px;
+    width: 260px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #638491;
+  -webkit-transition: background-color 0.2s ease-in;
+  -moz-transition: background-color 0.2s ease-in;
+}
+#namespace:hover .hwm {
+  background-color: #446978;
+}
+{% endblock %}
+
+{% block typekit %}gej1qff{% endblock %}
