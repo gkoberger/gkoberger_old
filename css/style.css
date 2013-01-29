@@ -1347,6 +1347,10 @@ display: block; font-size: 38px; float: left; text-align: left; padding-right: 1
 #notebook .note_container h3 {
     margin-top: 3em;
 }
+#notebook .note_container code {
+    background-color: #ddd;
+    border: 1px solid #bbb;
+}
 
 /* About me! */
 .aboutme {
