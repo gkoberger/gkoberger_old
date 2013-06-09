@@ -9,6 +9,8 @@ import urllib
 import urllib2
 import webbrowser
 
+import markdown as md
+
 from jinja2 import FileSystemLoader, Environment
 
 # This file is crazy inefficient, however I didn't care because it's only run
@@ -126,6 +128,9 @@ def generate_bitly(url):
 
 def datetimeformat(value, format='%B %d, %Y'):
     return value.strftime(format)
+
+def markdown(content):
+  return md.markdown(content)
 
 def footnoter(value):
     i = 1
@@ -392,6 +397,7 @@ def get_template(template, args={}, output=None, render=True, stop=False):
 
     env = Environment(loader=loader)
     env.filters['footnoter'] = footnoter
+    env.filters['markdown'] = markdown
     env.filters['url'] = url
     env.filters['escaper'] = escaper
     env.filters['namespacer'] = namespacer
