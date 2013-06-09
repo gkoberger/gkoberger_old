@@ -1,0 +1,192 @@
+{% extends template %}
+
+{% block title %}Hacking Hackathons{% endblock %}
+
+{% block preview %}
+How to hack your hackathon for fun and profit.
+{% endblock %}
+
+{% block markdown %}
+I've seen hackathons from pretty much every angle &mdash; I've organized them, judged them and participated in them. Given the range of perspectives, here's my
+thoughts on how to make the most of a hackathon. 
+
+### Preperation
+
+A lot of the heavy lifting should happen before the hackathon even starts. Almost every hackathon bars you from writing code before the event, but most
+encourage you to plan (and sometimes design) beforehand.
+
+Before you walk into the event, the following should be decided and agreed upon:
+
+  * The idea
+  * The branding (name, tagline, domain purchased, etc)
+  * Wireframes of every single page you plan on making
+  * The technology stack (Rails? Python? Parse/Firebase?)
+  * Who is responsible for each task? Use Trello beforehand to assign tasks
+  * The overall strategy
+  * The pitch
+
+Some Hackathons (including AngelHack) allow you to work on your design prior to the event. Take advantage of this! If you're allowed, you should walk into the
+hackathon with every single page completely designed. Design takes a lot of time, especially when the developers are waiting on it.
+
+Before showing up, set up everyone's dev environment (github, domains+hosting, etc). You should be able to start coding as soon as the hackathon begins.
+
+Simplify your concept, and then simplify it more. No matter how basic your idea is, you're going to end up running out of time by the end.
+
+Perfect your pitch before the event. Sometimes, you're required to pitch your idea at the start of the competition. Even if you aren't, it makes sense to have
+your pitch nailed down. Over the weekend, it can act like a mission statement when deciding which features need to be dropped due to time constraints. Additionally, most people will be trying
+to put together their pitch after 48 hours of sleep deprivation and programming &mdash; having a polished pitch ready to go will make a huge difference.
+
+### The Idea
+
+The idea should be small enough that you can create a MVP in a weekend, but big enough to involve some sort of "business plan". You don't necessarily have to
+make enough features that you could charge by the end of the weekend, but you should be able to show and discuss the "bigger picture" for your product.
+
+If your hackathon is hosted by a company looking for you to use their product, be creative. Use the product in the most creative way possible &mdash; hackathons based around a specific product have
+a tendency to result in boring products. Remember, the organizers want winners that show off their technologies in a central and creative way.
+
+When in doubt, add a philanthropic spin to a basic idea. An app that lets you put text over images? Uninspired and lacking a business plan. But spin this app so
+that people can show off causes and solicit donations? It becomes inspring and useful.
+
+Make something that the judges can relate to. If they've never had the problem you're fixing, you'll have a much harder time winning.
+
+When picking an idea, remember that organizers want winners they can brag about. Create something that makes them look good and that they'll be proud to show off.
+
+### To Bring
+
+Caffeine. Hackathons tend to start off strong with coffee in the morning, but lack caffeine when people start getting groggy. Bring a few Red Bulls or
+Five Hour Energies in case of emergency. (I find Five Hour Energies to be great for situations like this: they're small and don't need to be refridgerated, and
+they personally don't make me jittery. Use them sparingly, and only drink a few sips at a time.)
+
+Headphones. Hackathons tend to get noisy and distracting.
+
+Mouse/keyboard. For me, I work better with a separate mouse and keyboard. Go with what you're used to.
+
+Chargers. Make sure your computer and phone is charged. Don't worry about running out of plugs: for $25, the [Belkin surge protector](http://www.belkin.com/us/p/P-BZ103050-TVL) is worth every penny.
+
+### Your Team
+
+You should work with a team you've worked with before. You're short on time, and you'll do much better if you don't have to worry about figuring out how to work
+together.
+
+A lot of people try to get an extra designer/programmer/etc once they're there, and most hackathons encourage this. Unless absolutely necessary, avoid this. The time it takes to get new members on
+the same page will definitely hurt more than it helps.
+
+It may seem better to have as many developers as possible, but that's not true. Communication time grows exponentially as you add new people, and you'll end up
+either stepping on each other's toes or widening the scope of the project.
+
+I've found the ideal team is as follows. There's more information about each role later in the article.
+
+  * One designer
+  * One frontend developer ("polisher")
+  * One backend developer ("creator")
+  * One coordinator
+
+If you can find someone good at design and frontend, the first two can easily be combined.
+
+Everyone should be familiar with the technologies being used. Now isn't the time to learn a new technology &mdash; a small issue you can't figure out could easily cost you hours.
+
+Unless necessary, don't interrupt each other. Just do your part; everyone doesn't need to be informed or have to sign off on everything. [Distractions kill productivity](http://www.paulgraham.com/makersschedule.html).
+
+There should be one person that takes on the role of "coordinator". The coordinator should be responsible for the following:
+
+  * Feedback for designers or developers
+  * Removing absolutely all roadblocks and obstacles for the rest of the team
+  * Settling disagreements
+  * Coordinating and acting as the hub for all information
+  * Making sure everyone is physically where they need to be
+  * Making sure all the proper things are submitted on time
+  * Working on the pitch, and making sure the demo being created matches the pitch
+  * Set up all necessary accounts (social media accounts, services being used, etc)
+  * Keeping everyone on track
+
+### Strategy
+
+Given the lack of time, you should focus on building a cohesive "demo flow" as opposed to a "releasable product". Write code that gets you through the flow
+first, and then go back to polish.
+
+Your team should be split into three parts: creators, polishers and a coordinator.
+
+The creators have one goal: get all the functionality in place, starting at the begining of the flow and finishing at the end. This will probably be your backend developer.
+
+Once the creators have finished a particular step, the polishers can spend time to make it look good. Using this model, the polishers won't be stepping on the creators' toes &mdash; the creators should be ahead of the polishers.
+
+As mentioned above, the coordinator's main job is to remove obstacles for the creators and polishers. Making sure everything is running smoothly, everyone is on track, and everything is submitted on time.
+
+### Anddddd... Go!
+
+Many people make the mistake of focusing too much on "hard" programming. The judges don't care how accurate your algorithm is, or how tricky that particular bug
+was. They only care about what they can see.
+
+The importance, in order:
+
+  1. Design
+  2. The pitch
+  3. Frontend code
+  4. What's for lunch
+  5. Backend code
+
+I've seen people win after presenting nothing more than a design; I've never seen anyone win based on an "algorithm". Nobody will see your code, so don't spend
+too much time on it. You only have a few hours, so it's not like you can do anything too impressive anyway.
+
+Use Parse/Firebase/FilePicker/etc as much as possible; this goes double if they're sponsors. Outsource the time-intensive boilerplate stuff (authentication, modeling
+a DB, etc) to existing products so you can focus on the important stuff.
+
+Don't argue as a team. The judges will only see your project for a few minutes &mdash; they don't care about usability, specific copy or colors, etc. Pretty
+much all that matters is a general sense of "polish". If an argument lasts more than 2 minutes, do a vote. If it's a tie, either defer to the coordinator or flip
+a coin.
+
+If you get stuck on a programming problem for more than 20 minutes, fake it and move on. Hard code things, make dummy buttons appear to work, etc.
+
+I've never attended a hackathon that I didn't sneak away from. Working from home is great: you're used to the setup, it's more comfortable, there are way fewer
+distrations, etc. Just be careful of two things: it's easy to get *too* comfortable, and oftentimes hackathons make important verbal announcements. 
+
+### The Pitch
+
+Before you walk in to the hackathon, you should have the pitch nailed down. Pitch to a few people before, and get their feedback.
+
+Know the format. Sometimes you're on a stage, other times you're sitting next to the judges. Different formats require entirely different styles.
+
+You need to answer the following question: how do you save people time, money or stress? Even though you only had 24-48 hours, the judges will probably want to
+know your business plan or how you'll compete with bigger companies in your field. These are stupid questions since you've only been working for a weekend, but
+you'll need a good answer.
+
+Pitches work best if one person presents, and another person "drives" the computer. It may seem "fair" to let everyone talk, however it tends to come across as
+unsteady and uneven. You only have a few minutes, which doesn't leave much time for switching speakers &mdash; it ruins the flow of the pitch. Various teammates will have time to talk during the
+question/answer portion.
+
+"Nobody care about the plumbing." Unless a judge specifically asks, don't spend more than a few seconds (if at all) talking about the technology. You only had a
+few hours, so it's unlikely you did anything technologically impressive.
+
+If you can manage to get testimonials, business development deals or sales, do it! Judges always love that. Remember that most things are closed on weekends,
+so you may want to do this prior to the hackathon.
+
+Get the judges involved. Make it as much of a conversation as possible. Get them excited. Show how it helps them. Never argue with a judge &mdash; a
+two minute pitch isn't the time for proving a judge wrong. By agreeing and excitedly building on their ideas, you're getting them invested in your idea. I once saw a team
+win not because of the product itself, but because the judges got so excited about their *own* ideas.
+
+### Reasons for Going
+
+This article assumes you're looking to win, but there are a number of totally valid reasons to do a hackathon:
+
+  * See if you work well with a potential co-founder
+  * Finally break ground on a project you've been wanting to do
+  * Learn a new technology
+  * Something fun to do on a weekend
+  * Free coffee
+
+If this is the case, feel free to ignore the previous advice! Just make sure everyone is on the same page.
+
+### You probably won't win
+
+No matter how much you prepare or how good your product/pitch is, odds are against you. Judging is completely subjective: a different set of judges or even just a different weekend means a whole different set of winners.  
+
+So do your best to win, but make sure you have fun.
+
+*Thanks to [Ian Mikutel](http://ian.mk), my cohort in both running and participating, for help with this article.*
+{% endblock %}
+
+{% block content %}
+  {{ self.markdown()|markdown }}
+{% endblock %}
+
+{% block timestamp %}June 9, 2013 14:30:01 PST{% endblock %}
