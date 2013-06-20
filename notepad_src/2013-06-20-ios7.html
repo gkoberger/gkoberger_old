@@ -1,0 +1,45 @@
+{% extends template %}
+
+{% block title %}iOS7{% endblock %}
+
+{% block preview %}
+Thoughts on the new iOS7 designs after a week.
+{% endblock %}
+
+{% block markdown %}
+It has been over a week since Apple first showed off their Jony Ive redesign of iOS7, and I've had time to think (and more importantly, use). My gut reaction was
+simple &mdash; after 37 years, *that* is the sum of Apple's design ability?
+
+But given more thought, I realized I never tend to find Apple's designs particularly attractive. Look at iOS's purple beveled alerts or
+periwinkle gradient default topbar. Or look at how long OSX was rocking the brushed metal look.
+
+Apple has a unique ability to create ugly designs, but to do so with such confidence and panache that it somehow becomes attractive. They're the Steve Buscemi of
+design.
+
+In fact, the beauty in Apple's design has never been on its own merit, but rather in how it inspires. The default Apple iOS app template may be ugly,
+but it has bogotten beautiful apps of various flavors, ranging from Path to Mailbox to Rdio &mdash; not to mention thousands of lesser known but stunningly beautiful apps.
+
+They've managed to find the right balance between freedom and constraint in their iOS Human Interface Guidelines, inspiring amazing derivatives while keeping the
+entire system unified. The apps are incredibly unique and different, yet still feel similar. Android's stance is far too lax and makes the system feel
+disjointed, while Metro has taken an approach that is entirely way too restrictive.
+
+Jane McGonigal was talking about games, but it applies here as well: in golf, the object is to get the ball in the hole. Starting 300 yards away and using a
+stick are unnecessary constraints, however often these obstacles provoke curosity and creativity<sup><a href="http://www.npr.org/2011/02/18/133870801/could-gaming-be-good-for-you">1</a></sup>.
+Design is all about limits, which counterintuitively enable creativity rather than stifle it.
+
+One interesting change is that their design language this time is almost exclusively motion. The static visual design will only be a small part of the puzzle,
+and we'll soon start seeing the title of Motion Designer on business cards. Traditional tools like Photoshop or Illustrator aren't going to cut it anymore, and
+a lot of designers are going to be left with inadequate technical skillsets to produce mockups. However, it does give developers and designers an entirely new
+dimension to work with.
+
+This is a huge step for iOS, which has remained virtually unchanged over the past 7 years. The original iOS design was effectively timeless &mdash; 7 years is
+an eternity in the tech world. We'll have to wait to see what apps iOS7 inspires before we can really judge if they've done it again.
+
+So, no, I'm still not a fan. I think the psychedelic palate and the wireframey look leave a lot to be desired. But maybe that's exactly the point.
+{% endblock %}
+
+{% block content %}
+  {{ self.markdown()|markdown }}
+{% endblock %}
+
+{% block timestamp %}June 20, 2013 14:30:01 PST{% endblock %}
